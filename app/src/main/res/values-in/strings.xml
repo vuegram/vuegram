@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_phone_hint">Nomor telepon</string>
+    <string name="auth_code_hint">Kode masuk</string>
+    <string name="auth_password_hint">Kata sandi 2FA</string>
+    <string name="auth_api_id_hint">API ID Telegram</string>
+    <string name="auth_api_hash_hint">API hash Telegram</string>
+    <string name="auth_qr_button">Masuk dengan kode QR</string>
+    <string name="auth_qr_title">Pindai untuk masuk</string>
+    <string name="auth_qr_steps">1.  Buka Telegram di ponsel Anda\n2.  Buka Pengaturan › Perangkat\n3.  Ketuk Tambah Perangkat, lalu arahkan kamera ke kode ini</string>
+    <string name="auth_qr_description">Kode QR untuk masuk dengan Telegram di ponsel Anda</string>
+    <string name="auth_code_title">Masukkan kode masuk</string>
+    <string name="auth_password_title">Masukkan kata sandi Verifikasi Dua Langkah Anda</string>
+    <string name="auth_bad_keys">Telegram tidak menerima API ID dan hash ini. Periksa keduanya di my.telegram.org (API development tools), lalu masukkan lagi.</string>
+    <string name="auth_change_keys">Masukkan ulang kunci API</string>
+    <string name="auth_blocked_email">Telegram meminta email login sebelum mengirim kode. Sebagai gantinya, masuk dengan kode QR: tanpa email, tanpa SMS.</string>
+    <string name="auth_blocked_sms_fee">Telegram meminta SMS berbayar untuk nomor ini. Sebagai gantinya, masuk dengan kode QR: gratis dan tanpa SMS.</string>
+
+    <string name="library_title">Channel Anda</string>
+    <string name="library_loading">Memuat grup dan channel Anda…</string>
+    <string name="library_empty">Belum ada grup atau channel</string>
+    <string name="kind_channel">Channel</string>
+    <string name="kind_group">Grup</string>
+    <string name="chat_loading">Mencari video…</string>
+    <string name="chat_empty">Tidak ada video di chat ini</string>
+    <string name="no_player">Pemutar video tidak ditemukan</string>
+    <string name="press_back_again">Tekan Kembali sekali lagi untuk keluar</string>
+
+    <string name="section_continue">Lanjutkan menonton</string>
+    <string name="section_chats">Channel &amp; grup</string>
+    <string name="continue_sub">%1$s  ·  %2$s</string>
+    <string name="resuming_at">Melanjutkan dari %1$s</string>
+    <string name="watched_badge">✓ Sudah ditonton</string>
+    <string name="meta_watched">Sudah ditonton</string>
+    <plurals name="meta_left">
+        <item quantity="other">Sisa %1$d menit</item>
+    </plurals>
+    <string name="meta_stopped_at">Berhenti di %1$s</string>
+
+    <string name="search_chat_hint">Cari di channel ini</string>
+    <string name="search_all_hint">Cari di semua channel</string>
+    <string name="search_all_title">Cari di semua channel</string>
+    <string name="search_all_kind">Grup &amp; channel</string>
+    <string name="chat_searching">Mencari…</string>
+    <string name="search_no_results">Tidak ada video yang cocok dengan “%1$s”</string>
+
+    <string name="hidden_title">Channel tersembunyi</string>
+    <plurals name="hidden_sub">
+        <item quantity="other">%1$d disembunyikan  ·  OK untuk menampilkan atau menyembunyikannya  ·  tahan OK pada salah satunya untuk menampilkannya kembali</item>
+    </plurals>
+    <string name="hidden_kind">%1$s  ·  disembunyikan  ·  tahan OK untuk menampilkannya kembali</string>
+    <string name="hidden_card_show">Tampilkan yang tersembunyi</string>
+    <string name="hidden_card_hide">Tutup yang tersembunyi</string>
+    <string name="section_pinned">Disematkan</string>
+    <string name="pinned_kind">%1$s  ·  disematkan</string>
+    <string name="menu_pin">Sematkan di atas</string>
+    <string name="menu_unpin">Lepas sematan</string>
+    <string name="menu_hide">Sembunyikan dari VueGram</string>
+    <string name="menu_unhide">Tampilkan lagi di VueGram</string>
+    <string name="menu_mark_watched">Tandai sudah ditonton</string>
+    <string name="menu_mark_unwatched">Tandai belum ditonton</string>
+    <string name="menu_play_mpv">Putar di mpv</string>
+    <string name="menu_from_start">Putar dari awal</string>
+    <string name="player_seek_label">%1$s  ·  %2$s</string>
+    <string name="player_cannot_play">Format video ini tidak bisa diputar di sini, dan mpv tidak terpasang.</string>
+    <string name="player_stream_error_title">Video berhenti dimuat</string>
+    <string name="close_player">Tutup</string>
+    <string name="player_opening_mpv">Membuka video ini di mpv…</string>
+    <string name="no_mpv">mpv tidak terpasang: video diputar di sini saja</string>
+    <string name="menu_remove">Hapus dari Lanjutkan menonton</string>
+    <string name="menu_cancel">Batal</string>
+
+    <string name="update_pill">Perbarui ke %1$s</string>
+    <string name="update_title">VueGram %1$s sudah tersedia (versi Anda %2$s)</string>
+    <string name="update_no_notes">Versi baru VueGram sudah siap.</string>
+    <string name="update_now">Perbarui</string>
+    <string name="update_later">Nanti</string>
+    <string name="update_permission_title">Izinkan VueGram memasang pembaruannya</string>
+    <string name="update_permission_message">Android hanya menanyakannya sekali. Di layar berikutnya, aktifkan \"Izinkan dari sumber ini\" untuk VueGram, tekan Kembali, lalu pilih Perbarui lagi.</string>
+    <string name="update_open_settings">Buka setelan</string>
+    <string name="update_no_settings">TV ini tidak punya layar \"Instal aplikasi yang tidak dikenal\" untuk VueGram.</string>
+    <string name="update_downloading_title">Mengunduh VueGram %1$s</string>
+    <string name="update_downloading">Memeriksanya dengan checksum rilis dan kunci tanda tangan VueGram…</string>
+    <string name="update_installing">Menyerahkan pembaruan ke Android…</string>
+    <string name="update_failed_title">Pembaruan tidak terpasang</string>
+    <string name="update_install_failed">Pembaruan tidak terpasang: %1$s</string>
+
+    <string name="kind_person">Orang</string>
+    <string name="kind_saved">Pesan Tersimpan</string>
+    <string name="section_all_chats">Chat Anda</string>
+    <string name="search_messages_hint">Cari di chat ini</string>
+    <string name="feed_loading">Memuat pesan…</string>
+    <string name="feed_empty">Tidak ada pesan di chat ini</string>
+    <string name="feed_photo">Foto</string>
+    <string name="feed_video">Video</string>
+    <string name="photo_meta">%1$s  ·  %2$d dari %3$d  ·  kiri dan kanan untuk lainnya</string>
+    <string name="photo_failed">Foto ini tidak dapat dimuat.</string>
+
+    <string name="action_retry">Coba lagi</string>
+    <plurals name="error_slow_down">
+        <item quantity="other">Telegram meminta VueGram untuk memperlambat. Coba lagi dalam %1$d detik.</item>
+    </plurals>
+    <string name="error_network">Tidak dapat terhubung ke Telegram. Periksa koneksi internet TV, lalu coba lagi.</string>
+    <string name="error_other">Pesan dari Telegram: %1$s</string>
+    <string name="connection_connecting">Menghubungkan…</string>
+    <string name="connection_updating">Memperbarui…</string>
+    <string name="connection_waiting">Menunggu jaringan…</string>
+
+    <string name="settings_title">Setelan</string>
+    <string name="settings_on">Aktif</string>
+    <string name="settings_off">Nonaktif</string>
+    <string name="settings_people">Tampilkan orang</string>
+    <string name="settings_people_summary">Tampilkan juga chat pribadi dengan orang dan Pesan Tersimpan, tidak hanya grup dan channel.</string>
+    <string name="settings_messages">Tampilkan pesan</string>
+    <string name="settings_messages_summary">Chat menampilkan semua pesannya (teks, foto, video, dan file), tidak hanya video.</string>
+    <string name="settings_update">Periksa pembaruan</string>
+    <string name="settings_update_summary">Versi Anda VueGram %1$s. Mencari versi yang lebih baru di GitHub.</string>
+    <string name="settings_update_checking">Mencari VueGram versi terbaru di GitHub…</string>
+    <string name="settings_update_latest">VueGram %1$s adalah versi terbaru.</string>
+    <string name="settings_crash">Laporan error terakhir</string>
+    <string name="settings_crash_summary">VueGram tertutup tiba-tiba %1$s. OK menampilkan apa yang terjadi (laporan tetap di TV ini).</string>
+    <string name="settings_crash_delete">Hapus laporan</string>
+    <string name="settings_logout">Keluar</string>
+    <string name="settings_logout_summary">Keluarkan TV ini dari Telegram.</string>
+    <string name="settings_logout_confirm">TV ini akan keluar dari Telegram. Riwayat tontonan dan setelan Anda tetap tersimpan di TV; untuk masuk lagi, pindai kode QR baru.</string>
+
+    <string name="settings_language">Bahasa</string>
+    <string name="settings_language_summary">VueGram mengikuti bahasa TV, atau bahasa yang Anda pilih di sini.</string>
+    <string name="settings_language_system">Bahasa TV</string>
+
+    <string name="label_video_message">Pesan video</string>
+    <string name="label_gif">GIF</string>
+    <string name="label_file">📄 %1$s</string>
+    <string name="label_file_unnamed">📄 File</string>
+    <string name="label_audio">🎵 %1$s</string>
+    <string name="label_audio_unnamed">🎵 Audio</string>
+    <string name="label_voice">🎤 Pesan suara</string>
+    <string name="label_sticker">%1$s Stiker</string>
+    <string name="label_poll">📊 %1$s</string>
+    <string name="label_location">📍 Lokasi</string>
+    <string name="label_contact">👤 %1$s</string>
+    <string name="error_unknown">Kesalahan tidak diketahui</string>
+    <string name="error_unexpected">Respons tak terduga dari Telegram</string>
+    <string name="error_load_chats">Tidak dapat memuat chat Anda</string>
+
+    <string name="auth_logging_out">Sedang keluar…</string>
+    <string name="stream_channel">Streaming</string>
+    <string name="stream_notification">Streaming video</string>
+
+    <string name="onboarding_step">Langkah %1$d dari %2$d</string>
+    <string name="onboarding_wait">Tunggu sebentar…</string>
+    <string name="onboarding_ready">Anda sudah masuk</string>
+    <string name="onboarding_welcome_title">Selamat datang di VueGram</string>
+    <string name="onboarding_welcome_body">Channel dan grup Telegram Anda, di layar besar. Penyiapannya sekitar dua menit: kunci API Telegram Anda, lalu kode QR untuk dipindai dengan ponsel.</string>
+    <string name="onboarding_get_started">Mulai</string>
+    <string name="onboarding_language">Bahasa: %1$s</string>
+    <string name="onboarding_keys_title">Kunci API Telegram Anda</string>
+    <string name="onboarding_keys_body">VueGram terhubung ke Telegram dengan API ID dan hash milik Anda sendiri. Gratis: di my.telegram.org, masuk dengan nomor telepon Anda, buka API development tools, lalu buat aplikasi (nama apa saja boleh). Setelah itu, kirim kedua nilai tersebut ke TV ini.</string>
+    <string name="onboarding_keys_qr_caption">Pindai dengan kamera ponsel Anda. Sebuah halaman akan terbuka untuk mendapatkan kunci dan mengirimkannya ke TV ini. Ponsel Anda harus terhubung ke Wi-Fi yang sama.</string>
+    <string name="onboarding_type_keys">Ketik dengan remote</string>
+    <string name="onboarding_send_from_phone">Kirim dari ponsel saya</string>
+    <string name="onboarding_continue">Lanjutkan</string>
+    <string name="onboarding_error_api_id">API ID berupa angka, misalnya 1234567.</string>
+    <string name="onboarding_error_api_hash">API hash terdiri dari 32 huruf dan angka (0–9 dan a–f).</string>
+    <string name="onboarding_qr_caption">Kode ini diperbarui otomatis sampai Anda memindainya.</string>
+    <string name="onboarding_use_phone">Pakai nomor telepon saja</string>
+    <string name="onboarding_phone_title">Nomor telepon Anda</string>
+    <string name="onboarding_phone_body">Dengan kode negara, misalnya +1 555 123 4567. Telegram akan mengirimkan kode untuk masuk.</string>
+    <string name="onboarding_send_code">Kirim kode</string>
+    <string name="onboarding_code_app">Telegram mengirim kode ke aplikasi Telegram Anda di perangkat lain. Cari pesan dari Telegram.</string>
+    <string name="onboarding_code_sms">Telegram mengirim kode lewat SMS.</string>
+    <string name="onboarding_code_other">Masukkan kode yang dikirim Telegram.</string>
+    <string name="onboarding_sign_in">Masuk</string>
+    <string name="onboarding_password_body">Akun Anda memakai Verifikasi Dua Langkah, jadi Telegram juga meminta kata sandinya.</string>
+    <string name="onboarding_password_hint_is">Petunjuk Anda: %1$s</string>
+    <string name="onboarding_blocked_title">Masuk dengan kode QR saja</string>
+    <string name="onboarding_blocked_no_account">Nomor ini belum punya akun Telegram. Daftar dulu di aplikasi Telegram, atau pindai kode QR dengan ponsel yang sudah ada Telegram.</string>
+    <string name="onboarding_bad_keys_title">Telegram tidak menerima kunci ini</string>
+    <string name="onboarding_error_phone">Nomor itu sepertinya salah. Sertakan kode negara, misalnya +1.</string>
+    <string name="onboarding_error_code">Kode itu salah. Periksa, lalu coba lagi.</string>
+    <string name="onboarding_error_code_expired">Kode itu sudah kedaluwarsa. Kembali dan minta kode baru.</string>
+    <string name="onboarding_error_password">Kata sandi itu salah.</string>
+    <string name="keydrop_title">Kirim kunci API Anda ke TV</string>
+    <string name="keydrop_intro">Dapatkan dari Telegram, lalu tempel di bawah. Kunci langsung dikirim ke TV Anda lewat Wi-Fi Anda.</string>
+    <string name="keydrop_open_site">Buka my.telegram.org</string>
+    <string name="keydrop_site_steps">Masuk dengan nomor telepon Anda, buka API development tools, buat aplikasi (nama apa saja), lalu salin App api_id dan App api_hash.</string>
+    <string name="keydrop_send">Kirim ke TV</string>
+    <string name="keydrop_sent">Terkirim. Anda bisa menyimpan ponsel dan melanjutkan di TV.</string>
+    <string name="keydrop_invalid">Sepertinya ada yang salah: API ID berupa angka, API hash 32 huruf dan angka.</string>
+    <string name="update_ready_pill">Pembaruan siap: %1$s</string>
+    <string name="update_ready_title">VueGram %1$s siap dipasang</string>
+    <string name="update_install_now">Pasang sekarang</string>
+    <string name="update_installing_title">Memasang VueGram %1$s</string>
+    <string name="update_not_signed">Pembaruan yang diunduh tidak ditandatangani dengan kunci VueGram, jadi tidak dipasang.</string>
+    <string name="whats_new_title">Yang baru di VueGram %1$s</string>
+    <string name="whats_new_fallback">VueGram telah diperbarui ke %1$s.</string>
+    <string name="settings_auto_update">Pembaruan otomatis</string>
+    <string name="settings_auto_update_summary">Unduh versi baru di latar belakang dan tanyakan sekali untuk memasangnya. Pada koneksi terukur, VueGram hanya memberi tahu Anda.</string>
+
+    <string name="player_up_next">Berikutnya</string>
+    <plurals name="player_up_next_in">
+        <item quantity="other">Diputar dalam %1$d detik</item>
+    </plurals>
+    <string name="player_up_next_hint">OK untuk memutar sekarang  ·  Kembali untuk berhenti</string>
+    <string name="player_options_hint">▼  Subtitle, audio, kecepatan, timer tidur</string>
+    <string name="player_options">Opsi</string>
+    <string name="player_subtitles">Subtitle</string>
+    <string name="player_audio">Audio</string>
+    <string name="player_speed">Kecepatan</string>
+    <string name="player_sleep">Timer tidur</string>
+    <string name="player_subtitles_value">Subtitle: %1$s</string>
+    <string name="player_audio_value">Audio: %1$s</string>
+    <string name="player_speed_value">Kecepatan: %1$s</string>
+    <string name="player_sleep_value">Timer tidur: %1$s</string>
+    <string name="player_off">Nonaktif</string>
+    <string name="player_speed_normal">Normal</string>
+    <string name="player_track_number">Trek %1$d</string>
+    <string name="player_no_subtitles">Video ini tidak punya subtitle.</string>
+    <string name="player_no_audio_tracks">Video ini hanya punya satu trek audio.</string>
+    <plurals name="player_minutes">
+        <item quantity="other">%1$d menit</item>
+    </plurals>
+    <string name="player_sleep_end">Akhir video ini</string>
+    <string name="settings_play_next">Putar berikutnya</string>
+    <string name="settings_play_next_summary">Saat video selesai, video berikutnya di chat ini diputar setelah hitung mundur 10 detik.</string>
+
+    <string name="voice_search">Cari dengan suara</string>
+    <string name="voice_prompt">Ucapkan yang ingin dicari</string>
+
+    <string name="folders_all">Semua chat</string>
+    <string name="section_recent">Baru di channel Anda</string>
+    <string name="onboarding_keys_wifi">📶 Ponsel Anda harus terhubung ke Wi-Fi yang sama dengan TV ini, bukan data seluler.</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plain HTTP only to the TV itself: the built-in player reads videos from TdStreamServer on 127.0.0.1. Every other
+     connection keeps Android's default (HTTPS only); Telegram's own traffic goes through TDLib, not HTTP. -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">127.0.0.1</domain>
+    </domain-config>
+</network-security-config>

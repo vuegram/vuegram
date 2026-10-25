@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_phone_hint">شماره تلفن</string>
+    <string name="auth_code_hint">کد ورود</string>
+    <string name="auth_password_hint">رمز تأیید دو مرحله‌ای</string>
+    <string name="auth_api_id_hint">API ID</string>
+    <string name="auth_api_hash_hint">API hash</string>
+    <string name="auth_qr_button">ورود با کد QR</string>
+    <string name="auth_qr_title">برای ورود، کد را اسکن کنید</string>
+    <string name="auth_qr_steps">۱.  تلگرام را روی گوشی خود باز کنید\n۲.  به تنظیمات › دستگاه‌ها بروید\n۳.  روی «افزودن دستگاه» (در نسخه‌های قدیمی‌تر «اتصال دستگاه دسکتاپ») ضربه بزنید و دوربین را رو به این کد بگیرید</string>
+    <string name="auth_qr_description">کد QR برای ورود با تلگرام روی گوشی شما</string>
+    <string name="auth_code_title">کد ورود را وارد کنید</string>
+    <string name="auth_password_title">رمز تأیید دو مرحله‌ای خود را وارد کنید</string>
+    <string name="auth_bad_keys">تلگرام این API ID و API hash را نپذیرفت. هر دو را در my.telegram.org (بخش API development tools) بررسی کنید و دوباره وارد کنید.</string>
+    <string name="auth_change_keys">وارد کردن دوباره کلیدهای API</string>
+    <string name="auth_blocked_email">تلگرام پیش از فرستادن کد، ایمیل ورود می‌خواهد. به‌جای آن با کد QR وارد شوید؛ به هیچ‌کدام نیازی ندارد.</string>
+    <string name="auth_blocked_sms_fee">تلگرام برای این شماره پیامک پولی می‌خواهد. به‌جای آن با کد QR وارد شوید؛ رایگان است و پیامکی لازم ندارد.</string>
+
+
+    <string name="library_title">کانال‌های شما</string>
+    <string name="library_loading">در حال بارگذاری گروه‌ها و کانال‌های شما…</string>
+    <string name="library_empty">هنوز گروه یا کانالی ندارید</string>
+    <string name="kind_channel">کانال</string>
+    <string name="kind_group">گروه</string>
+    <string name="chat_loading">در حال یافتن ویدیوها…</string>
+    <string name="chat_empty">در این گفتگو ویدیویی نیست</string>
+    <string name="no_player">پخش‌کننده ویدیو پیدا نشد</string>
+    <string name="press_back_again">برای خروج، دوباره «بازگشت» را بزنید</string>
+
+    <string name="section_continue">ادامه تماشا</string>
+    <string name="section_chats">کانال‌ها و گروه‌ها</string>
+    <string name="continue_sub">%1$s  ·  %2$s</string>
+    <string name="resuming_at">ادامه از %1$s</string>
+    <string name="watched_badge">✓ دیده‌شده</string>
+    <string name="meta_watched">دیده‌شده</string>
+    <plurals name="meta_left">
+        <item quantity="one">%1$d دقیقه مانده</item>
+        <item quantity="other">%1$d دقیقه مانده</item>
+    </plurals>
+    <string name="meta_stopped_at">توقف در %1$s</string>
+
+    <string name="search_chat_hint">جستجو در این کانال</string>
+    <string name="search_all_hint">جستجو در همه کانال‌ها</string>
+    <string name="search_all_title">جستجو در همه کانال‌ها</string>
+    <string name="search_all_kind">گروه‌ها و کانال‌ها</string>
+    <string name="chat_searching">در حال جستجو…</string>
+    <string name="search_no_results">هیچ ویدیویی با «%1$s» پیدا نشد</string>
+
+    <string name="hidden_title">کانال‌های پنهان</string>
+    <plurals name="hidden_sub">
+        <item quantity="one">%1$d کانال پنهان  ·  OK برای نمایش یا پنهان کردن آن  ·  OK را روی آن نگه دارید تا از حالت پنهان خارج شود</item>
+        <item quantity="other">%1$d کانال پنهان  ·  OK برای نمایش یا پنهان کردن آن‌ها  ·  OK را روی هر کدام نگه دارید تا از حالت پنهان خارج شود</item>
+    </plurals>
+    <string name="hidden_kind">%1$s  ·  پنهان  ·  برای خارج کردن از حالت پنهان، OK را نگه دارید</string>
+    <string name="hidden_card_show">نمایش پنهان‌ها</string>
+    <string name="hidden_card_hide">بستن پنهان‌ها</string>
+    <string name="section_pinned">سنجاق‌شده‌ها</string>
+    <string name="pinned_kind">%1$s  ·  سنجاق‌شده</string>
+    <string name="menu_pin">سنجاق در بالا</string>
+    <string name="menu_unpin">برداشتن سنجاق</string>
+    <string name="menu_hide">پنهان کردن در VueGram</string>
+    <string name="menu_unhide">نمایش دوباره در VueGram</string>
+    <string name="menu_mark_watched">علامت‌گذاری به‌عنوان دیده‌شده</string>
+    <string name="menu_mark_unwatched">علامت‌گذاری به‌عنوان دیده‌نشده</string>
+    <string name="menu_play_mpv">پخش در mpv</string>
+    <string name="menu_from_start">پخش از ابتدا</string>
+    <string name="player_seek_label">%1$s  ·  %2$s</string>
+    <string name="player_cannot_play">قالب این ویدیو اینجا پخش نمی‌شود و mpv هم نصب نیست.</string>
+    <string name="player_stream_error_title">بارگذاری ویدیو متوقف شد</string>
+    <string name="close_player">بستن</string>
+    <string name="player_opening_mpv">در حال باز کردن این ویدیو در mpv…</string>
+    <string name="no_mpv">برنامه mpv نصب نیست؛ ویدیو همین‌جا پخش می‌شود</string>
+    <string name="menu_remove">حذف از «ادامه تماشا»</string>
+    <string name="menu_cancel">لغو</string>
+
+    <string name="update_pill">به‌روزرسانی به %1$s</string>
+    <string name="update_title">نسخه %1$s از VueGram آماده است (نسخه شما: %2$s)</string>
+    <string name="update_no_notes">نسخه جدیدی از VueGram آماده است.</string>
+    <string name="update_now">به‌روزرسانی</string>
+    <string name="update_later">بعداً</string>
+    <string name="update_permission_title">به VueGram اجازه دهید به‌روزرسانی‌هایش را نصب کند</string>
+    <string name="update_permission_message">اندروید فقط یک بار اجازه می‌خواهد. در صفحه بعد، «مجاز از این منبع» را برای VueGram روشن کنید، «بازگشت» را بزنید و دوباره «به‌روزرسانی» را انتخاب کنید.</string>
+    <string name="update_open_settings">باز کردن تنظیمات</string>
+    <string name="update_no_settings">این تلویزیون صفحه «نصب برنامه‌های ناشناس» را برای VueGram ندارد.</string>
+    <string name="update_downloading_title">در حال دانلود VueGram %1$s</string>
+    <string name="update_downloading">در حال تطبیق با چک‌سام این نسخه و کلید امضای VueGram…</string>
+    <string name="update_installing">در حال سپردن به‌روزرسانی به اندروید…</string>
+    <string name="update_failed_title">به‌روزرسانی نصب نشد</string>
+    <string name="update_install_failed">به‌روزرسانی نصب نشد: %1$s</string>
+
+    <string name="kind_person">شخص</string>
+    <string name="kind_saved">پیام‌های ذخیره شده</string>
+    <string name="section_all_chats">گفتگوهای شما</string>
+    <string name="search_messages_hint">جستجو در این گفتگو</string>
+    <string name="feed_loading">در حال بارگذاری پیام‌ها…</string>
+    <string name="feed_empty">در این گفتگو پیامی نیست</string>
+    <string name="feed_photo">عکس</string>
+    <string name="feed_video">ویدیو</string>
+    <string name="photo_meta">%1$s  ·  %2$d از %3$d  ·  چپ و راست برای عکس‌های بیشتر</string>
+    <string name="photo_failed">این عکس بارگذاری نشد.</string>
+
+    <string name="action_retry">تلاش دوباره</string>
+    <plurals name="error_slow_down">
+        <item quantity="one">تلگرام از VueGram خواست آهسته‌تر پیش برود. %1$d ثانیه دیگر دوباره امتحان کنید.</item>
+        <item quantity="other">تلگرام از VueGram خواست آهسته‌تر پیش برود. %1$d ثانیه دیگر دوباره امتحان کنید.</item>
+    </plurals>
+    <string name="error_network">دسترسی به تلگرام ممکن نیست. اتصال اینترنت تلویزیون را بررسی کنید و دوباره امتحان کنید.</string>
+    <string name="error_other">پیام تلگرام: %1$s</string>
+    <string name="connection_connecting">در حال اتصال…</string>
+    <string name="connection_updating">در حال به‌روزرسانی…</string>
+    <string name="connection_waiting">در انتظار شبکه…</string>
+
+    <string name="settings_title">تنظیمات</string>
+    <string name="settings_on">روشن</string>
+    <string name="settings_off">خاموش</string>
+    <string name="settings_people">نمایش افراد</string>
+    <string name="settings_people_summary">گفتگوهای خصوصی با افراد و «پیام‌های ذخیره شده» هم در فهرست بیایند، نه فقط گروه‌ها و کانال‌ها.</string>
+    <string name="settings_messages">نمایش پیام‌ها</string>
+    <string name="settings_messages_summary">گفتگوها همه پیام‌هایشان (متن، عکس، ویدیو و فایل) را نشان می‌دهند، نه فقط ویدیوها.</string>
+    <string name="settings_update">بررسی به‌روزرسانی</string>
+    <string name="settings_update_summary">نسخه شما: VueGram %1$s. نسخه جدیدتر در GitHub جستجو می‌شود.</string>
+    <string name="settings_update_checking">در حال جستجوی نسخه جدیدتر VueGram در GitHub…</string>
+    <string name="settings_update_latest">نسخه %1$s جدیدترین نسخه VueGram است.</string>
+    <string name="settings_crash">آخرین گزارش خرابی</string>
+    <string name="settings_crash_summary">این برنامه %1$s ناگهان بسته شد. برای دیدن جزئیات OK را بزنید (گزارش فقط روی همین تلویزیون می‌ماند).</string>
+    <string name="settings_crash_delete">حذف گزارش</string>
+    <string name="settings_logout">خروج از حساب</string>
+    <string name="settings_logout_summary">خارج کردن این تلویزیون از حساب تلگرام.</string>
+    <string name="settings_logout_confirm">این تلویزیون از حساب تلگرام خارج می‌شود. سابقه تماشا و تنظیمات روی تلویزیون می‌مانند؛ برای ورود دوباره، یک کد QR تازه اسکن کنید.</string>
+
+    <string name="settings_language">زبان</string>
+    <string name="settings_language_summary">زبان VueGram همان زبان تلویزیون است، یا زبانی که اینجا انتخاب کنید.</string>
+    <string name="settings_language_system">زبان تلویزیون</string>
+
+    <string name="label_video_message">پیام ویدیویی</string>
+    <string name="label_gif">گیف</string>
+    <string name="label_file">📄 %1$s</string>
+    <string name="label_file_unnamed">📄 فایل</string>
+    <string name="label_audio">🎵 %1$s</string>
+    <string name="label_audio_unnamed">🎵 فایل صوتی</string>
+    <string name="label_voice">🎤 پیام صوتی</string>
+    <string name="label_sticker">استیکر %1$s</string>
+    <string name="label_poll">📊 %1$s</string>
+    <string name="label_location">📍 موقعیت مکانی</string>
+    <string name="label_contact">👤 %1$s</string>
+    <string name="error_unknown">خطای ناشناخته</string>
+    <string name="error_unexpected">پاسخ غیرمنتظره از تلگرام</string>
+    <string name="error_load_chats">گفتگوهای شما بارگذاری نشد</string>
+
+    <string name="auth_logging_out">در حال خروج…</string>
+    <string name="stream_channel">پخش ویدیو</string>
+    <string name="stream_notification">در حال پخش یک ویدیو</string>
+
+    <string name="onboarding_step">مرحله %1$d از %2$d</string>
+    <string name="onboarding_wait">یک لحظه…</string>
+    <string name="onboarding_ready">وارد شدید</string>
+    <string name="onboarding_welcome_title">به VueGram خوش آمدید</string>
+    <string name="onboarding_welcome_body">کانال‌ها و گروه‌های تلگرام شما، روی صفحه بزرگ. راه‌اندازی حدود دو دقیقه طول می‌کشد: اول کلیدهای API تلگرام شما، بعد یک کد QR که با گوشی‌تان اسکن می‌کنید.</string>
+    <string name="onboarding_get_started">شروع کنیم</string>
+    <string name="onboarding_language">زبان: %1$s</string>
+    <string name="onboarding_keys_title">کلیدهای API تلگرام شما</string>
+    <string name="onboarding_keys_body">برنامه VueGram با API ID و API hash خودتان به تلگرام وصل می‌شود. هر دو رایگان‌اند: در my.telegram.org با شماره تلفن‌تان وارد شوید، API development tools را باز کنید و یک برنامه بسازید (هر نامی باشد کافی است). سپس این دو مقدار را به این تلویزیون بفرستید.</string>
+    <string name="onboarding_keys_qr_caption">با دوربین گوشی‌تان اسکن کنید. صفحه‌ای باز می‌شود که در آن می‌توانید کلیدها را بگیرید و به این تلویزیون بفرستید. گوشی باید به همان Wi-Fi وصل باشد.</string>
+    <string name="onboarding_type_keys">وارد کردن با کنترل</string>
+    <string name="onboarding_send_from_phone">فرستادن از گوشی من</string>
+    <string name="onboarding_continue">ادامه</string>
+    <string name="onboarding_error_api_id">مقدار API ID یک عدد است، مثل 1234567.</string>
+    <string name="onboarding_error_api_hash">مقدار API hash از ۳۲ حرف و رقم تشکیل شده است: رقم‌های 0 تا 9 و حروف a تا f.</string>
+    <string name="onboarding_qr_caption">کد تا وقتی اسکنش نکنید، خودبه‌خود تازه می‌شود.</string>
+    <string name="onboarding_use_phone">ورود با شماره تلفن</string>
+    <string name="onboarding_phone_title">شماره تلفن شما</string>
+    <string name="onboarding_phone_body">همراه با کد کشور، مثل ‎+1 555 123 4567. تلگرام برای ورود کدی برایتان می‌فرستد.</string>
+    <string name="onboarding_send_code">فرستادن کد</string>
+    <string name="onboarding_code_app">تلگرام کد را به برنامه تلگرام شما روی دستگاه دیگری فرستاد. دنبال پیامی از طرف تلگرام بگردید.</string>
+    <string name="onboarding_code_sms">تلگرام کد را با پیامک فرستاد.</string>
+    <string name="onboarding_code_other">کدی را که تلگرام برایتان فرستاد وارد کنید.</string>
+    <string name="onboarding_sign_in">ورود</string>
+    <string name="onboarding_password_body">حساب شما تأیید دو مرحله‌ای دارد، پس تلگرام رمز آن را هم می‌خواهد.</string>
+    <string name="onboarding_password_hint_is">راهنمای رمز شما: %1$s</string>
+    <string name="onboarding_blocked_title">به‌جای آن با کد QR وارد شوید</string>
+    <string name="onboarding_blocked_no_account">این شماره هنوز حساب تلگرام ندارد. اول در برنامه تلگرام ثبت‌نام کنید، یا کد QR را با گوشی‌ای که تلگرام دارد اسکن کنید.</string>
+    <string name="onboarding_bad_keys_title">تلگرام این کلیدها را نپذیرفت</string>
+    <string name="onboarding_error_phone">این شماره درست به نظر نمی‌رسد. کد کشور را هم وارد کنید، مثل ‎+1.</string>
+    <string name="onboarding_error_code">این کد درست نیست. آن را بررسی کنید و دوباره امتحان کنید.</string>
+    <string name="onboarding_error_code_expired">این کد منقضی شده است. برگردید و کد تازه‌ای بخواهید.</string>
+    <string name="onboarding_error_password">این رمز درست نیست.</string>
+    <string name="keydrop_title">کلیدهای API را به تلویزیون بفرستید</string>
+    <string name="keydrop_intro">آن‌ها را از تلگرام بگیرید و پایین همین صفحه بچسبانید. مستقیم از راه Wi-Fi شما به تلویزیون می‌رسند.</string>
+    <string name="keydrop_open_site">باز کردن my.telegram.org</string>
+    <string name="keydrop_site_steps">با شماره تلفن‌تان وارد شوید، API development tools را باز کنید، یک برنامه بسازید (با هر نامی)، سپس App api_id و App api_hash را کپی کنید.</string>
+    <string name="keydrop_send">فرستادن به تلویزیون</string>
+    <string name="keydrop_sent">فرستاده شد. می‌توانید گوشی را کنار بگذارید و روی تلویزیون ادامه دهید.</string>
+    <string name="keydrop_invalid">درست به نظر نمی‌رسد: API ID یک عدد است و API hash از ۳۲ حرف و رقم تشکیل شده است.</string>
+    <string name="update_ready_pill">به‌روزرسانی آماده است: %1$s</string>
+    <string name="update_ready_title">نسخه %1$s از VueGram آماده نصب است</string>
+    <string name="update_install_now">اکنون نصب شود</string>
+    <string name="update_installing_title">در حال نصب VueGram %1$s</string>
+    <string name="update_not_signed">به‌روزرسانی دانلودشده با کلید VueGram امضا نشده بود، پس نصب نشد.</string>
+    <string name="whats_new_title">تازه‌های نسخه %1$s از VueGram</string>
+    <string name="whats_new_fallback">برنامه VueGram به نسخه %1$s به‌روز شد.</string>
+    <string name="settings_auto_update">به‌روزرسانی خودکار</string>
+    <string name="settings_auto_update_summary">نسخه‌های جدید در پس‌زمینه دانلود می‌شوند و فقط یک بار برای نصب از شما پرسیده می‌شود. روی اتصال با حجم محدود، VueGram فقط خبرتان می‌کند.</string>
+
+    <string name="player_up_next">ویدیوی بعدی</string>
+    <plurals name="player_up_next_in">
+        <item quantity="one">پخش تا %1$d ثانیه دیگر</item>
+        <item quantity="other">پخش تا %1$d ثانیه دیگر</item>
+    </plurals>
+    <string name="player_up_next_hint">برای پخش همین حالا OK را بزنید  ·  برای توقف «بازگشت» را بزنید</string>
+    <string name="player_options_hint">▼  زیرنویس، صدا، سرعت، زمان‌سنج خواب</string>
+    <string name="player_options">گزینه‌ها</string>
+    <string name="player_subtitles">زیرنویس</string>
+    <string name="player_audio">صدا</string>
+    <string name="player_speed">سرعت</string>
+    <string name="player_sleep">زمان‌سنج خواب</string>
+    <string name="player_subtitles_value">زیرنویس: %1$s</string>
+    <string name="player_audio_value">صدا: %1$s</string>
+    <string name="player_speed_value">سرعت: %1$s</string>
+    <string name="player_sleep_value">زمان‌سنج خواب: %1$s</string>
+    <string name="player_off">خاموش</string>
+    <string name="player_speed_normal">عادی</string>
+    <string name="player_track_number">ترک %1$d</string>
+    <string name="player_no_subtitles">این ویدیو زیرنویس ندارد.</string>
+    <string name="player_no_audio_tracks">این ویدیو فقط یک ترک صوتی دارد.</string>
+    <plurals name="player_minutes">
+        <item quantity="one">%1$d دقیقه</item>
+        <item quantity="other">%1$d دقیقه</item>
+    </plurals>
+    <string name="player_sleep_end">پایان این ویدیو</string>
+    <string name="settings_play_next">پخش ویدیوی بعدی</string>
+    <string name="settings_play_next_summary">وقتی ویدیویی تمام می‌شود، ویدیوی بعدی گفتگو پس از شمارش معکوس ۱۰ ثانیه‌ای شروع می‌شود.</string>
+
+    <string name="voice_search">جستجوی صوتی</string>
+    <string name="voice_prompt">بگویید دنبال چه می‌گردید</string>
+
+    <string name="folders_all">همه گفتگوها</string>
+    <string name="section_recent">تازه‌های کانال‌های شما</string>
+    <string name="onboarding_keys_wifi">📶 گوشی شما باید به همان شبکهٔ Wi-Fi این تلویزیون وصل باشد، نه اینترنت همراه.</string>
+</resources>

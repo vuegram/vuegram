@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_phone_hint">Номер телефона</string>
+    <string name="auth_code_hint">Код для входа</string>
+    <string name="auth_password_hint">Облачный пароль</string>
+    <string name="auth_api_id_hint">Telegram API ID</string>
+    <string name="auth_api_hash_hint">Telegram API Hash</string>
+    <string name="auth_qr_button">Войти по QR-коду</string>
+    <string name="auth_qr_title">Отсканируйте, чтобы войти</string>
+    <string name="auth_qr_steps">1.  Откройте Telegram на телефоне\n2.  Перейдите в Настройки › Устройства\n3.  Нажмите «Подключить устройство» и наведите камеру на этот код</string>
+    <string name="auth_qr_description">QR-код для входа через Telegram на телефоне</string>
+    <string name="auth_code_title">Введите код для входа</string>
+    <string name="auth_password_title">Введите облачный пароль</string>
+    <string name="auth_bad_keys">Telegram не принял эти API ID и API Hash. Проверьте оба значения на my.telegram.org (API development tools) и введите их снова.</string>
+    <string name="auth_change_keys">Ввести ключи API заново</string>
+    <string name="auth_blocked_email">Прежде чем отправить код, Telegram просит указать почту для входа. Войдите лучше по QR-коду: там не нужно ни то, ни другое.</string>
+    <string name="auth_blocked_sms_fee">Для этого номера Telegram просит платное SMS. Войдите лучше по QR-коду: это бесплатно и без SMS.</string>
+
+
+    <string name="library_title">Ваши каналы</string>
+    <string name="library_loading">Загружаем ваши группы и каналы…</string>
+    <string name="library_empty">Пока нет ни групп, ни каналов</string>
+    <string name="kind_channel">Канал</string>
+    <string name="kind_group">Группа</string>
+    <string name="chat_loading">Ищем видео…</string>
+    <string name="chat_empty">В этом чате нет видео</string>
+    <string name="no_player">Видеоплеер не найден</string>
+    <string name="press_back_again">Нажмите «Назад» ещё раз, чтобы выйти</string>
+
+    <string name="section_continue">Продолжить просмотр</string>
+    <string name="section_chats">Каналы и группы</string>
+    <string name="continue_sub">%1$s  ·  %2$s</string>
+    <string name="resuming_at">Продолжаем с %1$s</string>
+    <string name="watched_badge">✓ Просмотрено</string>
+    <string name="meta_watched">Просмотрено</string>
+    <plurals name="meta_left">
+        <item quantity="one">Осталась %1$d минута</item>
+        <item quantity="few">Осталось %1$d минуты</item>
+        <item quantity="many">Осталось %1$d минут</item>
+        <item quantity="other">Осталось %1$d минуты</item>
+    </plurals>
+    <string name="meta_stopped_at">Остановлено на %1$s</string>
+
+    <string name="search_chat_hint">Поиск по каналу</string>
+    <string name="search_all_hint">Поиск по всем каналам</string>
+    <string name="search_all_title">Поиск по всем каналам</string>
+    <string name="search_all_kind">Группы и каналы</string>
+    <string name="chat_searching">Ищем…</string>
+    <string name="search_no_results">По запросу «%1$s» видео не найдено</string>
+
+    <string name="hidden_title">Скрытые каналы</string>
+    <plurals name="hidden_sub">
+        <item quantity="one">Скрыт %1$d канал  ·  OK — показать или свернуть  ·  удерживайте OK на канале, чтобы вернуть его</item>
+        <item quantity="few">Скрыто %1$d канала  ·  OK — показать или свернуть  ·  удерживайте OK на канале, чтобы вернуть его</item>
+        <item quantity="many">Скрыто %1$d каналов  ·  OK — показать или свернуть  ·  удерживайте OK на канале, чтобы вернуть его</item>
+        <item quantity="other">Скрыто %1$d канала  ·  OK — показать или свернуть  ·  удерживайте OK на канале, чтобы вернуть его</item>
+    </plurals>
+    <string name="hidden_kind">%1$s  ·  в скрытых  ·  удерживайте OK, чтобы вернуть</string>
+    <string name="hidden_card_show">Показать скрытые</string>
+    <string name="hidden_card_hide">Свернуть скрытые</string>
+    <string name="section_pinned">Закреплённые</string>
+    <string name="pinned_kind">%1$s  ·  в закреплённых</string>
+    <string name="menu_pin">Закрепить наверху</string>
+    <string name="menu_unpin">Открепить</string>
+    <string name="menu_hide">Скрыть из VueGram</string>
+    <string name="menu_unhide">Снова показывать в VueGram</string>
+    <string name="menu_mark_watched">Отметить как просмотренное</string>
+    <string name="menu_mark_unwatched">Отметить как непросмотренное</string>
+    <string name="menu_play_mpv">Смотреть в mpv</string>
+    <string name="menu_from_start">Смотреть с начала</string>
+    <string name="player_seek_label">%1$s  ·  %2$s</string>
+    <string name="player_cannot_play">Формат этого видео здесь не поддерживается, а mpv не установлен.</string>
+    <string name="player_stream_error_title">Видео перестало загружаться</string>
+    <string name="close_player">Закрыть</string>
+    <string name="player_opening_mpv">Открываем видео в mpv…</string>
+    <string name="no_mpv">mpv не установлен: смотрим здесь</string>
+    <string name="menu_remove">Убрать из «Продолжить просмотр»</string>
+    <string name="menu_cancel">Отмена</string>
+
+    <string name="update_pill">Обновить до %1$s</string>
+    <string name="update_title">Доступна версия VueGram %1$s (у вас %2$s)</string>
+    <string name="update_no_notes">Новая версия VueGram готова.</string>
+    <string name="update_now">Обновить</string>
+    <string name="update_later">Позже</string>
+    <string name="update_permission_title">Разрешите VueGram устанавливать обновления</string>
+    <string name="update_permission_message">Android спросит только один раз. На следующем экране включите «Разрешить установку из этого источника» для VueGram, нажмите «Назад» и снова выберите «Обновить».</string>
+    <string name="update_open_settings">Открыть настройки</string>
+    <string name="update_no_settings">На этом телевизоре нет экрана «Установка неизвестных приложений» для VueGram.</string>
+    <string name="update_downloading_title">Загружаем VueGram %1$s</string>
+    <string name="update_downloading">Сверяем с контрольной суммой релиза и ключом подписи VueGram…</string>
+    <string name="update_installing">Передаём обновление в Android…</string>
+    <string name="update_failed_title">Обновление не установлено</string>
+    <string name="update_install_failed">Обновление не установлено: %1$s</string>
+
+    <string name="kind_person">Личный чат</string>
+    <string name="kind_saved">Избранное</string>
+    <string name="section_all_chats">Ваши чаты</string>
+    <string name="search_messages_hint">Поиск по чату</string>
+    <string name="feed_loading">Загружаем сообщения…</string>
+    <string name="feed_empty">В этом чате нет сообщений</string>
+    <string name="feed_photo">Фото</string>
+    <string name="feed_video">Видео</string>
+    <string name="photo_meta">%1$s  ·  %2$d из %3$d  ·  влево и вправо — другие фото</string>
+    <string name="photo_failed">Не удалось загрузить фото.</string>
+
+    <string name="action_retry">Повторить</string>
+    <plurals name="error_slow_down">
+        <item quantity="one">Telegram просит VueGram не торопиться. Повторите через %1$d секунду.</item>
+        <item quantity="few">Telegram просит VueGram не торопиться. Повторите через %1$d секунды.</item>
+        <item quantity="many">Telegram просит VueGram не торопиться. Повторите через %1$d секунд.</item>
+        <item quantity="other">Telegram просит VueGram не торопиться. Повторите через %1$d секунды.</item>
+    </plurals>
+    <string name="error_network">Нет связи с Telegram. Проверьте подключение телевизора к интернету и повторите.</string>
+    <string name="error_other">Ответ Telegram: %1$s</string>
+    <string name="connection_connecting">Соединение…</string>
+    <string name="connection_updating">Обновление…</string>
+    <string name="connection_waiting">Ожидание сети…</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="settings_on">Вкл.</string>
+    <string name="settings_off">Выкл.</string>
+    <string name="settings_people">Показывать личные чаты</string>
+    <string name="settings_people_summary">Показывать в списке не только группы и каналы, но и личные чаты с людьми и «Избранное».</string>
+    <string name="settings_messages">Показывать сообщения</string>
+    <string name="settings_messages_summary">В чатах видны все сообщения (текст, фото, видео и файлы), а не только видео.</string>
+    <string name="settings_update">Проверить обновления</string>
+    <string name="settings_update_summary">У вас VueGram %1$s. Поиск новой версии на GitHub.</string>
+    <string name="settings_update_checking">Ищем новую версию VueGram на GitHub…</string>
+    <string name="settings_update_latest">VueGram %1$s — последняя версия.</string>
+    <string name="settings_crash">Последний отчёт о сбое</string>
+    <string name="settings_crash_summary">Работа VueGram неожиданно прервалась %1$s. Нажмите OK, чтобы узнать, что случилось (отчёт хранится только на этом телевизоре).</string>
+    <string name="settings_crash_delete">Удалить отчёт</string>
+    <string name="settings_logout">Выйти</string>
+    <string name="settings_logout_summary">Выйти из Telegram на этом телевизоре.</string>
+    <string name="settings_logout_confirm">Этот телевизор выйдет из Telegram. История просмотра и настройки останутся на телевизоре; чтобы войти снова, отсканируйте новый QR-код.</string>
+
+    <string name="settings_language">Язык</string>
+    <string name="settings_language_summary">VueGram использует язык телевизора или тот, который вы выберете здесь.</string>
+    <string name="settings_language_system">Язык телевизора</string>
+
+    <string name="label_video_message">Видеосообщение</string>
+    <string name="label_gif">GIF</string>
+    <string name="label_file">📄 %1$s</string>
+    <string name="label_file_unnamed">📄 Файл</string>
+    <string name="label_audio">🎵 %1$s</string>
+    <string name="label_audio_unnamed">🎵 Аудио</string>
+    <string name="label_voice">🎤 Голосовое сообщение</string>
+    <string name="label_sticker">%1$s Стикер</string>
+    <string name="label_poll">📊 %1$s</string>
+    <string name="label_location">📍 Геопозиция</string>
+    <string name="label_contact">👤 %1$s</string>
+    <string name="error_unknown">Неизвестная ошибка</string>
+    <string name="error_unexpected">Неожиданный ответ от Telegram</string>
+    <string name="error_load_chats">Не удалось загрузить чаты</string>
+
+    <string name="auth_logging_out">Выходим…</string>
+    <string name="stream_channel">Потоковое видео</string>
+    <string name="stream_notification">Идёт потоковая передача видео</string>
+
+    <string name="onboarding_step">Шаг %1$d из %2$d</string>
+    <string name="onboarding_wait">Секунду…</string>
+    <string name="onboarding_ready">Готово, вы вошли</string>
+    <string name="onboarding_welcome_title">Добро пожаловать в VueGram</string>
+    <string name="onboarding_welcome_body">Ваши каналы и группы Telegram на большом экране. Настройка займёт около двух минут: ваши ключи API Telegram, а затем QR-код, который нужно отсканировать телефоном.</string>
+    <string name="onboarding_get_started">Начать</string>
+    <string name="onboarding_language">Язык: %1$s</string>
+    <string name="onboarding_keys_title">Ваши ключи API Telegram</string>
+    <string name="onboarding_keys_body">VueGram подключается к Telegram с вашими собственными API ID и API Hash. Это бесплатно: на my.telegram.org войдите по номеру телефона, откройте API development tools и создайте приложение (название любое). Затем отправьте оба значения на этот телевизор.</string>
+    <string name="onboarding_keys_qr_caption">Отсканируйте камерой телефона. Откроется страница, где можно получить ключи и отправить их на этот телевизор. Телефон должен быть подключён к той же сети Wi-Fi.</string>
+    <string name="onboarding_type_keys">Ввести с пульта</string>
+    <string name="onboarding_send_from_phone">Отправить с телефона</string>
+    <string name="onboarding_continue">Продолжить</string>
+    <string name="onboarding_error_api_id">API ID — это число, например 1234567.</string>
+    <string name="onboarding_error_api_hash">API Hash — это 32 буквы и цифры (0–9 и a–f).</string>
+    <string name="onboarding_qr_caption">Код обновляется сам, пока вы его не отсканируете.</string>
+    <string name="onboarding_use_phone">Войти по номеру телефона</string>
+    <string name="onboarding_phone_title">Ваш номер телефона</string>
+    <string name="onboarding_phone_body">С кодом страны, например +1 555 123 4567. Telegram пришлёт код для входа.</string>
+    <string name="onboarding_send_code">Отправить код</string>
+    <string name="onboarding_code_app">Telegram отправил код в приложение Telegram на другом устройстве. Найдите сообщение от Telegram.</string>
+    <string name="onboarding_code_sms">Telegram отправил код по SMS.</string>
+    <string name="onboarding_code_other">Введите код, который прислал Telegram.</string>
+    <string name="onboarding_sign_in">Войти</string>
+    <string name="onboarding_password_body">В вашем аккаунте включена двухэтапная аутентификация, поэтому Telegram просит ещё и облачный пароль.</string>
+    <string name="onboarding_password_hint_is">Подсказка: %1$s</string>
+    <string name="onboarding_blocked_title">Войдите лучше по QR-коду</string>
+    <string name="onboarding_blocked_no_account">У этого номера ещё нет аккаунта Telegram. Сначала зарегистрируйтесь в приложении Telegram или отсканируйте QR-код телефоном, на котором есть Telegram.</string>
+    <string name="onboarding_bad_keys_title">Telegram не принял эти ключи</string>
+    <string name="onboarding_error_phone">Номер выглядит неправильно. Укажите код страны, например +1.</string>
+    <string name="onboarding_error_code">Неверный код. Проверьте его и попробуйте снова.</string>
+    <string name="onboarding_error_code_expired">Срок действия кода истёк. Вернитесь назад и запросите новый.</string>
+    <string name="onboarding_error_password">Неверный пароль.</string>
+
+    <string name="keydrop_title">Отправьте ключи API на телевизор</string>
+    <string name="keydrop_intro">Получите их в Telegram и вставьте ниже. Они передаются прямо на телевизор по вашей сети Wi-Fi.</string>
+    <string name="keydrop_open_site">Открыть my.telegram.org</string>
+    <string name="keydrop_site_steps">Войдите по номеру телефона, откройте API development tools, создайте приложение (название любое) и скопируйте App api_id и App api_hash.</string>
+    <string name="keydrop_send">Отправить на телевизор</string>
+    <string name="keydrop_sent">Отправлено. Можно отложить телефон и продолжить на телевизоре.</string>
+    <string name="keydrop_invalid">Что-то не так: API ID — это число, а API Hash — 32 буквы и цифры.</string>
+
+    <string name="update_ready_pill">Обновление готово: %1$s</string>
+    <string name="update_ready_title">VueGram %1$s готов к установке</string>
+    <string name="update_install_now">Установить</string>
+    <string name="update_installing_title">Устанавливаем VueGram %1$s</string>
+    <string name="update_not_signed">Загруженное обновление не подписано ключом VueGram, поэтому оно не установлено.</string>
+    <string name="whats_new_title">Что нового в VueGram %1$s</string>
+    <string name="whats_new_fallback">VueGram обновлён до версии %1$s.</string>
+    <string name="settings_auto_update">Автообновление</string>
+    <string name="settings_auto_update_summary">Новые версии загружаются в фоне, а установить их VueGram предложит один раз. При лимитном подключении VueGram только сообщит о них.</string>
+
+    <string name="player_up_next">Далее</string>
+    <plurals name="player_up_next_in">
+        <item quantity="one">Начнётся через %1$d секунду</item>
+        <item quantity="few">Начнётся через %1$d секунды</item>
+        <item quantity="many">Начнётся через %1$d секунд</item>
+        <item quantity="other">Начнётся через %1$d секунды</item>
+    </plurals>
+    <string name="player_up_next_hint">OK — смотреть сейчас  ·  «Назад» — отменить</string>
+    <string name="player_options_hint">▼  Субтитры, звук, скорость, таймер сна</string>
+    <string name="player_options">Параметры</string>
+    <string name="player_subtitles">Субтитры</string>
+    <string name="player_audio">Звук</string>
+    <string name="player_speed">Скорость</string>
+    <string name="player_sleep">Таймер сна</string>
+    <string name="player_subtitles_value">Субтитры: %1$s</string>
+    <string name="player_audio_value">Звук: %1$s</string>
+    <string name="player_speed_value">Скорость: %1$s</string>
+    <string name="player_sleep_value">Таймер сна: %1$s</string>
+    <string name="player_off">Выкл.</string>
+    <string name="player_speed_normal">Обычная</string>
+    <string name="player_track_number">Дорожка %1$d</string>
+    <string name="player_no_subtitles">У этого видео нет субтитров.</string>
+    <string name="player_no_audio_tracks">У этого видео только одна звуковая дорожка.</string>
+    <plurals name="player_minutes">
+        <item quantity="one">%1$d минута</item>
+        <item quantity="few">%1$d минуты</item>
+        <item quantity="many">%1$d минут</item>
+        <item quantity="other">%1$d минуты</item>
+    </plurals>
+    <string name="player_sleep_end">До конца этого видео</string>
+    <string name="settings_play_next">Воспроизводить следующее</string>
+    <string name="settings_play_next_summary">Когда видео заканчивается, следующее видео из чата начинается после 10-секундного отсчёта.</string>
+
+    <string name="voice_search">Голосовой поиск</string>
+    <string name="voice_prompt">Скажите, что найти</string>
+
+    <string name="folders_all">Все чаты</string>
+    <string name="section_recent">Новое в ваших каналах</string>
+    <string name="onboarding_keys_wifi">📶 Телефон должен быть в той же сети Wi-Fi, что и телевизор, а не в мобильном интернете.</string>
+</resources>

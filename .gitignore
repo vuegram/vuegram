@@ -1,0 +1,75 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.idea/
+.DS_Store
+/build
+/app/build
+/buildSrc/build
+/out
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Keystores & signing
+*.jks
+*.keystore
+*.p12
+*.pem
+release.keystore.b64
+
+# Secrets & configs
+**/google-services.json
+**/firebase.json
+**/service-account*.json
+**/.env
+**/.env.*
+**/secrets.properties
+**/keys.properties
+**/keystore.properties
+
+# Logs
+*.log
+
+# Kotlin/Java artifacts
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+*.war
+*.ear
+*.apk
+*.aab
+
+# IntelliJ/Android Studio
+/.idea/*
+!/.idea/codeStyles
+!/.idea/codeStyles/**
+!/.idea/runConfigurations
+!/.idea/runConfigurations/**
+/.idea/sonarlint
+
+# Gradle
+/gradle-app.setting
+
+# NDK
+**/obj/
+**/*.so
+
+# But include TDLib native library (required for app to work)
+!app/src/main/jniLibs/**/*.so
+
+# Release builds and their checksums (scripts/release.sh); published on GitHub, never committed
+/dist/
+
+# Websites (site/): dependencies, build output and local Cloudflare state; package-lock.json is committed
+node_modules/
+/site/docs/.vitepress/dist/
+/site/docs/.vitepress/cache/
+.wrangler/

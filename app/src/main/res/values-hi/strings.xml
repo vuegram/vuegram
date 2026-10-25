@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_phone_hint">फ़ोन नंबर</string>
+    <string name="auth_code_hint">लॉगिन कोड</string>
+    <string name="auth_password_hint">2FA पासवर्ड</string>
+    <string name="auth_api_id_hint">Telegram API ID</string>
+    <string name="auth_api_hash_hint">Telegram API hash</string>
+    <string name="auth_qr_button">QR कोड से लॉग इन करें</string>
+    <string name="auth_qr_title">लॉग इन करने के लिए स्कैन करें</string>
+    <string name="auth_qr_steps">1.  अपने फ़ोन पर Telegram खोलें\n2.  Settings › Devices पर जाएँ\n3.  Link Desktop Device पर टैप करें और कैमरा इस कोड की ओर करें</string>
+    <string name="auth_qr_description">फ़ोन पर Telegram से लॉग इन करने के लिए QR कोड</string>
+    <string name="auth_code_title">लॉगिन कोड डालें</string>
+    <string name="auth_password_title">अपना दो-चरणीय सत्यापन पासवर्ड डालें</string>
+    <string name="auth_bad_keys">Telegram ने यह API ID और hash स्वीकार नहीं किया। my.telegram.org (API development tools) पर दोनों चेक करें, फिर इन्हें दोबारा डालें।</string>
+    <string name="auth_change_keys">API कीज़ दोबारा डालें</string>
+    <string name="auth_blocked_email">कोड भेजने से पहले Telegram एक लॉगिन ईमेल माँग रहा है। इसकी जगह QR कोड से लॉग इन करें: उसमें न ईमेल चाहिए, न कोड।</string>
+    <string name="auth_blocked_sms_fee">Telegram इस नंबर के लिए पेड SMS माँग रहा है। इसकी जगह QR कोड से लॉग इन करें: यह मुफ़्त है और इसमें SMS की ज़रूरत नहीं।</string>
+
+
+    <string name="library_title">आपके चैनल</string>
+    <string name="library_loading">आपके ग्रुप और चैनल लोड हो रहे हैं…</string>
+    <string name="library_empty">अभी कोई ग्रुप या चैनल नहीं है</string>
+    <string name="kind_channel">चैनल</string>
+    <string name="kind_group">ग्रुप</string>
+    <string name="chat_loading">वीडियो ढूँढे जा रहे हैं…</string>
+    <string name="chat_empty">इस चैट में कोई वीडियो नहीं है</string>
+    <string name="no_player">कोई वीडियो प्लेयर नहीं मिला</string>
+    <string name="press_back_again">बाहर निकलने के लिए फिर से बैक दबाएँ</string>
+
+    <string name="section_continue">देखना जारी रखें</string>
+    <string name="section_chats">चैनल और ग्रुप</string>
+    <string name="continue_sub">%1$s  ·  %2$s</string>
+    <string name="resuming_at">%1$s से दोबारा शुरू</string>
+    <string name="watched_badge">✓ देखा गया</string>
+    <string name="meta_watched">देखा गया</string>
+    <plurals name="meta_left">
+        <item quantity="one">%1$d मिनट बाकी</item>
+        <item quantity="other">%1$d मिनट बाकी</item>
+    </plurals>
+    <string name="meta_stopped_at">%1$s पर रोका था</string>
+
+    <string name="search_chat_hint">इस चैनल में खोजें</string>
+    <string name="search_all_hint">सभी चैनलों में खोजें</string>
+    <string name="search_all_title">सभी चैनलों में खोजें</string>
+    <string name="search_all_kind">ग्रुप और चैनल</string>
+    <string name="chat_searching">खोज रहे हैं…</string>
+    <string name="search_no_results">“%1$s” के लिए कोई वीडियो नहीं मिला</string>
+
+    <string name="hidden_title">छिपाए गए चैनल</string>
+    <plurals name="hidden_sub">
+        <item quantity="one">%1$d छिपा हुआ  ·  दिखाने या छिपाने के लिए OK  ·  वापस लाने के लिए उस पर OK दबाए रखें</item>
+        <item quantity="other">%1$d छिपे हुए  ·  दिखाने या छिपाने के लिए OK  ·  किसी को वापस लाने के लिए उस पर OK दबाए रखें</item>
+    </plurals>
+    <string name="hidden_kind">%1$s  ·  छिपा हुआ  ·  वापस लाने के लिए OK दबाए रखें</string>
+    <string name="hidden_card_show">छिपे हुए दिखाएँ</string>
+    <string name="hidden_card_hide">छिपे हुए छिपाएँ</string>
+    <string name="section_pinned">पिन किए गए</string>
+    <string name="pinned_kind">%1$s  ·  पिन किया गया</string>
+    <string name="menu_pin">सबसे ऊपर पिन करें</string>
+    <string name="menu_unpin">अनपिन करें</string>
+    <string name="menu_hide">VueGram से छिपाएँ</string>
+    <string name="menu_unhide">VueGram में फिर से दिखाएँ</string>
+    <string name="menu_mark_watched">देखा गया मार्क करें</string>
+    <string name="menu_mark_unwatched">नहीं देखा गया मार्क करें</string>
+    <string name="menu_play_mpv">mpv में चलाएँ</string>
+    <string name="menu_from_start">शुरू से चलाएँ</string>
+    <string name="player_seek_label">%1$s  ·  %2$s</string>
+    <string name="player_cannot_play">इस वीडियो का फ़ॉर्मैट यहाँ नहीं चल सकता, और mpv इंस्टॉल नहीं है।</string>
+    <string name="player_stream_error_title">वीडियो लोड होना रुक गया</string>
+    <string name="close_player">बंद करें</string>
+    <string name="player_opening_mpv">यह वीडियो mpv में खुल रहा है…</string>
+    <string name="no_mpv">mpv इंस्टॉल नहीं है: इसलिए यहीं चला रहे हैं</string>
+    <string name="menu_remove">\"देखना जारी रखें\" से हटाएँ</string>
+    <string name="menu_cancel">रद्द करें</string>
+
+    <string name="update_pill">%1$s पर अपडेट करें</string>
+    <string name="update_title">VueGram %1$s उपलब्ध है (आपके पास %2$s है)</string>
+    <string name="update_no_notes">VueGram का नया वर्शन तैयार है।</string>
+    <string name="update_now">अपडेट करें</string>
+    <string name="update_later">बाद में</string>
+    <string name="update_permission_title">VueGram को अपने अपडेट इंस्टॉल करने की अनुमति दें</string>
+    <string name="update_permission_message">Android यह सिर्फ़ एक बार पूछता है। अगली स्क्रीन पर VueGram के लिए \"इस स्रोत से अनुमति दें\" चालू करें, बैक दबाएँ, फिर दोबारा \"अपडेट करें\" चुनें।</string>
+    <string name="update_open_settings">सेटिंग्स खोलें</string>
+    <string name="update_no_settings">इस टीवी में VueGram के लिए \"अनजान ऐप्लिकेशन इंस्टॉल करें\" वाली स्क्रीन नहीं है।</string>
+    <string name="update_downloading_title">VueGram %1$s डाउनलोड हो रहा है</string>
+    <string name="update_downloading">रिलीज़ के चेकसम और VueGram की साइनिंग कुंजी से इसकी जाँच हो रही है…</string>
+    <string name="update_installing">अपडेट Android को सौंपा जा रहा है…</string>
+    <string name="update_failed_title">अपडेट इंस्टॉल नहीं हुआ</string>
+    <string name="update_install_failed">अपडेट इंस्टॉल नहीं हुआ: %1$s</string>
+
+    <string name="kind_person">व्यक्ति</string>
+    <string name="kind_saved">सहेजे गए संदेश</string>
+    <string name="section_all_chats">आपकी चैट</string>
+    <string name="search_messages_hint">इस चैट में खोजें</string>
+    <string name="feed_loading">मैसेज लोड हो रहे हैं…</string>
+    <string name="feed_empty">इस चैट में कोई मैसेज नहीं है</string>
+    <string name="feed_photo">फ़ोटो</string>
+    <string name="feed_video">वीडियो</string>
+    <string name="photo_meta">%1$s  ·  %3$d में से %2$d  ·  और देखने के लिए बाएँ या दाएँ</string>
+    <string name="photo_failed">यह फ़ोटो लोड नहीं हो सकी।</string>
+
+    <string name="action_retry">फिर से कोशिश करें</string>
+    <plurals name="error_slow_down">
+        <item quantity="one">Telegram ने VueGram को थोड़ा धीमे चलने को कहा है। %1$d सेकंड बाद फिर से कोशिश करें।</item>
+        <item quantity="other">Telegram ने VueGram को थोड़ा धीमे चलने को कहा है। %1$d सेकंड बाद फिर से कोशिश करें।</item>
+    </plurals>
+    <string name="error_network">Telegram से कनेक्ट नहीं हो पा रहा। टीवी का इंटरनेट कनेक्शन चेक करें, फिर दोबारा कोशिश करें।</string>
+    <string name="error_other">Telegram का जवाब: %1$s</string>
+    <string name="connection_connecting">कनेक्ट हो रहा है…</string>
+    <string name="connection_updating">अपडेट हो रहा है…</string>
+    <string name="connection_waiting">नेटवर्क का इंतज़ार है…</string>
+
+    <string name="settings_title">सेटिंग्स</string>
+    <string name="settings_on">चालू</string>
+    <string name="settings_off">बंद</string>
+    <string name="settings_people">लोगों को दिखाएँ</string>
+    <string name="settings_people_summary">सिर्फ़ ग्रुप और चैनल नहीं, लोगों के साथ प्राइवेट चैट और सहेजे गए संदेश भी दिखाएँ।</string>
+    <string name="settings_messages">मैसेज दिखाएँ</string>
+    <string name="settings_messages_summary">चैट में सिर्फ़ वीडियो नहीं, सारे मैसेज (टेक्स्ट, फ़ोटो, वीडियो और फ़ाइलें) दिखते हैं।</string>
+    <string name="settings_update">अपडेट चेक करें</string>
+    <string name="settings_update_summary">आपके पास VueGram %1$s है। GitHub पर नया वर्शन ढूँढता है।</string>
+    <string name="settings_update_checking">GitHub पर VueGram का नया वर्शन ढूँढा जा रहा है…</string>
+    <string name="settings_update_latest">VueGram %1$s सबसे नया वर्शन है।</string>
+    <string name="settings_crash">पिछली क्रैश रिपोर्ट</string>
+    <string name="settings_crash_summary">VueGram %1$s अचानक बंद हो गया था। क्या हुआ, यह देखने के लिए OK दबाएँ (रिपोर्ट इसी टीवी पर रहती है)।</string>
+    <string name="settings_crash_delete">रिपोर्ट मिटाएँ</string>
+    <string name="settings_logout">लॉग आउट करें</string>
+    <string name="settings_logout_summary">इस टीवी को Telegram से साइन आउट करें।</string>
+    <string name="settings_logout_confirm">यह टीवी Telegram से साइन आउट हो जाएगा। आपकी देखने की हिस्ट्री और सेटिंग्स टीवी पर ही रहेंगी; दोबारा साइन इन करने के लिए नया QR कोड स्कैन करें।</string>
+
+    <string name="settings_language">भाषा</string>
+    <string name="settings_language_summary">VueGram टीवी की भाषा में चलता है, या उस भाषा में जो आप यहाँ चुनें।</string>
+    <string name="settings_language_system">टीवी की भाषा</string>
+
+    <string name="label_video_message">वीडियो मैसेज</string>
+    <string name="label_gif">GIF</string>
+    <string name="label_file">📄 %1$s</string>
+    <string name="label_file_unnamed">📄 फ़ाइल</string>
+    <string name="label_audio">🎵 %1$s</string>
+    <string name="label_audio_unnamed">🎵 ऑडियो</string>
+    <string name="label_voice">🎤 वॉइस मैसेज</string>
+    <string name="label_sticker">%1$s स्टिकर</string>
+    <string name="label_poll">📊 %1$s</string>
+    <string name="label_location">📍 लोकेशन</string>
+    <string name="label_contact">👤 %1$s</string>
+    <string name="error_unknown">अनजान गड़बड़ी</string>
+    <string name="error_unexpected">Telegram से अनपेक्षित जवाब मिला</string>
+    <string name="error_load_chats">आपकी चैट लोड नहीं हो सकीं</string>
+
+    <string name="auth_logging_out">लॉग आउट हो रहा है…</string>
+    <string name="stream_channel">स्ट्रीमिंग</string>
+    <string name="stream_notification">एक वीडियो स्ट्रीम हो रहा है</string>
+
+    <string name="onboarding_step">चरण %1$d / %2$d</string>
+    <string name="onboarding_wait">एक पल रुकें…</string>
+    <string name="onboarding_ready">आप साइन इन हो गए</string>
+    <string name="onboarding_welcome_title">VueGram में आपका स्वागत है</string>
+    <string name="onboarding_welcome_body">आपके Telegram चैनल और ग्रुप, बड़ी स्क्रीन पर। सेटअप में लगभग दो मिनट लगते हैं: पहले आपकी Telegram API कीज़, फिर फ़ोन से स्कैन करने के लिए एक QR कोड।</string>
+    <string name="onboarding_get_started">शुरू करें</string>
+    <string name="onboarding_language">भाषा: %1$s</string>
+    <string name="onboarding_keys_title">आपकी Telegram API कीज़</string>
+    <string name="onboarding_keys_body">VueGram आपकी अपनी API ID और hash से Telegram से कनेक्ट होता है। ये मुफ़्त हैं: my.telegram.org पर अपने फ़ोन नंबर से लॉग इन करें, API development tools खोलें और एक ऐप बनाएँ (कोई भी नाम चलेगा)। फिर ये दोनों वैल्यू इस टीवी पर भेजें।</string>
+    <string name="onboarding_keys_qr_caption">अपने फ़ोन के कैमरे से स्कैन करें। एक पेज खुलेगा, जहाँ आप कीज़ लेकर इस टीवी पर भेज सकते हैं। आपका फ़ोन उसी Wi-Fi पर होना चाहिए।</string>
+    <string name="onboarding_type_keys">रिमोट से टाइप करें</string>
+    <string name="onboarding_send_from_phone">मेरे फ़ोन से भेजें</string>
+    <string name="onboarding_continue">जारी रखें</string>
+    <string name="onboarding_error_api_id">API ID एक नंबर होता है, जैसे 1234567।</string>
+    <string name="onboarding_error_api_hash">API hash में 32 अक्षर और अंक होते हैं (0–9 और a–f)।</string>
+    <string name="onboarding_qr_caption">जब तक आप स्कैन नहीं करते, यह कोड अपने-आप बदलता रहता है।</string>
+    <string name="onboarding_use_phone">इसकी जगह फ़ोन नंबर इस्तेमाल करें</string>
+    <string name="onboarding_phone_title">आपका फ़ोन नंबर</string>
+    <string name="onboarding_phone_body">देश के कोड के साथ, जैसे +1 555 123 4567। Telegram आपको साइन इन करने के लिए एक कोड भेजेगा।</string>
+    <string name="onboarding_send_code">कोड भेजें</string>
+    <string name="onboarding_code_app">Telegram ने कोड आपके दूसरे डिवाइस पर Telegram ऐप में भेजा है। Telegram का मैसेज देखें।</string>
+    <string name="onboarding_code_sms">Telegram ने कोड SMS से भेजा है।</string>
+    <string name="onboarding_code_other">Telegram ने जो कोड भेजा है, उसे डालें।</string>
+    <string name="onboarding_sign_in">साइन इन करें</string>
+    <string name="onboarding_password_body">आपके अकाउंट में दो-चरणीय सत्यापन चालू है, इसलिए Telegram उसका पासवर्ड भी माँगता है।</string>
+    <string name="onboarding_password_hint_is">आपका हिंट: %1$s</string>
+    <string name="onboarding_blocked_title">इसकी जगह QR कोड से साइन इन करें</string>
+    <string name="onboarding_blocked_no_account">इस नंबर पर अभी कोई Telegram अकाउंट नहीं है। पहले Telegram ऐप में साइन अप करें, या जिस फ़ोन में Telegram है उससे QR कोड स्कैन करें।</string>
+    <string name="onboarding_bad_keys_title">Telegram ने ये कीज़ स्वीकार नहीं कीं</string>
+    <string name="onboarding_error_phone">यह नंबर सही नहीं लग रहा। देश का कोड भी डालें, जैसे +1।</string>
+    <string name="onboarding_error_code">यह कोड सही नहीं है। चेक करके फिर से कोशिश करें।</string>
+    <string name="onboarding_error_code_expired">इस कोड की समय-सीमा खत्म हो गई है। वापस जाकर नया कोड माँगें।</string>
+    <string name="onboarding_error_password">यह पासवर्ड सही नहीं है।</string>
+    <string name="keydrop_title">अपनी API कीज़ टीवी पर भेजें</string>
+    <string name="keydrop_intro">इन्हें Telegram से लें, फिर नीचे पेस्ट करें। ये आपके Wi-Fi से सीधे आपके टीवी पर जाती हैं।</string>
+    <string name="keydrop_open_site">my.telegram.org खोलें</string>
+    <string name="keydrop_site_steps">अपने फ़ोन नंबर से लॉग इन करें, API development tools खोलें, एक ऐप बनाएँ (कोई भी नाम), फिर App api_id और App api_hash कॉपी करें।</string>
+    <string name="keydrop_send">टीवी पर भेजें</string>
+    <string name="keydrop_sent">भेज दिया। अब आप फ़ोन रख सकते हैं और टीवी पर आगे बढ़ सकते हैं।</string>
+    <string name="keydrop_invalid">यह सही नहीं लग रहा: API ID एक नंबर होता है, और API hash में 32 अक्षर और अंक।</string>
+    <string name="update_ready_pill">अपडेट तैयार: %1$s</string>
+    <string name="update_ready_title">VueGram %1$s इंस्टॉल के लिए तैयार है</string>
+    <string name="update_install_now">अभी इंस्टॉल करें</string>
+    <string name="update_installing_title">VueGram %1$s इंस्टॉल हो रहा है</string>
+    <string name="update_not_signed">डाउनलोड किया गया अपडेट VueGram की कुंजी से साइन नहीं है, इसलिए इसे इंस्टॉल नहीं किया गया।</string>
+    <string name="whats_new_title">VueGram %1$s में नया क्या है</string>
+    <string name="whats_new_fallback">VueGram %1$s पर अपडेट हो गया।</string>
+    <string name="settings_auto_update">अपने-आप अपडेट</string>
+    <string name="settings_auto_update_summary">नए वर्शन बैकग्राउंड में डाउनलोड करें और इंस्टॉल करने के लिए सिर्फ़ एक बार पूछें। मीटर्ड कनेक्शन पर VueGram सिर्फ़ इनके बारे में बताता है।</string>
+
+    <string name="player_up_next">अगला वीडियो</string>
+    <plurals name="player_up_next_in">
+        <item quantity="one">%1$d सेकंड में चलेगा</item>
+        <item quantity="other">%1$d सेकंड में चलेगा</item>
+    </plurals>
+    <string name="player_up_next_hint">अभी चलाने के लिए OK  ·  रोकने के लिए बैक</string>
+    <string name="player_options_hint">▼  सबटाइटल, ऑडियो, स्पीड, स्लीप टाइमर</string>
+    <string name="player_options">विकल्प</string>
+    <string name="player_subtitles">सबटाइटल</string>
+    <string name="player_audio">ऑडियो</string>
+    <string name="player_speed">स्पीड</string>
+    <string name="player_sleep">स्लीप टाइमर</string>
+    <string name="player_subtitles_value">सबटाइटल: %1$s</string>
+    <string name="player_audio_value">ऑडियो: %1$s</string>
+    <string name="player_speed_value">स्पीड: %1$s</string>
+    <string name="player_sleep_value">स्लीप टाइमर: %1$s</string>
+    <string name="player_off">बंद</string>
+    <string name="player_speed_normal">सामान्य</string>
+    <string name="player_track_number">ट्रैक %1$d</string>
+    <string name="player_no_subtitles">इस वीडियो में सबटाइटल नहीं हैं।</string>
+    <string name="player_no_audio_tracks">इस वीडियो में सिर्फ़ एक ऑडियो ट्रैक है।</string>
+    <plurals name="player_minutes">
+        <item quantity="one">%1$d मिनट</item>
+        <item quantity="other">%1$d मिनट</item>
+    </plurals>
+    <string name="player_sleep_end">इस वीडियो के खत्म होने पर</string>
+    <string name="settings_play_next">अगला वीडियो चलाएँ</string>
+    <string name="settings_play_next_summary">वीडियो खत्म होने पर, 10 सेकंड की उलटी गिनती के बाद चैट का अगला वीडियो शुरू होता है।</string>
+
+    <string name="voice_search">बोलकर खोजें</string>
+    <string name="voice_prompt">बोलें कि क्या खोजना है</string>
+
+    <string name="folders_all">सभी चैट</string>
+    <string name="section_recent">आपके चैनलों में नया</string>
+    <string name="onboarding_keys_wifi">📶 आपका फ़ोन इसी टीवी वाले Wi-Fi से जुड़ा होना चाहिए, मोबाइल डेटा से नहीं।</string>
+</resources>

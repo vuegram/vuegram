@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Onboarding: what to do on the left (step, title, text, buttons), and on the right a card with a QR code or the
+     fields to fill in. One layout for every step; OnboardingFragment shows what the current step needs. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tv_background">
+
+    <com.vuegram.presentation.ui.GlowView
+        android:id="@+id/onboarding_glow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="96dp"
+        android:paddingEnd="96dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/onboarding_logo"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_marginStart="-14dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/vg_glyph" />
+
+            <com.vuegram.presentation.ui.EyebrowText
+                android:id="@+id/onboarding_step"
+                style="@style/TvText.Eyebrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/onboarding_title"
+                style="@style/TvText.Hero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:maxLines="3" />
+
+            <TextView
+                android:id="@+id/onboarding_body"
+                style="@style/TvText.Sub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:lineSpacingExtra="6dp"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/onboarding_error"
+                style="@style/TvText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/tv_error"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/onboarding_primary"
+                    style="@style/TvButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp" />
+
+                <Button
+                    android:id="@+id/onboarding_secondary"
+                    style="@style/TvButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="16dp" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/onboarding_progress"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="28dp"
+                android:indeterminateTint="@color/tv_text"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- The card: a QR code with its caption, or the fields (API keys, phone number, code, password). -->
+        <LinearLayout
+            android:id="@+id/onboarding_card"
+            android:layout_width="420dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tv_card_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <!-- Keys step only: the phone page can't be reached from mobile data. -->
+            <TextView
+                android:id="@+id/onboarding_card_note"
+                style="@style/TvText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/outfit_medium"
+                android:lineSpacingExtra="3dp"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/onboarding_qr_frame"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                android:background="@drawable/tv_qr_card"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/onboarding_qr"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/auth_qr_description" />
+
+                <ProgressBar
+                    android:id="@+id/onboarding_qr_wait"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="#FF000000" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/onboarding_qr_caption"
+                style="@style/TvText.Sub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="4dp"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/onboarding_field1"
+                style="@style/TvField"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:importantForAutofill="no"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/onboarding_field2"
+                style="@style/TvField"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:importantForAutofill="no"
+                android:imeOptions="actionDone"
+                android:inputType="text" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

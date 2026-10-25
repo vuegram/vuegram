@@ -1,0 +1,37 @@
+name: Bug report
+description: Something in VueGram doesn't work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please leave out personal data: no phone numbers, account names, API hashes, IP addresses
+        or chat names you'd rather keep private. Security problems go to SECURITY.md, never here.
+  - type: input
+    id: version
+    attributes:
+      label: VueGram version
+      description: Settings › Check for updates shows it.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: tv
+    attributes:
+      label: TV and Android version
+      placeholder: "Chromecast with Google TV, Android 12"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you pressed, what you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: crash
+    attributes:
+      label: Crash report
+      description: If VueGram closed unexpectedly, paste Settings › Last crash report here.
+      render: text

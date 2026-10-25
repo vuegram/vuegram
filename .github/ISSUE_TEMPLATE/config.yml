@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://docs.vuegram.com
+    about: How to install, log in and use VueGram, and the troubleshooting page.
+  - name: Report a security problem
+    url: https://github.com/vuegram/vuegram/security/advisories/new
+    about: Privately, never in a public issue.

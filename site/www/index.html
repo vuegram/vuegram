@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VueGram: your Telegram channels, on the big screen</title>
+  <meta name="description" content="VueGram is a free, open-source Android TV and Google TV app that shows your Telegram groups and channels and plays their videos on the TV, streamed straight from Telegram. Unofficial, no analytics.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://vuegram.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VueGram">
+  <meta property="og:title" content="VueGram: your Telegram channels, on the big screen">
+  <meta property="og:description" content="A free, open-source Android TV app for the groups and channels you follow. Videos stream straight from Telegram to your TV.">
+  <meta property="og:url" content="https://vuegram.com/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="VueGram home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#glyph" width="100%" height="100%"/></svg>
+        <span>VueGram</span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main">
+        <a href="#features" data-section="features">Features</a>
+        <a href="#how" data-section="how">How it works</a>
+        <a href="#privacy" data-section="privacy">Privacy</a>
+        <a href="#install" data-section="install">Install</a>
+        <a href="#faq" data-section="faq">FAQ</a>
+        <a href="https://docs.vuegram.com/">Docs</a>
+        <a href="https://github.com/vuegram/vuegram">GitHub<span class="stars" data-gh-stars hidden></span></a>
+      </nav>
+      <a class="btn btn-light btn-sm nav-cta" href="https://github.com/vuegram/vuegram/releases">Download</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+
+      <div class="wrap hero-copy">
+        <a class="pill" href="https://github.com/vuegram/vuegram/releases" data-gh-release-link>
+          <span class="pill-dot" aria-hidden="true"></span>
+          <span data-gh-version>Free and open source</span>
+          <span class="pill-sep" aria-hidden="true"></span>
+          <span class="pill-more">For Android TV &amp; Google TV</span>
+        </a>
+        <h1>Your Telegram channels,<br><span class="grad">on the big screen.</span></h1>
+        <p class="lede">The groups and channels you follow, played on your TV, streamed straight from Telegram.</p>
+        <div class="hero-cta">
+          <a class="btn btn-light btn-lg" href="https://github.com/vuegram/vuegram/releases">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>
+            Download for Android TV
+          </a>
+          <a class="link-quiet" href="https://docs.vuegram.com/guide/getting-started">Read the docs <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <!-- A TV drawn in HTML and CSS, showing VueGram's library. Channel names are examples. -->
+      <div class="tv-stage">
+        <div class="tv" data-tilt>
+          <div class="tv-bezel">
+            <div class="tv-screen" tabindex="0" role="group" aria-roledescription="interactive demo"
+                 aria-label="VueGram's library on a TV. Use the arrow keys to move the focus and Enter to choose, like a TV remote."
+                 data-demo>
+              <div class="scr" aria-hidden="true">
+                <div class="scr-head">
+                  <div>
+                    <div class="scr-eyebrow">VueGram</div>
+                    <div class="scr-title">Your channels</div>
+                  </div>
+                  <div class="scr-search item" data-row="0" data-label="Search all channels">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+                    Search all channels
+                  </div>
+                </div>
+
+                <div class="scr-label">Continue watching</div>
+                <div class="scr-continue">
+                  <div class="vcard item" data-row="1" data-label="Aurora over the fjord" data-toast="Resuming at 15:10">
+                    <div class="thumb t1"><span class="len">24:10</span><i class="bar"><b class="p62"></b></i></div>
+                    <div class="vtitle">Aurora over the fjord</div>
+                    <div class="vsub">Night Sky · 9 min left</div>
+                  </div>
+                  <div class="vcard item" data-row="1" data-label="Sourdough, start to finish" data-toast="Resuming at 8:41">
+                    <div class="thumb t2"><span class="len">41:37</span><i class="bar"><b class="p21"></b></i></div>
+                    <div class="vtitle">Sourdough, start to finish</div>
+                    <div class="vsub">Kitchen Notes · Stopped at 8:41</div>
+                  </div>
+                  <div class="vcard item" data-row="1" data-label="Ridge loop at dawn" data-toast="Resuming at 9:05">
+                    <div class="thumb t3"><span class="len">12:05</span><i class="bar"><b class="p78"></b></i></div>
+                    <div class="vtitle">Ridge loop at dawn</div>
+                    <div class="vsub">Trail Runs · 3 min left</div>
+                  </div>
+                </div>
+
+                <div class="scr-label">Channels &amp; groups</div>
+                <div class="scr-grid">
+                  <div class="ccard item" data-row="2" data-label="Night Sky"><div class="cphoto c1"></div><div class="cname">Night Sky</div></div>
+                  <div class="ccard item" data-row="2" data-label="Kitchen Notes"><div class="cphoto c2"><span>K</span></div><div class="cname">Kitchen Notes</div></div>
+                  <div class="ccard item" data-row="2" data-label="Trail Runs"><div class="cphoto c3"></div><div class="cname">Trail Runs</div></div>
+                  <div class="ccard item" data-row="2" data-label="Film Club"><div class="cphoto c4"><span>F</span></div><div class="cname">Film Club</div></div>
+                  <div class="ccard item" data-row="2" data-label="Synth Sessions"><div class="cphoto c5"></div><div class="cname">Synth Sessions</div></div>
+                  <div class="ccard item" data-row="2" data-label="Woodshop"><div class="cphoto c6"><span>W</span></div><div class="cname">Woodshop</div></div>
+                </div>
+
+                <div class="scr-toast" data-toast-el></div>
+              </div>
+            </div>
+          </div>
+          <div class="tv-floor" aria-hidden="true"></div>
+        </div>
+        <p class="tv-caption">
+          <span class="keys" aria-hidden="true"><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></span>
+          <span class="cap-keys">Try the arrow keys, like a remote</span>
+          <span class="cap-touch">Tap a card, like a remote</span>
+        </p>
+        <p class="sr-only" aria-live="polite" data-demo-live></p>
+      </div>
+    </section>
+
+    <!-- ============ Features ============ -->
+    <section class="section" id="features">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Features</p>
+          <h2>Everything you follow,<br><span class="dim">one remote away.</span></h2>
+        </header>
+
+        <div class="bento">
+          <article class="card c-wide reveal">
+            <div class="card-copy">
+              <h3>Your library, as a TV app</h3>
+              <p>Groups and channels as a grid of their photos. Continue watching and your pinned chats sit on top.</p>
+            </div>
+            <div class="card-visual mini-lib" aria-hidden="true">
+              <span class="mini-label">Continue watching</span>
+              <div class="mini-cont"><i class="t1"></i><i class="t2"></i><i class="t3"></i></div>
+              <span class="mini-label">Pinned</span>
+              <div class="mini-chats"><i class="c1"></i><i class="c3"></i><i class="c5 focus"></i><i class="c2"></i><i class="c6"></i><i class="c4"></i></div>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-visual remote" aria-hidden="true">
+              <div class="dpad">
+                <span class="k k-up"></span>
+                <span class="k k-left">−10s</span>
+                <span class="k k-ok">OK</span>
+                <span class="k k-right">+30s</span>
+                <span class="k k-down"></span>
+              </div>
+            </div>
+            <div class="card-copy">
+              <h3>A player made for the remote</h3>
+              <p>OK pauses. Left and right jump 10 s back, 30 s forward. Hold to keep going.</p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="7.5" height="6.5" rx="1.6"/><rect x="13.5" y="4.5" width="7.5" height="6.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="6.5" rx="1.6"/></svg>
+            </div>
+            <div class="card-copy">
+              <h3>Every video in a chat</h3>
+              <p>A 16:9 grid with thumbnails, length, date and size, newest first.</p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg>
+            </div>
+            <div class="card-copy">
+              <h3>Search all channels</h3>
+              <p>Telegram's own search, across every group and channel at once.</p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v3.2h3.2"/><path d="M12 8.5V12l2.5 1.6"/></svg>
+            </div>
+            <div class="card-copy">
+              <h3>Picks up where you stopped</h3>
+              <p>Resume to the second, with watched marks. Stored on the TV only.</p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="12" rx="2.5"/><path d="m10.5 8.8 4 2.2-4 2.2z"/><path d="M8 20h8"/></svg>
+            </div>
+            <div class="card-copy">
+              <h3>Plays the stubborn files</h3>
+              <p>Another decoder, then software decoders, then <a href="https://github.com/mpv-android/mpv-android">mpv</a>
+                at the same spot.</p>
+            </div>
+          </article>
+
+          <article class="card c-wide reveal">
+            <div class="card-copy">
+              <h3>Log in with a QR code</h3>
+              <p>Scan it with Telegram on your phone: Settings › Devices › Add Device. No SMS, no login
+                email.</p>
+            </div>
+            <div class="card-visual qr-card" aria-hidden="true">
+              <svg class="qr" viewBox="0 0 25 25" data-qr></svg>
+              <span>Scan to log in</span>
+            </div>
+          </article>
+
+          <article class="card c-wide reveal">
+            <div class="card-copy">
+              <h3>Updates that check themselves</h3>
+              <p>At most every 12 hours, VueGram looks for a new release. Nothing is installed unless it passes every
+                check.</p>
+            </div>
+            <ol class="card-visual verify" aria-label="What happens when you press Update">
+              <li><span class="vdot"></span>Downloaded from GitHub releases</li>
+              <li><span class="vdot"></span>SHA-256 matches the release</li>
+              <li><span class="vdot"></span>Signed with the same key</li>
+              <li><span class="vdot vdot-on"></span>Android asks you to confirm</li>
+            </ol>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m8.5 8-4 4 4 4M15.5 8l4 4-4 4M13.5 5.5l-3 13"/></svg>
+            </div>
+            <div class="card-copy">
+              <h3>Open source, all the way down</h3>
+              <p>MIT licensed. Even TDLib is built from source, at a pinned commit.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ How it works ============ -->
+    <section class="section" id="how">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">How it works</p>
+          <h2>Straight from Telegram<br><span class="dim">to your TV.</span></h2>
+          <p class="section-sub">VueGram is built on TDLib, Telegram's own library. Each video is handed to the player by
+            a tiny server inside the app that only answers on the TV's own address, <code>127.0.0.1</code>.</p>
+        </header>
+
+        <div class="flow reveal" role="img"
+             aria-label="Telegram sends the video to TDLib inside VueGram, which hands it to a stream server on 127.0.0.1, which feeds the player. The last three run on your TV.">
+          <div class="flow-bracket"><span class="flow-bracket-label">Your TV</span></div>
+          <div class="flow-track"><i class="flow-packet"></i></div>
+          <div class="flow-node n1">
+            <div class="flow-icon"><svg viewBox="0 0 24 24"><path d="M7 18.5h10.5a4 4 0 0 0 .6-8 6 6 0 0 0-11.6 1.3A3.4 3.4 0 0 0 7 18.5z"/></svg></div>
+            <div class="flow-title">Telegram</div>
+            <div class="flow-sub">your groups, channels and videos</div>
+          </div>
+          <div class="flow-node n2">
+            <div class="flow-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9.5 9.5h5v5h-5z"/><path d="M9 2.5V5M15 2.5V5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"/></svg></div>
+            <div class="flow-title">TDLib in VueGram</div>
+            <div class="flow-sub">talks to Telegram, nothing else</div>
+          </div>
+          <div class="flow-node n3">
+            <div class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 7.5h16M4 12h16M4 16.5h10"/></svg></div>
+            <div class="flow-title">127.0.0.1</div>
+            <div class="flow-sub">a one-time link per video</div>
+          </div>
+          <div class="flow-node n4">
+            <div class="flow-icon"><svg viewBox="0 0 24 24"><path d="m9 7 9 5-9 5z"/></svg></div>
+            <div class="flow-title">Player</div>
+            <div class="flow-sub">built in, or mpv</div>
+          </div>
+        </div>
+
+        <div class="trio">
+          <div class="trio-item reveal">
+            <h3>No bots</h3>
+            <p>Nothing is forwarded to a bot or a download service.</p>
+          </div>
+          <div class="trio-item reveal">
+            <h3>No middlemen</h3>
+            <p>No VueGram server. Video goes from Telegram to the TV.</p>
+          </div>
+          <div class="trio-item reveal">
+            <h3>Streams, not downloads</h3>
+            <p>Watched parts are deleted, so nothing piles up on the TV.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Privacy ============ -->
+    <section class="section" id="privacy">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Privacy</p>
+          <h2>Your viewing is<br><span class="dim">nobody's business.</span></h2>
+          <p class="section-sub">No VueGram account, no analytics, no tracking. Here is everything that leaves the TV,
+            and everything that doesn't.</p>
+        </header>
+
+        <div class="privacy-grid">
+          <div class="pcard reveal">
+            <span class="ptag ptag-tv">Stays on the TV</span>
+            <ul class="checks">
+              <li>Where you stopped in each video</li>
+              <li>What you have watched</li>
+              <li>The chats you pinned or hid</li>
+              <li>Your settings</li>
+            </ul>
+          </div>
+          <div class="pcard reveal">
+            <span class="ptag ptag-tg">Goes to Telegram only</span>
+            <ul class="checks">
+              <li>Your login, through Telegram's own library</li>
+              <li>Loading your chats, videos and searches</li>
+              <li>Your own API ID and hash</li>
+            </ul>
+          </div>
+          <div class="pcard reveal">
+            <span class="ptag ptag-gh">One question to GitHub</span>
+            <ul class="checks">
+              <li>At most every 12 hours: "is there a newer VueGram?"</li>
+              <li>Nothing about you or the TV is sent</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="privacy-note reveal">This website is the same: no cookies, no analytics, no trackers. The only
+          outside requests are the Outfit font from Google Fonts and GitHub's public API for the latest version.</p>
+      </div>
+    </section>
+
+    <!-- ============ Install ============ -->
+    <section class="section" id="install">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Install</p>
+          <h2>On your TV<br><span class="dim">in three steps.</span></h2>
+          <p class="section-sub">For Android TV and Google TV, Android 6.0 or newer.</p>
+        </header>
+
+        <ol class="timeline">
+          <li class="tl-step reveal">
+            <span class="tl-node">1</span>
+            <h3>Install from the TV</h3>
+            <p>Get <a href="https://play.google.com/store/apps/details?id=com.esaba.downloader">Downloader</a> from your TV's Play Store, type <code>vuegram.com/get</code> in it
+              and choose Install. VueGram keeps itself up to date from then on.</p>
+          </li>
+          <li class="tl-step reveal">
+            <span class="tl-node">2</span>
+            <h3>Send your API keys</h3>
+            <p>Get your free API ID and hash at <a href="https://my.telegram.org/apps">my.telegram.org</a>, then scan the
+              TV's QR code and paste them on your phone. No typing with the remote.</p>
+          </li>
+          <li class="tl-step reveal">
+            <span class="tl-node">3</span>
+            <h3>Scan and watch</h3>
+            <p>Scan the QR code on the TV with Telegram on your phone. Your channels appear.</p>
+          </li>
+        </ol>
+        <p class="timeline-more reveal"><a class="link-quiet" href="https://docs.vuegram.com/guide/getting-started">Step-by-step guide <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="wrap faq-wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions,<br><span class="dim">answered.</span></h2>
+          <p class="section-sub">More in the <a href="https://docs.vuegram.com/guide/faq">docs</a>.</p>
+        </header>
+
+        <div class="faq">
+          <details class="reveal">
+            <summary>Is VueGram an official Telegram app?</summary>
+            <p>No. VueGram is an unofficial client built on Telegram's own library, TDLib. It is not made by,
+              affiliated with or endorsed by Telegram.</p>
+          </details>
+          <details class="reveal">
+            <summary>Does it cost anything?</summary>
+            <p>No. VueGram is free and open source under the MIT license.</p>
+          </details>
+          <details class="reveal">
+            <summary>Why do I need my own API ID and hash?</summary>
+            <p>Every app that talks to Telegram identifies itself with an API ID and hash. VueGram asks for your own,
+              free from <a href="https://my.telegram.org/apps">my.telegram.org</a>, so your copy talks to Telegram as
+              itself. <a href="https://docs.vuegram.com/guide/getting-started">How to get them</a>.</p>
+          </details>
+          <details class="reveal">
+            <summary>Why log in with a QR code?</summary>
+            <p>It needs no SMS and no login email. Telegram sometimes asks for a paid SMS or a login email before it
+              sends a code to a phone number; the QR code avoids both.</p>
+          </details>
+          <details class="reveal">
+            <summary>Do videos fill up my TV's storage?</summary>
+            <p>No. Videos are streamed, and the parts you watch are deleted afterwards.</p>
+          </details>
+          <details class="reveal">
+            <summary>A video won't play. What now?</summary>
+            <p>VueGram's player tries other decoders by itself. For the rare file none of them can play, install
+              <a href="https://github.com/mpv-android/mpv-android/releases">mpv-android</a>: VueGram then opens the
+              video there, at the same position. See <a href="https://docs.vuegram.com/guide/troubleshooting">troubleshooting</a>.</p>
+          </details>
+          <details class="reveal">
+            <summary>Is it on the Play Store?</summary>
+            <p>No. VueGram is installed from its <a href="https://github.com/vuegram/vuegram/releases">GitHub
+              releases</a>, and after that it updates itself.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Final call to action ============ -->
+    <section class="cta-band">
+      <div class="wrap">
+        <div class="cta-card reveal">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <svg class="cta-mark" aria-hidden="true"><use href="#glyph" width="100%" height="100%"/></svg>
+          <h2>Lean back.<br><span class="grad">Your channels are on.</span></h2>
+          <p class="cta-meta"><span data-gh-version-long>Free and open source</span> · Android TV &amp; Google TV ·
+            Android 6.0+</p>
+          <div class="hero-cta">
+            <a class="btn btn-light btn-lg" href="https://github.com/vuegram/vuegram/releases" data-gh-release-link>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>
+              Download VueGram
+            </a>
+            <a class="link-quiet" href="https://github.com/vuegram/vuegram">View the source <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-row">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="VueGram home">
+            <svg class="brand-mark" aria-hidden="true"><use href="#glyph" width="100%" height="100%"/></svg>
+            <span>VueGram</span>
+          </a>
+          <span class="say">Say it "view-gram".</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="https://docs.vuegram.com/">Docs</a>
+          <a href="https://github.com/vuegram/vuegram">GitHub</a>
+          <a href="/privacy">Privacy policy</a>
+          <a href="https://github.com/vuegram/vuegram/releases">Releases</a>
+          <a href="https://github.com/vuegram/vuegram/blob/main/LICENSE">MIT License</a>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <p>VueGram is an unofficial app. It is not made by, affiliated with or endorsed by Telegram. Telegram is a
+          trademark of its owner.</p>
+        <p>© <span data-year>2026</span> VueGram contributors · No cookies, no analytics.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- VueGram's mark, the Folded play (logo.svg without its background), used by the <use> elements above. -->
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <defs>
+      <radialGradient id="vg-glow" cx="30%" cy="22%" r="95%">
+        <stop offset="0" stop-color="#2a1b5c"/><stop offset=".55" stop-color="#0d0a1f"/><stop offset="1" stop-color="#000"/>
+      </radialGradient>
+      <linearGradient id="vg-dark" gradientUnits="userSpaceOnUse" x1="36" y1="28" x2="81" y2="80">
+        <stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#4c1d95"/>
+      </linearGradient>
+      <linearGradient id="vg-light" gradientUnits="userSpaceOnUse" x1="36" y1="28" x2="53" y2="80">
+        <stop offset="0" stop-color="#ede9fe"/><stop offset="1" stop-color="#a78bfa"/>
+      </linearGradient>
+    </defs>
+    <symbol id="glyph" viewBox="31 25 56 56">
+      <path d="M40,30 Q36,28 36,33 V75 Q36,80 40,78 L78,57 Q82,54 78,51 Z" fill="url(#vg-dark)"/>
+      <path d="M40,30 Q36,28 36,33 V75 Q36,80 40,78 L53,58 Z" fill="url(#vg-light)"/>
+      <path d="M40,30 L53,58 L78,51 Z" fill="#a78bfa" fill-opacity=".55"/>
+    </symbol>
+  </svg>
+</body>
+</html>

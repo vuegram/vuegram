@@ -1,0 +1,5 @@
+# Files in this folder that are not part of the website (Workers static assets read this list).
+wrangler.jsonc
+.assetsignore
+.wrangler
+node_modules

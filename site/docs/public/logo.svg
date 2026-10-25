@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108" role="img" aria-labelledby="t">
+  <title id="t">VueGram</title>
+  <!-- VueGram's mark, the Folded play (app/src/main/res/drawable-v24/vg_glyph.xml): a play button folded like a
+       paper plane, on the brand's violet glow. -->
+  <defs>
+    <radialGradient id="vg-glow" cx="30%" cy="22%" r="95%">
+      <stop offset="0" stop-color="#2a1b5c"/><stop offset=".55" stop-color="#0d0a1f"/><stop offset="1" stop-color="#000"/>
+    </radialGradient>
+    <linearGradient id="vg-dark" gradientUnits="userSpaceOnUse" x1="36" y1="28" x2="81" y2="80">
+      <stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#4c1d95"/>
+    </linearGradient>
+    <linearGradient id="vg-light" gradientUnits="userSpaceOnUse" x1="36" y1="28" x2="53" y2="80">
+      <stop offset="0" stop-color="#ede9fe"/><stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="108" height="108" rx="24" fill="url(#vg-glow)"/>
+  <path d="M40,30 Q36,28 36,33 V75 Q36,80 40,78 L78,57 Q82,54 78,51 Z" fill="url(#vg-dark)"/>
+  <path d="M40,30 Q36,28 36,33 V75 Q36,80 40,78 L53,58 Z" fill="url(#vg-light)"/>
+  <path d="M40,30 L53,58 L78,51 Z" fill="#a78bfa" fill-opacity=".55"/>
+</svg>

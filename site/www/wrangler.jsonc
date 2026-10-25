@@ -1,0 +1,17 @@
+// vuegram.com: a Worker with static assets only (no Worker script), deployed by Cloudflare Workers Builds.
+// Docs: https://developers.cloudflare.com/workers/static-assets/  See site/README.md for the setup.
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "vuegram-www",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    // This folder is the site. .assetsignore keeps this file out of the upload.
+    "directory": ".",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "vuegram.com", "custom_domain": true },
+    { "pattern": "www.vuegram.com", "custom_domain": true }
+  ]
+}

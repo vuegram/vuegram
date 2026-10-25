@@ -1,0 +1,16 @@
+{
+  "name": "vuegram-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VueGram's documentation site (docs.vuegram.com), built with VitePress.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

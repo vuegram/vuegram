@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One row of video cards (Continue watching, New in your channels) that scrolls sideways with Left and Right. Its
+     cards draw past its edges, so the zoomed card and the glass are not cut off. -->
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shelf"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="horizontal"
+    android:overScrollMode="never"
+    android:scrollbars="none" />

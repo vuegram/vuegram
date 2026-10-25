@@ -1,0 +1,15 @@
+// docs.vuegram.com: a Worker with static assets only (no Worker script), deployed by Cloudflare Workers Builds.
+// The build command (npm run build) writes the site to .vitepress/dist. See site/README.md for the setup.
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "vuegram-docs",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./.vitepress/dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "docs.vuegram.com", "custom_domain": true }
+  ]
+}

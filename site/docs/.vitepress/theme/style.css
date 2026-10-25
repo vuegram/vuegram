@@ -1,0 +1,155 @@
+/* VueGram's look on VitePress, matching vuegram.com: black, near-black cards (#1C1C1F), white and grey (#8E8E93)
+   type, Outfit, and the brand's indigo-to-violet for links and accents. */
+
+:root {
+  --vp-font-family-base: 'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --vp-font-family-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+
+  --vg-violet: #7c3aed;
+  --vg-violet-2: #8b5cf6;
+  --vg-lilac: #c4b5fd;
+  --vg-lilac-2: #a78bfa;
+  --vg-card: #1c1c1f;
+  --vg-line: rgba(255, 255, 255, 0.08);
+  --vg-line-2: rgba(255, 255, 255, 0.13);
+  --vg-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dark {
+  --vp-c-bg: #000000;
+  --vp-c-bg-alt: #050506;
+  --vp-c-bg-elv: #141416;
+  --vp-c-bg-soft: #141416;
+
+  --vp-c-border: #2a2a2e;
+  --vp-c-divider: #1c1c1f;
+  --vp-c-gutter: #000000;
+
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #a1a1a6;
+  --vp-c-text-3: #7a7a80;
+
+  --vp-c-brand-1: #c4b5fd;
+  --vp-c-brand-2: #a78bfa;
+  --vp-c-brand-3: #7c3aed;
+  --vp-c-brand-soft: rgba(124, 58, 237, 0.16);
+
+  --vp-c-default-soft: rgba(255, 255, 255, 0.06);
+
+  --vp-code-block-bg: #0b0b0d;
+  --vp-code-bg: rgba(255, 255, 255, 0.07);
+  --vp-code-color: #e5e5ea;
+  --vp-code-copy-code-bg: #141416;
+
+  --vp-button-brand-bg: #ffffff;
+  --vp-button-brand-text: #000000;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-bg: #ffffff;
+  --vp-button-brand-hover-text: #000000;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-active-bg: #e5e5ea;
+  --vp-button-brand-active-text: #000000;
+  --vp-button-alt-bg: rgba(255, 255, 255, 0.04);
+  --vp-button-alt-text: #ffffff;
+  --vp-button-alt-border: rgba(255, 255, 255, 0.13);
+  --vp-button-alt-hover-bg: rgba(255, 255, 255, 0.08);
+  --vp-button-alt-hover-text: #ffffff;
+  --vp-button-alt-hover-border: rgba(255, 255, 255, 0.24);
+
+  --vp-sidebar-bg-color: #000000;
+  --vp-nav-bg-color: rgba(8, 8, 10, 0.74);
+  --vp-local-search-bg: #0a0a0b;
+  --vp-local-search-result-bg: #141416;
+  --vp-local-search-result-border: rgba(255, 255, 255, 0.08);
+  --vp-local-search-highlight-bg: rgba(124, 58, 237, 0.45);
+  --vp-local-search-highlight-text: #ffffff;
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(95deg, #ffffff 0%, #c4b5fd 50%, #8b5cf6 100%);
+  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(124, 58, 237, 0.6), rgba(49, 46, 129, 0.4) 45%, transparent 70%);
+  --vp-home-hero-image-filter: blur(60px);
+
+  --vp-custom-block-tip-bg: rgba(124, 58, 237, 0.09);
+  --vp-custom-block-tip-border: rgba(167, 139, 250, 0.22);
+  --vp-custom-block-info-bg: #111113;
+  --vp-custom-block-info-border: rgba(255, 255, 255, 0.08);
+}
+
+::selection { background: rgba(124, 58, 237, 0.55); color: #fff; }
+
+/* ---------- Type ---------- */
+
+.vp-doc { font-weight: 300; }
+.vp-doc p, .vp-doc li { line-height: 1.75; }
+.vp-doc strong { font-weight: 500; color: var(--vp-c-text-1); }
+.vp-doc h1 { font-weight: 500; letter-spacing: -0.035em; font-size: 40px; line-height: 1.1; }
+.vp-doc h2 { font-weight: 500; letter-spacing: -0.025em; }
+.vp-doc h3 { font-weight: 500; letter-spacing: -0.015em; }
+.vp-doc a { text-underline-offset: 3px; text-decoration-color: rgba(196, 181, 253, 0.4); }
+.vp-doc a:hover { text-decoration-color: currentColor; }
+@media (min-width: 768px) { .vp-doc h1 { font-size: 46px; } }
+
+.VPNavBarTitle .title { font-weight: 500; font-size: 18px; letter-spacing: -0.01em; }
+.VPNavBarMenuLink { font-weight: 400; }
+.VPSidebarItem .text { font-weight: 400; }
+.VPSidebarItem.level-0 > .item .text { font-weight: 500; }
+
+/* ---------- Home ---------- */
+
+.VPHome { position: relative; isolation: isolate; overflow: hidden; }
+.VPHome::before { /* the same slow aurora as vuegram.com, cheap: one layer, transforms only */
+  content: ''; position: absolute; z-index: -1; left: 50%; top: -160px; width: 1200px; height: 760px; margin-left: -600px;
+  pointer-events: none; border-radius: 50%;
+  background:
+    radial-gradient(closest-side at 30% 50%, rgba(124, 58, 237, 0.32), transparent),
+    radial-gradient(closest-side at 70% 55%, rgba(49, 46, 129, 0.55), transparent);
+  animation: vg-drift 24s ease-in-out infinite alternate;
+}
+@keyframes vg-drift { to { transform: translate3d(40px, 30px, 0) scale(1.08); } }
+
+.VPHero .name, .VPHero .text { font-weight: 500; letter-spacing: -0.045em; line-height: 1.02; }
+.VPHero .text { color: #fff; }
+.VPHero .tagline { color: var(--vp-c-text-2); font-weight: 300; }
+.VPHero .image-src { filter: drop-shadow(0 0 40px rgba(167, 139, 250, 0.45)); border-radius: 28%; }
+.VPHero .VPButton { border-radius: 999px; font-weight: 500; transition: transform 0.25s, box-shadow 0.25s, background-color 0.2s, border-color 0.2s; }
+.VPHero .VPButton.brand { box-shadow: 0 8px 30px -8px rgba(167, 139, 250, 0.6); }
+.VPHero .VPButton.brand:hover { transform: translateY(-1px); box-shadow: 0 14px 44px -8px rgba(167, 139, 250, 0.85); }
+
+.VPFeature {
+  background: linear-gradient(180deg, #161618, #0d0d0f) !important;
+  border: 1px solid var(--vg-line) !important; border-radius: 22px !important;
+  transition: border-color 0.3s, transform 0.4s var(--vg-spring) !important;
+}
+.VPFeature.link:hover { border-color: rgba(196, 181, 253, 0.4) !important; transform: translateY(-2px); }
+.VPFeature .box { padding: 26px !important; }
+.VPFeature .icon {
+  width: 52px !important; height: 52px !important; border-radius: 15px !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)) !important;
+  border: 1px solid var(--vg-line-2); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+.VPFeature .title { font-weight: 500; font-size: 18px; letter-spacing: -0.015em; }
+.VPFeature .details { color: var(--vp-c-text-2); }
+.VPFeature .link-text-value { color: var(--vg-lilac); }
+
+/* ---------- Pages ---------- */
+
+.vp-doc table { border-radius: 12px; }
+.vp-doc tr { background-color: transparent; }
+.vp-doc tr:nth-child(2n) { background-color: #0b0b0d; }
+.vp-doc th { background-color: #141416; font-weight: 500; }
+.vp-doc .custom-block { border-radius: 14px; }
+.vp-doc div[class*='language-'] { border-radius: 14px; border: 1px solid var(--vg-line); }
+
+/* Keyboard keys, for the remote. */
+.vp-doc kbd {
+  display: inline-block; min-width: 1.8em; padding: 0.05em 0.5em;
+  border: 1px solid #3a3a3e; border-bottom-width: 2px; border-radius: 6px;
+  background: var(--vg-card); color: #fff;
+  font-family: var(--vp-font-family-base); font-size: 0.85em; font-weight: 500; text-align: center; line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .VPHome::before { animation: none; }
+  .VPFeature, .VPHero .VPButton { transition: none !important; }
+  .VPFeature.link:hover { transform: none; }
+}

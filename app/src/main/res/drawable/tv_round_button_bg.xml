@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Round icon buttons (voice search): frosted at rest, a bright rim when focused, like the search pill. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:shape="oval">
+            <solid android:color="#40FFFFFF" />
+            <stroke android:width="1.5dp" android:color="#CCFFFFFF" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#1FFFFFFF" />
+        </shape>
+    </item>
+</selector>

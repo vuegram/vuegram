@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy · VueGram</title>
+  <meta name="description" content="VueGram's privacy policy: VueGram collects nothing. Your Telegram data goes between your TV and Telegram only.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="legal">
+    <div class="wrap">
+      <a class="legal-home" href="/"><img src="/logo.svg" alt="" width="40" height="40"> VueGram</a>
+      <p class="eyebrow">Privacy policy</p>
+      <h1>VueGram collects nothing.</h1>
+      <p class="lede">Last updated: 25 October 2026. This policy covers the VueGram app for Android TV and Google TV, and
+        the websites vuegram.com and docs.vuegram.com.</p>
+
+      <h2>The short version</h2>
+      <ul>
+        <li>VueGram has no accounts, no servers, no analytics, no ads and no crash reporting service.</li>
+        <li>Your Telegram data goes between your TV and Telegram, and nowhere else.</li>
+        <li>What VueGram remembers (where you stopped, your settings) stays on your TV.</li>
+      </ul>
+
+      <h2>What goes to Telegram</h2>
+      <p>VueGram is a Telegram client built on Telegram's own library (TDLib). To show your groups and channels and play
+        their videos, it talks to Telegram's servers with your own API ID and hash and your Telegram login, the way
+        any Telegram app does. Telegram's own <a href="https://telegram.org/privacy">privacy policy</a> covers what
+        Telegram does with it. VueGram is unofficial and not made by Telegram.</p>
+
+      <h2>What stays on your TV</h2>
+      <ul>
+        <li>Your Telegram session and your API ID and hash, in VueGram's private storage. They are excluded from
+          Android's backups and device transfer.</li>
+        <li>Where you stopped in each video, what you watched, the chats you pinned or hid, and your settings.</li>
+        <li>The last crash report, if VueGram ever closed unexpectedly. It is shown only in VueGram's Settings, and you
+          can delete it there.</li>
+        <li>Videos are streamed, not stored: the parts you watch are deleted when you leave the player.</li>
+      </ul>
+      <p>Logging out (Settings › Log out) deletes the Telegram session and your watch history, pinned and hidden chats
+        and crash report from the TV. Uninstalling VueGram deletes everything.</p>
+
+      <h2>The one other request: updates</h2>
+      <p>At most every 12 hours, VueGram asks GitHub's public API for the newest VueGram release, and downloads it from
+        GitHub when there is one. Nothing about you or your TV is sent, beyond what any web request carries (the
+        TV's IP address, seen by GitHub). You can turn automatic updates off in Settings.</p>
+
+      <h2>During setup: the page for your API keys</h2>
+      <p>To save you typing with a remote, VueGram can show a QR code that opens a small page served by the TV itself,
+        on your home network, where you paste your API ID and hash from your phone. The page exists only during setup,
+        sends the keys straight to the TV and nowhere else, and closes once they arrive.</p>
+
+      <h2>Voice search</h2>
+      <p>The microphone button uses your TV's own speech recognition (on Google TV, Google's). VueGram receives only the
+        recognized words, to search with. Your TV's speech service is covered by its maker's privacy policy.</p>
+
+      <h2>These websites</h2>
+      <p>vuegram.com and docs.vuegram.com have no cookies, analytics or trackers. They load the Outfit font from Google
+        Fonts, and vuegram.com asks GitHub's public API for the latest release number. They are hosted on Cloudflare,
+        which, like any host, sees the requests made to it.</p>
+
+      <h2>Children</h2>
+      <p>VueGram shows content from your own Telegram account and is not directed at children.</p>
+
+      <h2>Changes and contact</h2>
+      <p>Changes to this policy are published here and in VueGram's
+        <a href="https://github.com/vuegram/vuegram">GitHub repository</a>. Questions go to the repository's
+        discussions; security problems are reported privately as its
+        <a href="https://github.com/vuegram/vuegram/security/policy">security policy</a> describes.</p>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Weekly pull requests for outdated GitHub Actions, Gradle dependencies and the docs site's npm packages.
+# Each one still has to pass CI and, for the app, a test on a real TV before it is merged.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+  - package-ecosystem: npm
+    directory: /site/docs
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

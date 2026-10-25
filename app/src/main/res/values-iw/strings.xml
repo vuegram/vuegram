@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_phone_hint">מספר טלפון</string>
+    <string name="auth_code_hint">קוד התחברות</string>
+    <string name="auth_password_hint">סיסמת אימות דו-שלבי</string>
+    <string name="auth_api_id_hint">Telegram API ID</string>
+    <string name="auth_api_hash_hint">Telegram API Hash</string>
+    <string name="auth_qr_button">התחברות עם קוד QR</string>
+    <string name="auth_qr_title">סרקו כדי להתחבר</string>
+    <string name="auth_qr_steps">1.  פתחו את Telegram בטלפון\n2.  עברו אל הגדרות › מכשירים\n3.  הקישו על קישור מכשיר שולחני וכוונו את המצלמה לקוד הזה</string>
+    <string name="auth_qr_description">קוד QR להתחברות עם Telegram בטלפון</string>
+    <string name="auth_code_title">הזינו את קוד ההתחברות</string>
+    <string name="auth_password_title">הזינו את סיסמת האימות הדו-שלבי</string>
+    <string name="auth_bad_keys">ה-API ID וה-hash האלה נדחו על ידי Telegram. בדקו את שניהם ב-my.telegram.org (בקטע API development tools) והזינו אותם שוב.</string>
+    <string name="auth_change_keys">הזנת מפתחות ה-API מחדש</string>
+    <string name="auth_blocked_email">לפני שליחת הקוד, Telegram דורש כתובת אימייל להתחברות. התחברו עם קוד QR במקום: בלי אימייל ובלי קוד.</string>
+    <string name="auth_blocked_sms_fee">עבור המספר הזה Telegram דורש SMS בתשלום. התחברו עם קוד QR במקום: זה בחינם ובלי SMS.</string>
+
+
+    <string name="library_title">הערוצים שלכם</string>
+    <string name="library_loading">טוענים את הקבוצות והערוצים שלכם…</string>
+    <string name="library_empty">עדיין אין קבוצות או ערוצים</string>
+    <string name="kind_channel">ערוץ</string>
+    <string name="kind_group">קבוצה</string>
+    <string name="chat_loading">מחפשים סרטונים…</string>
+    <string name="chat_empty">אין סרטונים בצ׳אט הזה</string>
+    <string name="no_player">לא נמצא נגן וידאו</string>
+    <string name="press_back_again">לחצו שוב על \"חזרה\" כדי לצאת</string>
+
+    <string name="section_continue">המשך צפייה</string>
+    <string name="section_chats">ערוצים וקבוצות</string>
+    <string name="continue_sub">%1$s  ·  %2$s</string>
+    <string name="resuming_at">ממשיכים מ-%1$s</string>
+    <string name="watched_badge">✓ נצפה</string>
+    <string name="meta_watched">נצפה</string>
+    <plurals name="meta_left">
+        <item quantity="one">נותרה %1$d דקה</item>
+        <item quantity="two">נותרו %1$d דקות</item>
+        <item quantity="many">נותרו %1$d דקות</item>
+        <item quantity="other">נותרו %1$d דקות</item>
+    </plurals>
+    <string name="meta_stopped_at">עצרתם ב-%1$s</string>
+
+    <string name="search_chat_hint">חיפוש בערוץ הזה</string>
+    <string name="search_all_hint">חיפוש בכל הערוצים</string>
+    <string name="search_all_title">חיפוש בכל הערוצים</string>
+    <string name="search_all_kind">קבוצות וערוצים</string>
+    <string name="chat_searching">מחפשים…</string>
+    <string name="search_no_results">לא נמצאו סרטונים עבור \"%1$s\"</string>
+
+    <string name="hidden_title">ערוצים מוסתרים</string>
+    <plurals name="hidden_sub">
+        <item quantity="one">%1$d מוסתר  ·  OK להצגה או להסתרה  ·  לחיצה ארוכה על OK מבטלת את ההסתרה</item>
+        <item quantity="two">%1$d מוסתרים  ·  OK להצגה או להסתרה  ·  לחיצה ארוכה על OK באחד מהם מבטלת את ההסתרה שלו</item>
+        <item quantity="many">%1$d מוסתרים  ·  OK להצגה או להסתרה  ·  לחיצה ארוכה על OK באחד מהם מבטלת את ההסתרה שלו</item>
+        <item quantity="other">%1$d מוסתרים  ·  OK להצגה או להסתרה  ·  לחיצה ארוכה על OK באחד מהם מבטלת את ההסתרה שלו</item>
+    </plurals>
+    <string name="hidden_kind">%1$s  ·  במוסתרים  ·  לחיצה ארוכה על OK לביטול ההסתרה</string>
+    <string name="hidden_card_show">הצגת המוסתרים</string>
+    <string name="hidden_card_hide">הסתרת המוסתרים</string>
+    <string name="section_pinned">מוצמדים</string>
+    <string name="pinned_kind">%1$s  ·  במוצמדים</string>
+    <string name="menu_pin">הצמדה למעלה</string>
+    <string name="menu_unpin">ביטול הצמדה</string>
+    <string name="menu_hide">הסתרה מ-VueGram</string>
+    <string name="menu_unhide">הצגה מחדש ב-VueGram</string>
+    <string name="menu_mark_watched">סימון כנצפה</string>
+    <string name="menu_mark_unwatched">סימון כלא נצפה</string>
+    <string name="menu_play_mpv">ניגון ב-mpv</string>
+    <string name="menu_from_start">ניגון מההתחלה</string>
+    <string name="player_seek_label">%1$s  ·  %2$s</string>
+    <string name="player_cannot_play">אי אפשר לנגן כאן את הפורמט של הסרטון הזה, ו-mpv לא מותקן.</string>
+    <string name="player_stream_error_title">טעינת הסרטון נעצרה</string>
+    <string name="close_player">סגירה</string>
+    <string name="player_opening_mpv">פותחים את הסרטון ב-mpv…</string>
+    <string name="no_mpv">הנגן mpv לא מותקן, אז מנגנים כאן</string>
+    <string name="menu_remove">הסרה מ\"המשך צפייה\"</string>
+    <string name="menu_cancel">ביטול</string>
+
+    <string name="update_pill">עדכון לגרסה %1$s</string>
+    <string name="update_title">גרסה %1$s של VueGram זמינה (אצלכם מותקנת %2$s)</string>
+    <string name="update_no_notes">גרסה חדשה של VueGram מוכנה.</string>
+    <string name="update_now">עדכון</string>
+    <string name="update_later">לא עכשיו</string>
+    <string name="update_permission_title">אפשרו ל-VueGram להתקין את העדכונים שלו</string>
+    <string name="update_permission_message">צריך לאשר את זה ב-Android פעם אחת בלבד. במסך הבא הפעילו את \"התרה מהמקור הזה\" עבור VueGram, לחצו על \"חזרה\" ובחרו שוב \"עדכון\".</string>
+    <string name="update_open_settings">פתיחת ההגדרות</string>
+    <string name="update_no_settings">בטלוויזיה הזו אין מסך \"התקנת אפליקציות לא מוכרות\" עבור VueGram.</string>
+    <string name="update_downloading_title">מורידים את VueGram %1$s</string>
+    <string name="update_downloading">בודקים את הקובץ מול סכום הביקורת (checksum) של הגרסה ומפתח החתימה של VueGram…</string>
+    <string name="update_installing">מעבירים את העדכון ל-Android…</string>
+    <string name="update_failed_title">העדכון לא הותקן</string>
+    <string name="update_install_failed">העדכון לא הותקן: %1$s</string>
+
+    <string name="kind_person">איש קשר</string>
+    <string name="kind_saved">הודעות שמורות</string>
+    <string name="section_all_chats">הצ׳אטים שלכם</string>
+    <string name="search_messages_hint">חיפוש בצ׳אט הזה</string>
+    <string name="feed_loading">טוענים הודעות…</string>
+    <string name="feed_empty">אין הודעות בצ׳אט הזה</string>
+    <string name="feed_photo">תמונה</string>
+    <string name="feed_video">סרטון</string>
+    <string name="photo_meta">%1$s  ·  %2$d מתוך %3$d  ·  שמאלה וימינה לתמונות נוספות</string>
+    <string name="photo_failed">לא הצלחנו לטעון את התמונה.</string>
+
+    <string name="action_retry">נסו שוב</string>
+    <plurals name="error_slow_down">
+        <item quantity="one">יותר מדי בקשות ל-Telegram בזמן קצר. נסו שוב בעוד %1$d שנייה.</item>
+        <item quantity="two">יותר מדי בקשות ל-Telegram בזמן קצר. נסו שוב בעוד %1$d שניות.</item>
+        <item quantity="many">יותר מדי בקשות ל-Telegram בזמן קצר. נסו שוב בעוד %1$d שניות.</item>
+        <item quantity="other">יותר מדי בקשות ל-Telegram בזמן קצר. נסו שוב בעוד %1$d שניות.</item>
+    </plurals>
+    <string name="error_network">אין חיבור ל-Telegram. בדקו את חיבור האינטרנט של הטלוויזיה ונסו שוב.</string>
+    <string name="error_other">הודעה מ-Telegram: %1$s</string>
+    <string name="connection_connecting">מתחברים…</string>
+    <string name="connection_updating">מעדכנים…</string>
+    <string name="connection_waiting">ממתינים לרשת…</string>
+
+    <string name="settings_title">הגדרות</string>
+    <string name="settings_on">פועל</string>
+    <string name="settings_off">כבוי</string>
+    <string name="settings_people">הצגת אנשי קשר</string>
+    <string name="settings_people_summary">הצגה גם של צ׳אטים פרטיים ושל הודעות שמורות, לא רק של קבוצות וערוצים.</string>
+    <string name="settings_messages">הצגת הודעות</string>
+    <string name="settings_messages_summary">בצ׳אטים יוצגו כל ההודעות (טקסט, תמונות, סרטונים וקבצים), לא רק הסרטונים.</string>
+    <string name="settings_update">בדיקת עדכונים</string>
+    <string name="settings_update_summary">הגרסה שלכם: VueGram %1$s. בדיקה ב-GitHub אם יש גרסה חדשה יותר.</string>
+    <string name="settings_update_checking">מחפשים ב-GitHub גרסה חדשה של VueGram…</string>
+    <string name="settings_update_latest">גרסה %1$s של VueGram היא העדכנית ביותר.</string>
+    <string name="settings_crash">דוח הקריסה האחרון</string>
+    <string name="settings_crash_summary">האפליקציה נסגרה באופן לא צפוי %1$s. לחיצה על OK תציג מה קרה (הדוח נשאר בטלוויזיה הזו).</string>
+    <string name="settings_crash_delete">מחיקת הדוח</string>
+    <string name="settings_logout">התנתקות</string>
+    <string name="settings_logout_summary">ניתוק הטלוויזיה הזו מ-Telegram.</string>
+    <string name="settings_logout_confirm">הטלוויזיה הזו תנותק מ-Telegram. היסטוריית הצפייה וההגדרות יישארו בטלוויזיה; כדי להתחבר שוב, סרקו קוד QR חדש.</string>
+
+    <string name="settings_language">שפה</string>
+    <string name="settings_language_summary">השפה של VueGram היא שפת הטלוויזיה, או השפה שתבחרו כאן.</string>
+    <string name="settings_language_system">שפת הטלוויזיה</string>
+
+    <string name="label_video_message">הודעת וידאו</string>
+    <string name="label_gif">GIF</string>
+    <string name="label_file">📄 %1$s</string>
+    <string name="label_file_unnamed">📄 קובץ</string>
+    <string name="label_audio">🎵 %1$s</string>
+    <string name="label_audio_unnamed">🎵 אודיו</string>
+    <string name="label_voice">🎤 הודעה קולית</string>
+    <string name="label_sticker">%1$s מדבקה</string>
+    <string name="label_poll">📊 %1$s</string>
+    <string name="label_location">📍 מיקום</string>
+    <string name="label_contact">👤 %1$s</string>
+    <string name="error_unknown">שגיאה לא ידועה</string>
+    <string name="error_unexpected">תשובה לא צפויה מ-Telegram</string>
+    <string name="error_load_chats">לא הצלחנו לטעון את הצ׳אטים שלכם</string>
+
+    <string name="auth_logging_out">מתנתקים…</string>
+    <string name="stream_channel">הזרמת וידאו</string>
+    <string name="stream_notification">מזרימים סרטון</string>
+
+    <string name="onboarding_step">שלב %1$d מתוך %2$d</string>
+    <string name="onboarding_wait">רק רגע…</string>
+    <string name="onboarding_ready">התחברתם</string>
+    <string name="onboarding_welcome_title">ברוכים הבאים ל-VueGram</string>
+    <string name="onboarding_welcome_body">הערוצים והקבוצות שלכם ב-Telegram, על המסך הגדול. ההגדרה לוקחת בערך שתי דקות: מפתחות ה-API שלכם ב-Telegram, ואחר כך קוד QR לסריקה בטלפון.</string>
+    <string name="onboarding_get_started">בואו נתחיל</string>
+    <string name="onboarding_language">שפה: %1$s</string>
+    <string name="onboarding_keys_title">מפתחות ה-API שלכם ב-Telegram</string>
+    <string name="onboarding_keys_body">החיבור של VueGram ל-Telegram נעשה עם ה-API ID וה-hash שלכם. הם בחינם: התחברו ל-my.telegram.org עם מספר הטלפון, פתחו את API development tools וצרו אפליקציה (כל שם מתאים). אחר כך שלחו את שני הערכים לטלוויזיה הזו.</string>
+    <string name="onboarding_keys_qr_caption">סרקו עם המצלמה של הטלפון. ייפתח דף שבו אפשר להשיג את המפתחות ולשלוח אותם לטלוויזיה הזו. הטלפון צריך להיות מחובר לאותה רשת Wi-Fi.</string>
+    <string name="onboarding_type_keys">הקלדה עם השלט</string>
+    <string name="onboarding_send_from_phone">שליחה מהטלפון שלי</string>
+    <string name="onboarding_continue">המשך</string>
+    <string name="onboarding_error_api_id">ה-API ID הוא מספר, למשל 1234567.</string>
+    <string name="onboarding_error_api_hash">ה-API hash מורכב מ-32 אותיות וספרות: ספרות 0 עד 9 ואותיות a עד f.</string>
+    <string name="onboarding_qr_caption">הקוד מתחדש מעצמו עד שתסרקו אותו.</string>
+    <string name="onboarding_use_phone">שימוש במספר טלפון במקום</string>
+    <string name="onboarding_phone_title">מספר הטלפון שלכם</string>
+    <string name="onboarding_phone_body">כולל קידומת המדינה, למשל ‎+1 555 123 4567. קוד להתחברות יישלח אליכם מ-Telegram.</string>
+    <string name="onboarding_send_code">שליחת קוד</string>
+    <string name="onboarding_code_app">הקוד נשלח לאפליקציית Telegram במכשיר אחר שלכם. חפשו הודעה מ-Telegram.</string>
+    <string name="onboarding_code_sms">הקוד נשלח אליכם ב-SMS.</string>
+    <string name="onboarding_code_other">הזינו את הקוד שקיבלתם מ-Telegram.</string>
+    <string name="onboarding_sign_in">התחברות</string>
+    <string name="onboarding_password_body">בחשבון שלכם מופעל אימות דו-שלבי, ולכן Telegram מבקש גם את הסיסמה.</string>
+    <string name="onboarding_password_hint_is">הרמז שלכם: %1$s</string>
+    <string name="onboarding_blocked_title">התחברו עם קוד QR במקום</string>
+    <string name="onboarding_blocked_no_account">למספר הזה עדיין אין חשבון Telegram. הירשמו קודם באפליקציית Telegram, או סרקו קוד QR עם טלפון שמותקן בו Telegram.</string>
+    <string name="onboarding_bad_keys_title">המפתחות האלה נדחו על ידי Telegram</string>
+    <string name="onboarding_error_phone">המספר לא נראה תקין. הוסיפו את קידומת המדינה, למשל ‎+1.</string>
+    <string name="onboarding_error_code">הקוד לא נכון. בדקו אותו ונסו שוב.</string>
+    <string name="onboarding_error_code_expired">תוקף הקוד פג. חזרו אחורה ובקשו קוד חדש.</string>
+    <string name="onboarding_error_password">הסיסמה לא נכונה.</string>
+    <string name="keydrop_title">שליחת מפתחות ה-API לטלוויזיה</string>
+    <string name="keydrop_intro">השיגו אותם מ-Telegram והדביקו אותם כאן למטה. הם עוברים ישירות לטלוויזיה דרך רשת ה-Wi-Fi שלכם.</string>
+    <string name="keydrop_open_site">פתיחת my.telegram.org</string>
+    <string name="keydrop_site_steps">התחברו עם מספר הטלפון, פתחו את API development tools, צרו אפליקציה (כל שם מתאים) והעתיקו את App api_id ואת App api_hash.</string>
+    <string name="keydrop_send">שליחה לטלוויזיה</string>
+    <string name="keydrop_sent">נשלח. אפשר להניח את הטלפון ולהמשיך בטלוויזיה.</string>
+    <string name="keydrop_invalid">משהו לא נראה תקין: ה-API ID הוא מספר, וה-API hash מורכב מ-32 אותיות וספרות.</string>
+    <string name="update_ready_pill">עדכון מוכן: %1$s</string>
+    <string name="update_ready_title">גרסה %1$s של VueGram מוכנה להתקנה</string>
+    <string name="update_install_now">התקנה עכשיו</string>
+    <string name="update_installing_title">מתקינים את VueGram %1$s</string>
+    <string name="update_not_signed">העדכון שהורד לא חתום במפתח של VueGram, ולכן הוא לא הותקן.</string>
+    <string name="whats_new_title">מה חדש בגרסה %1$s של VueGram</string>
+    <string name="whats_new_fallback">גרסה %1$s של VueGram הותקנה.</string>
+    <string name="settings_auto_update">עדכונים אוטומטיים</string>
+    <string name="settings_auto_update_summary">גרסאות חדשות יורדות ברקע, ותתבקשו פעם אחת לאשר את ההתקנה. בחיבור עם הגבלת נתונים, VueGram רק יודיע לכם עליהן.</string>
+
+    <string name="player_up_next">הבא בתור</string>
+    <plurals name="player_up_next_in">
+        <item quantity="one">מתחיל בעוד %1$d שנייה</item>
+        <item quantity="two">מתחיל בעוד %1$d שניות</item>
+        <item quantity="many">מתחיל בעוד %1$d שניות</item>
+        <item quantity="other">מתחיל בעוד %1$d שניות</item>
+    </plurals>
+    <string name="player_up_next_hint">לחצו על OK כדי לנגן עכשיו  ·  על \"חזרה\" כדי לעצור</string>
+    <string name="player_options_hint">▼  כתוביות, שמע, מהירות, טיימר שינה</string>
+    <string name="player_options">אפשרויות</string>
+    <string name="player_subtitles">כתוביות</string>
+    <string name="player_audio">שמע</string>
+    <string name="player_speed">מהירות</string>
+    <string name="player_sleep">טיימר שינה</string>
+    <string name="player_subtitles_value">כתוביות: %1$s</string>
+    <string name="player_audio_value">שמע: %1$s</string>
+    <string name="player_speed_value">מהירות: %1$s</string>
+    <string name="player_sleep_value">טיימר שינה: %1$s</string>
+    <string name="player_off">כבוי</string>
+    <string name="player_speed_normal">רגילה</string>
+    <string name="player_track_number">רצועה %1$d</string>
+    <string name="player_no_subtitles">לסרטון הזה אין כתוביות.</string>
+    <string name="player_no_audio_tracks">לסרטון הזה יש רק רצועת שמע אחת.</string>
+    <plurals name="player_minutes">
+        <item quantity="one">%1$d דקה</item>
+        <item quantity="two">%1$d דקות</item>
+        <item quantity="many">%1$d דקות</item>
+        <item quantity="other">%1$d דקות</item>
+    </plurals>
+    <string name="player_sleep_end">סוף הסרטון הזה</string>
+    <string name="settings_play_next">ניגון הסרטון הבא</string>
+    <string name="settings_play_next_summary">כשסרטון נגמר, הסרטון הבא בצ׳אט מתחיל אחרי ספירה לאחור של 10 שניות.</string>
+
+    <string name="voice_search">חיפוש קולי</string>
+    <string name="voice_prompt">אמרו מה לחפש</string>
+
+    <string name="folders_all">כל הצ׳אטים</string>
+    <string name="section_recent">חדש בערוצים שלכם</string>
+    <string name="onboarding_keys_wifi">📶 הטלפון צריך להיות מחובר לאותה רשת Wi-Fi של הטלוויזיה, לא לגלישה סלולרית.</string>
+</resources>
