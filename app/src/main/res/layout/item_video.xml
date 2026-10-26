@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/tv_card_bg">
+
+        <!-- Seen only when a video has no thumbnail at all: any preview image covers it. -->
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:alpha="0.3"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_play" />
+
+        <ImageView
+            android:id="@+id/thumb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop" />
+
+        <!-- Only on the home screen's last card of a channel's row: "All videos", over the channel's dimmed photo. -->
+        <TextView
+            android:id="@+id/center_label"
+            style="@style/TvText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/outfit_medium"
+            android:textSize="@dimen/text_title"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/duration"
+            style="@style/TvText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="10dp"
+            android:background="@drawable/tv_pill_bg"
+            android:fontFamily="@font/outfit_medium"
+            android:paddingStart="8dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="3dp"
+            android:textSize="@dimen/text_caption" />
+
+        <TextView
+            android:id="@+id/watched"
+            style="@style/TvText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="10dp"
+            android:background="@drawable/tv_pill_bg"
+            android:fontFamily="@font/outfit_medium"
+            android:paddingStart="8dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="3dp"
+            android:text="@string/watched_badge"
+            android:textSize="@dimen/text_caption"
+            android:visibility="gone" />
+
+        <!-- How far into the video the viewer got: a thin white bar on a faint track along the bottom. -->
+        <FrameLayout
+            android:id="@+id/progress_track"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_gravity="bottom"
+            android:background="#40FFFFFF"
+            android:visibility="gone">
+
+            <View
+                android:id="@+id/progress"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/tv_text" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/TvText.CardLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:maxLines="2" />
+</LinearLayout>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_phone_hint">Telefon numarası</string>
+    <string name="auth_code_hint">Giriş kodu</string>
+    <string name="auth_password_hint">2FA şifresi</string>
+    <string name="auth_api_id_hint">Telegram API ID</string>
+    <string name="auth_api_hash_hint">Telegram API hash</string>
+    <string name="auth_qr_button">QR kodla giriş yap</string>
+    <string name="auth_qr_title">Giriş yapmak için tarayın</string>
+    <string name="auth_qr_steps">1.  Telefonunuzda Telegram\'ı açın\n2.  Ayarlar › Cihazlar bölümüne gidin\n3.  \"Desktop Cihazını Bağla\" seçeneğine dokunun ve kamerayı bu koda tutun</string>
+    <string name="auth_qr_description">Telefonunuzdaki Telegram ile giriş yapmak için QR kod</string>
+    <string name="auth_code_title">Giriş kodunu girin</string>
+    <string name="auth_password_title">İki Adımlı Doğrulama şifrenizi girin</string>
+    <string name="auth_bad_keys">Telegram bu API ID ve API hash değerlerini kabul etmedi. İkisini de my.telegram.org adresinde (API development tools) kontrol edin, sonra yeniden girin.</string>
+    <string name="auth_change_keys">API anahtarlarını yeniden gir</string>
+    <string name="auth_blocked_email">Telegram, kod göndermeden önce bir giriş e-postası istiyor. Bunun yerine QR kodla giriş yapın: ne e-posta ne de SMS gerekir.</string>
+    <string name="auth_blocked_sms_fee">Telegram bu numara için ücretli SMS istiyor. Bunun yerine QR kodla giriş yapın: ücretsizdir ve SMS gerekmez.</string>
+
+    <string name="library_title">Kanallarınız</string>
+    <string name="library_empty">Henüz grup veya kanal yok</string>
+    <string name="kind_channel">Kanal</string>
+    <string name="kind_group">Grup</string>
+    <string name="chat_empty">Bu sohbette video yok</string>
+    <string name="no_player">Video oynatıcı bulunamadı</string>
+    <string name="press_back_again">Çıkmak için tekrar Geri tuşuna basın</string>
+
+    <string name="section_continue">İzlemeye devam et</string>
+    <string name="section_chats">Kanallar ve gruplar</string>
+    <string name="continue_sub">%1$s  ·  %2$s</string>
+    <string name="resuming_at">Kaldığınız yerden devam: %1$s</string>
+    <string name="watched_badge">✓ İzlendi</string>
+    <string name="meta_watched">İzlendi</string>
+    <plurals name="meta_left">
+        <item quantity="one">%1$d dk kaldı</item>
+        <item quantity="other">%1$d dk kaldı</item>
+    </plurals>
+    <string name="meta_stopped_at">Kaldığınız yer: %1$s</string>
+
+    <string name="search_chat_hint">Bu kanalda ara</string>
+    <string name="search_all_hint">Tüm kanallarda ara</string>
+    <string name="search_all_title">Tüm kanallarda ara</string>
+    <string name="search_all_kind">Gruplar ve kanallar</string>
+    <string name="chat_searching">Aranıyor…</string>
+    <string name="search_no_results">“%1$s” ile eşleşen video yok</string>
+
+    <string name="hidden_title">Gizli kanallar</string>
+    <plurals name="hidden_sub">
+        <item quantity="one">%1$d gizli  ·  OK ile gösterin ya da gizleyin  ·  gizlemeyi kaldırmak için üzerinde OK tuşunu basılı tutun</item>
+        <item quantity="other">%1$d gizli  ·  OK ile gösterin ya da gizleyin  ·  gizlemeyi kaldırmak için birinin üzerinde OK tuşunu basılı tutun</item>
+    </plurals>
+    <string name="hidden_kind">%1$s  ·  gizli  ·  gizlemeyi kaldırmak için OK tuşunu basılı tutun</string>
+    <string name="hidden_card_show">Gizlileri göster</string>
+    <string name="hidden_card_hide">Gizlileri gösterme</string>
+    <string name="section_pinned">Sabitlenenler</string>
+    <string name="pinned_kind">%1$s  ·  sabitlendi</string>
+    <string name="menu_pin">En üste sabitle</string>
+    <string name="menu_unpin">Sabitlemeyi kaldır</string>
+    <string name="menu_hide">VueGram\'da gizle</string>
+    <string name="menu_unhide">VueGram\'da yeniden göster</string>
+    <string name="menu_mark_watched">İzlendi olarak işaretle</string>
+    <string name="menu_mark_unwatched">İzlenmedi olarak işaretle</string>
+    <string name="menu_play_mpv">mpv ile oynat</string>
+    <string name="menu_from_start">Baştan oynat</string>
+    <string name="player_seek_label">%1$s  ·  %2$s</string>
+    <string name="player_cannot_play">Bu videonun biçimi burada oynatılamıyor ve mpv yüklü değil.</string>
+    <string name="player_stream_error_title">Videonun yüklenmesi durdu</string>
+    <string name="close_player">Kapat</string>
+    <string name="player_opening_mpv">Bu video mpv ile açılıyor…</string>
+    <string name="no_mpv">mpv yüklü değil: video burada oynatılıyor</string>
+    <string name="menu_remove">\"İzlemeye devam et\" listesinden kaldır</string>
+    <string name="menu_cancel">İptal</string>
+
+    <string name="update_pill">%1$s sürümüne güncelle</string>
+    <string name="update_title">VueGram %1$s yayında (sizdeki sürüm: %2$s)</string>
+    <string name="update_no_notes">VueGram\'ın yeni bir sürümü hazır.</string>
+    <string name="update_now">Güncelle</string>
+    <string name="update_later">Sonra</string>
+    <string name="update_permission_title">VueGram\'ın güncellemelerini yüklemesine izin verin</string>
+    <string name="update_permission_message">Android bunu yalnızca bir kez sorar. Sonraki ekranda VueGram için \"Bu kaynaktan izin ver\" seçeneğini açın, Geri tuşuna basın ve yeniden Güncelle\'yi seçin.</string>
+    <string name="update_open_settings">Ayarları aç</string>
+    <string name="update_no_settings">Bu TV\'de VueGram için \"Bilinmeyen uygulamaları yükle\" ekranı yok.</string>
+    <string name="update_downloading_title">VueGram %1$s indiriliyor</string>
+    <string name="update_downloading">Sürümün sağlama toplamı ve VueGram\'ın imzalama anahtarıyla doğrulanıyor…</string>
+    <string name="update_installing">Güncelleme Android\'e aktarılıyor…</string>
+    <string name="update_failed_title">Güncelleme yüklenmedi</string>
+    <string name="update_install_failed">Güncelleme yüklenmedi: %1$s</string>
+
+    <string name="kind_person">Kişi</string>
+    <string name="kind_saved">Kayıtlı Mesajlar</string>
+    <string name="section_all_chats">Sohbetleriniz</string>
+    <string name="search_messages_hint">Bu sohbette ara</string>
+    <string name="feed_empty">Bu sohbette mesaj yok</string>
+    <string name="feed_photo">Fotoğraf</string>
+    <string name="feed_video">Video</string>
+    <string name="photo_meta">%1$s  ·  %2$d / %3$d  ·  daha fazlası için sol ve sağ</string>
+    <string name="photo_failed">Bu fotoğraf yüklenemedi.</string>
+
+    <string name="action_retry">Tekrar dene</string>
+    <plurals name="error_slow_down">
+        <item quantity="one">Telegram, VueGram\'dan yavaşlamasını istedi. %1$d saniye sonra tekrar deneyin.</item>
+        <item quantity="other">Telegram, VueGram\'dan yavaşlamasını istedi. %1$d saniye sonra tekrar deneyin.</item>
+    </plurals>
+    <string name="error_network">Telegram\'a ulaşılamıyor. TV\'nin internet bağlantısını kontrol edin, sonra tekrar deneyin.</string>
+    <string name="error_other">Telegram yanıtı: %1$s</string>
+    <string name="connection_connecting">Bağlanıyor…</string>
+    <string name="connection_updating">Güncelleniyor…</string>
+    <string name="connection_waiting">Ağ bekleniyor…</string>
+
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_on">Açık</string>
+    <string name="settings_off">Kapalı</string>
+    <string name="settings_people">Kişileri göster</string>
+    <string name="settings_people_summary">Yalnızca gruplar ve kanallar değil, kişilerle özel sohbetler ve Kayıtlı Mesajlar da listelenir.</string>
+    <string name="settings_messages">Mesajları göster</string>
+    <string name="settings_messages_summary">Sohbetlerde yalnızca videolar değil, tüm mesajlar (metin, fotoğraf, video ve dosyalar) gösterilir.</string>
+    <string name="settings_update">Güncellemeleri denetle</string>
+    <string name="settings_update_summary">Sizdeki sürüm: VueGram %1$s. GitHub\'da daha yeni bir sürüm arar.</string>
+    <string name="settings_update_checking">GitHub\'da daha yeni bir VueGram aranıyor…</string>
+    <string name="settings_update_latest">VueGram %1$s en güncel sürüm.</string>
+    <string name="settings_crash">Son çökme raporu</string>
+    <string name="settings_crash_summary">VueGram beklenmedik şekilde kapandı (%1$s). Ne olduğunu görmek için OK tuşuna basın (rapor bu TV\'de kalır).</string>
+    <string name="settings_crash_delete">Raporu sil</string>
+    <string name="settings_logout">Çıkış yap</string>
+    <string name="settings_logout_summary">Bu TV\'deki Telegram oturumunu kapatır.</string>
+    <string name="settings_logout_confirm">Bu TV\'de Telegram oturumu kapatılacak; izleme geçmişiniz, sabitlenen ve gizlenen sohbetler ondan silinecek. Ayarlarınız kalır; yeniden giriş yapmak için yeni bir QR kodu tarayın.</string>
+
+    <string name="settings_language">Dil</string>
+    <string name="settings_language_summary">VueGram, TV\'nin dilini ya da burada seçtiğiniz dili kullanır.</string>
+    <string name="settings_language_system">TV\'nin dili</string>
+
+    <string name="label_video_message">Görüntülü mesaj</string>
+    <string name="label_gif">GIF</string>
+    <string name="label_file">📄 %1$s</string>
+    <string name="label_file_unnamed">📄 Dosya</string>
+    <string name="label_audio">🎵 %1$s</string>
+    <string name="label_audio_unnamed">🎵 Ses</string>
+    <string name="label_voice">🎤 Sesli mesaj</string>
+    <string name="label_sticker">%1$s Çıkartma</string>
+    <string name="label_poll">📊 %1$s</string>
+    <string name="label_location">📍 Konum</string>
+    <string name="label_contact">👤 %1$s</string>
+    <string name="error_unknown">Bilinmeyen hata</string>
+    <string name="error_unexpected">Telegram\'dan beklenmedik yanıt</string>
+    <string name="error_load_chats">Sohbetleriniz yüklenemedi</string>
+
+    <string name="auth_logging_out">Çıkış yapılıyor…</string>
+    <string name="stream_channel">Yayın akışı</string>
+    <string name="stream_notification">Video akışı sürüyor</string>
+
+    <string name="onboarding_step">Adım %1$d / %2$d</string>
+    <string name="onboarding_wait">Bir saniye…</string>
+    <string name="onboarding_ready">Giriş yaptınız</string>
+    <string name="onboarding_welcome_title">VueGram\'a hoş geldiniz</string>
+    <string name="onboarding_welcome_body">Telegram kanallarınız ve gruplarınız büyük ekranda. Kurulum yaklaşık iki dakika sürer: önce Telegram API anahtarlarınız, sonra telefonunuzla tarayacağınız bir QR kod.</string>
+    <string name="onboarding_get_started">Başla</string>
+    <string name="onboarding_language">Dil: %1$s</string>
+    <string name="onboarding_keys_title">Telegram API anahtarlarınız</string>
+    <string name="onboarding_keys_body">VueGram, Telegram\'a kendi API ID ve API hash değerlerinizle bağlanır. Bunlar ücretsizdir: my.telegram.org adresinde telefon numaranızla giriş yapın, API development tools bölümünü açın ve bir uygulama oluşturun (adı önemli değil). Sonra iki değeri bu TV\'ye gönderin.</string>
+    <string name="onboarding_keys_qr_caption">Telefonunuzun kamerasıyla tarayın. Anahtarları alıp bu TV\'ye gönderebileceğiniz bir sayfa açılır. Telefonunuz aynı Wi-Fi ağına bağlı olmalı.</string>
+    <string name="onboarding_type_keys">Kumandayla yaz</string>
+    <string name="onboarding_send_from_phone">Telefonumdan gönder</string>
+    <string name="onboarding_continue">Devam et</string>
+    <string name="onboarding_error_api_id">API ID bir sayıdır, örneğin 1234567.</string>
+    <string name="onboarding_error_api_hash">API hash 32 harf ve rakamdan oluşur (0–9 ve a–f).</string>
+    <string name="onboarding_qr_caption">Kod, siz tarayana kadar kendiliğinden yenilenir.</string>
+    <string name="onboarding_use_phone">Bunun yerine telefon numarası kullan</string>
+    <string name="onboarding_phone_title">Telefon numaranız</string>
+    <string name="onboarding_phone_body">Ülke koduyla birlikte girin, örneğin +1 555 123 4567. Telegram size giriş için bir kod gönderir.</string>
+    <string name="onboarding_send_code">Kod gönder</string>
+    <string name="onboarding_code_app">Telegram, kodu başka bir cihazdaki Telegram uygulamanıza gönderdi. Telegram\'dan gelen mesaja bakın.</string>
+    <string name="onboarding_code_sms">Telegram, kodu SMS ile gönderdi.</string>
+    <string name="onboarding_code_other">Telegram\'ın size gönderdiği kodu girin.</string>
+    <string name="onboarding_sign_in">Giriş yap</string>
+    <string name="onboarding_password_body">Hesabınızda İki Adımlı Doğrulama açık, bu yüzden Telegram şifresini de istiyor.</string>
+    <string name="onboarding_password_hint_is">İpucunuz: %1$s</string>
+    <string name="onboarding_blocked_title">Bunun yerine QR kodla giriş yapın</string>
+    <string name="onboarding_blocked_no_account">Bu numaranın henüz Telegram hesabı yok. Önce Telegram uygulamasında kaydolun ya da Telegram yüklü bir telefonla QR kodu tarayın.</string>
+    <string name="onboarding_bad_keys_title">Telegram bu anahtarları kabul etmedi</string>
+    <string name="onboarding_error_phone">Bu numara doğru görünmüyor. Ülke kodunu ekleyin, örneğin +1.</string>
+    <string name="onboarding_error_code">Bu kod doğru değil. Kontrol edip tekrar deneyin.</string>
+    <string name="onboarding_error_code_expired">Bu kodun süresi doldu. Geri dönüp yeni bir kod isteyin.</string>
+    <string name="onboarding_error_password">Bu şifre doğru değil.</string>
+
+    <string name="keydrop_title">API anahtarlarınızı TV\'ye gönderin</string>
+    <string name="keydrop_intro">Anahtarları Telegram\'dan alın, sonra aşağıya yapıştırın. Wi-Fi ağınız üzerinden doğrudan TV\'nize gider.</string>
+    <string name="keydrop_open_site">my.telegram.org adresini aç</string>
+    <string name="keydrop_site_steps">Telefon numaranızla giriş yapın, API development tools bölümünü açın, bir uygulama oluşturun (adı önemli değil), sonra App api_id ve App api_hash değerlerini kopyalayın.</string>
+    <string name="keydrop_send">TV\'ye gönder</string>
+    <string name="keydrop_sent">Gönderildi. Telefonunuzu bırakıp TV\'den devam edebilirsiniz.</string>
+    <string name="keydrop_invalid">Bu doğru görünmüyor: API ID bir sayıdır, API hash ise 32 harf ve rakamdan oluşur.</string>
+
+    <string name="update_ready_pill">Güncelleme hazır: %1$s</string>
+    <string name="update_ready_title">VueGram %1$s yüklenmeye hazır</string>
+    <string name="update_install_now">Şimdi yükle</string>
+    <string name="update_installing_title">VueGram %1$s yükleniyor</string>
+    <string name="update_not_signed">İndirilen güncelleme VueGram\'ın anahtarıyla imzalanmamış, bu yüzden yüklenmedi.</string>
+    <string name="whats_new_title">VueGram %1$s sürümündeki yenilikler</string>
+    <string name="whats_new_fallback">VueGram, %1$s sürümüne güncellendi.</string>
+    <string name="settings_auto_update">Otomatik güncellemeler</string>
+    <string name="settings_auto_update_summary">Yeni sürümler arka planda indirilir ve yüklemek için yalnızca bir kez sorulur. Ölçülü bağlantıda VueGram yalnızca yeni sürümleri haber verir.</string>
+
+    <string name="player_up_next">Sıradaki</string>
+    <plurals name="player_up_next_in">
+        <item quantity="one">%1$d saniye içinde başlıyor</item>
+        <item quantity="other">%1$d saniye içinde başlıyor</item>
+    </plurals>
+    <string name="player_up_next_hint">OK ile şimdi oynatın  ·  Geri ile durdurun</string>
+    <string name="player_options_hint">▼  Altyazılar, ses, hız, uyku zamanlayıcısı</string>
+    <string name="player_options">Seçenekler</string>
+    <string name="player_subtitles">Altyazılar</string>
+    <string name="player_audio">Ses</string>
+    <string name="player_speed">Hız</string>
+    <string name="player_sleep">Uyku zamanlayıcısı</string>
+    <string name="player_subtitles_value">Altyazılar: %1$s</string>
+    <string name="player_audio_value">Ses: %1$s</string>
+    <string name="player_speed_value">Hız: %1$s</string>
+    <string name="player_sleep_value">Uyku zamanlayıcısı: %1$s</string>
+    <string name="player_off">Kapalı</string>
+    <string name="player_speed_normal">Normal</string>
+    <string name="player_track_number">Parça %1$d</string>
+    <string name="player_no_subtitles">Bu videoda altyazı yok.</string>
+    <string name="player_no_audio_tracks">Bu videoda yalnızca bir ses parçası var.</string>
+    <plurals name="player_minutes">
+        <item quantity="one">%1$d dakika</item>
+        <item quantity="other">%1$d dakika</item>
+    </plurals>
+    <string name="player_sleep_end">Bu video bitince</string>
+    <string name="settings_play_next">Sıradakini oynat</string>
+    <string name="settings_play_next_summary">Bir video bittiğinde, sohbetteki sonraki video 10 saniyelik bir geri sayımdan sonra başlar.</string>
+
+    <string name="voice_search">Sesle ara</string>
+    <string name="voice_prompt">Ne aramak istediğinizi söyleyin</string>
+
+    <string name="folders_all">Tüm sohbetler</string>
+    <string name="section_recent">Kanallarınızdaki yenilikler</string>
+    <string name="onboarding_keys_wifi">📶 Telefonunuz mobil veride değil, bu TV ile aynı Wi-Fi ağında olmalı.</string>
+
+    <!-- About, at the bottom of Settings. -->
+    <string name="settings_about">VueGram hakkında</string>
+    <string name="settings_about_summary">Sürüm %1$s, web sitesi, yardım ve lisanslar.</string>
+    <string name="about_version">Sürüm %1$s</string>
+    <string name="about_tagline">Telegram kanalların ve grupların, büyük ekranda.</string>
+    <string name="about_open_source">Ücretsiz ve açık kaynak, MIT lisansıyla. Telegram\'ın kendi kütüphanesi TDLib üzerine kurulu.</string>
+    <string name="about_unofficial">Resmî olmayan bir uygulama: Telegram tarafından yapılmadı, Telegram ile bağlantılı değil ve onaylanmadı.</string>
+    <string name="about_website">Web sitesi: %1$s</string>
+    <string name="about_help">Yardım: %1$s</string>
+    <string name="about_source">Kaynak kodu: %1$s</string>
+    <string name="about_qr_caption">Web sitesi ve yardım için telefonunla tara.</string>
+    <string name="about_licences">Açık kaynak lisansları</string>
+    <string name="nav_back">Geri</string>
+
+    <!-- Home rows, the channel page and the player's controls. -->
+    <string name="row_see_all">Tüm videolar</string>
+    <string name="row_see_all_sub">Kanalı tüm videolarıyla aç</string>
+    <string name="menu_open_channel">Kanalı aç</string>
+    <string name="order_newest">Önce en yeni</string>
+    <string name="order_oldest">Önce en eski</string>
+    <string name="player_back_10">10 saniye geri</string>
+    <string name="player_forward_30">30 saniye ileri</string>
+    <string name="player_play">Oynat</string>
+    <string name="player_pause">Duraklat</string>
+    <string name="player_next">Sonraki video</string>
+    <string name="player_more_videos">Bu kanaldan daha fazla</string>
+    <plurals name="chat_subscribers">
+        <item quantity="one">%s abone</item>
+        <item quantity="other">%s abone</item>
+    </plurals>
+    <plurals name="chat_members">
+        <item quantity="one">%s üye</item>
+        <item quantity="other">%s üye</item>
+    </plurals>
+</resources>

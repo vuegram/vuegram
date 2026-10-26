@@ -1,0 +1,6 @@
+# Shell scripts keep LF line endings, or bash fails on Windows checkouts with core.autocrlf
+*.sh text eol=lf
+gradlew text eol=lf
+
+# TDLib's Java bindings are generated: leave them out of GitHub's language statistics (VueGram itself is Kotlin)
+app/src/main/java/org/drinkless/** linguist-generated=true

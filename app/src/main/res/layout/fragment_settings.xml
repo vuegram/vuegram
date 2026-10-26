@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings: a column of rows; up/down move between them, OK changes or opens one. Back, or the Library button at the
+     top, returns to the library. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tv_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingStart="72dp"
+        android:paddingTop="40dp"
+        android:paddingEnd="72dp"
+        android:paddingBottom="40dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/back"
+                layout="@layout/view_back_button" />
+
+            <TextView
+                style="@style/TvText.Hero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/settings_title" />
+
+            <LinearLayout
+                android:id="@+id/rows"
+                android:layout_width="720dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- VueGram's mark, the Folded play: a play button folded like a paper plane. 108x108, so it can be the adaptive
+     icon's foreground; it stays inside the 66dp safe circle. Gradient facets; Android 6 uses drawable/vg_glyph.xml, with flat facets, since gradients in vectors need Android 7. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:pathData="M40,30 Q36,28 36,33 V75 Q36,80 40,78 L78,57 Q82,54 78,51 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient android:type="linear" android:startX="36" android:startY="28" android:endX="81" android:endY="80"
+                    android:startColor="#FF7C3AED" android:endColor="#FF4C1D95" />
+            </aapt:attr>
+    </path>
+    <path android:pathData="M40,30 Q36,28 36,33 V75 Q36,80 40,78 L53,58 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient android:type="linear" android:startX="36" android:startY="28" android:endX="53" android:endY="80"
+                    android:startColor="#FFEDE9FE" android:endColor="#FFA78BFA" />
+            </aapt:attr>
+    </path>
+    <path android:fillColor="#8CA78BFA" android:pathData="M40,30 L53,58 L78,51 Z" />
+</vector>

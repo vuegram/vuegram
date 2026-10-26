@@ -1,0 +1,13 @@
+# Weekly pull requests for outdated GitHub Actions and Gradle dependencies.
+# Each one still has to pass CI and, for the app, a test on a real TV before it is merged.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

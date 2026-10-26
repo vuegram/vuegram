@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Library: the groups and channels, as a grid of their photos. The focused one's name is the hero title. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <com.vuegram.presentation.ui.GlowView
+        android:id="@+id/glow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- The focused video's picture, softened, behind the top right; it takes its own size (Backdrop.onMeasure). -->
+    <com.vuegram.presentation.ui.Backdrop
+        android:id="@+id/backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top|end" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingStart="72dp"
+        android:paddingTop="40dp"
+        android:paddingEnd="72dp">
+
+        <!-- Up from the grid's first row lands here, on the nearest of these (see LibraryFragment.upFromGrid). -->
+        <LinearLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.vuegram.presentation.ui.EyebrowText
+                style="@style/TvText.Eyebrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:maxLines="1"
+                android:text="@string/library_eyebrow" />
+
+
+            <!-- "Connecting…" / "Waiting for network…": only while VueGram is not connected to Telegram. -->
+            <TextView
+                android:id="@+id/connection"
+                style="@style/TvText.Sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/tv_pill_bg"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:textSize="@dimen/text_label"
+                android:visibility="gone" />
+
+            <!-- Shown only when a newer VueGram is on GitHub: OK opens the update offer. -->
+            <Button
+                android:id="@+id/update_pill"
+                style="@style/TvText"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/tv_button_bg"
+                android:fontFamily="@font/outfit_medium"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:textAllCaps="false"
+                android:textColor="@color/tv_button_text"
+                android:textSize="@dimen/text_body"
+                android:visibility="gone" />
+
+            <!-- Settings: Show people, Show messages, updates, crash report, log out. -->
+            <Button
+                android:id="@+id/settings"
+                style="@style/TvText"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/tv_button_bg"
+                android:fontFamily="@font/outfit_medium"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="@string/settings_title"
+                android:textAllCaps="false"
+                android:textColor="@color/tv_button_text"
+                android:textSize="@dimen/text_body" />
+
+            <!-- Voice search: shown only when the TV has speech recognition. -->
+            <ImageButton
+                android:id="@+id/voice"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/tv_round_button_bg"
+                android:contentDescription="@string/voice_search"
+                android:padding="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_mic"
+                android:visibility="gone" />
+
+            <!-- Search every group and channel: Up from the first row reaches it, OK opens the keyboard. It takes the
+                 free width, so it, not the name or the clock, gives way when a "Connecting…" or update pill shows. -->
+            <EditText
+                android:id="@+id/search"
+                style="@style/TvText"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/tv_search_bg"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="12dp"
+                android:hint="@string/search_all_hint"
+                android:imeOptions="actionSearch"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColorHint="@color/tv_text_dim"
+                android:textSize="@dimen/text_body" />
+
+            <TextClock
+                style="@style/TvText.Clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format12Hour="h:mm"
+                android:format24Hour="HH:mm" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/hero_title"
+            style="@style/TvText.Hero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:maxLines="1"
+            android:text="@string/library_title" />
+
+        <TextView
+            android:id="@+id/hero_sub"
+            style="@style/TvText.Sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <!-- The viewer's Telegram folders as tabs ("All chats" first); only when they have folders. -->
+        <HorizontalScrollView
+            android:id="@+id/folder_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/folder_tabs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <FrameLayout
+            android:id="@+id/grid_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="-24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="-24dp"
+            android:layout_weight="1">
+
+            <!-- The container clips the grid at its own edge, so scrolled rows never draw over the title; the
+                 grid's padding leaves room inside that edge for the zoomed card and the focus ring. -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingStart="24dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="60dp"
+                android:scrollbars="none" />
+
+            <!-- Grey cards with a soft shimmer until the chats arrive (SkeletonView). -->
+            <com.vuegram.presentation.ui.SkeletonView
+                android:id="@+id/skeleton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="36dp"
+                android:paddingTop="58dp"
+                android:paddingRight="36dp"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Loading, empty and error messages; Retry shows only after an error. -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/TvText.Sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="720dp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/retry"
+            style="@style/TvText"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/tv_button_bg"
+            android:fontFamily="@font/outfit_medium"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="@string/action_retry"
+            android:textAllCaps="false"
+            android:textColor="@color/tv_button_text"
+            android:textSize="@dimen/text_body"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>

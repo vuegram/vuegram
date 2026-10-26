@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The brand background: a deep violet glow from the top left, fading to black. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:type="radial"
+        android:centerX="0.3"
+        android:centerY="0.22"
+        android:gradientRadius="95%"
+        android:startColor="#2A1B5C"
+        android:centerColor="#0D0A1F"
+        android:endColor="#000000" />
+</shape>

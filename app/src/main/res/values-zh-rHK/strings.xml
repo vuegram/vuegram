@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_phone_hint">手機號碼</string>
+    <string name="auth_code_hint">登入驗證碼</string>
+    <string name="auth_password_hint">兩步驟驗證密碼</string>
+    <string name="auth_api_id_hint">Telegram API ID</string>
+    <string name="auth_api_hash_hint">Telegram API Hash</string>
+    <string name="auth_qr_button">使用 QR 碼登入</string>
+    <string name="auth_qr_title">掃碼登入</string>
+    <string name="auth_qr_steps">1.  在手機上開啟 Telegram\n2.  前往「設定 › 裝置」\n3.  點選「加入裝置」，再將相機對準這個 QR 碼</string>
+    <string name="auth_qr_description">用手機上的 Telegram 掃描這個 QR 碼登入</string>
+    <string name="auth_code_title">輸入登入驗證碼</string>
+    <string name="auth_password_title">輸入你的兩步驟驗證密碼</string>
+    <string name="auth_bad_keys">Telegram 不接受這組 API ID 和 Hash。請到 my.telegram.org（API development tools）核對兩者，然後重新輸入。</string>
+    <string name="auth_change_keys">重新輸入 API 金鑰</string>
+    <string name="auth_blocked_email">Telegram 要求先設定登入電子郵件，才會傳送驗證碼。請改用 QR 碼登入：不需要電子郵件，也不需要驗證碼。</string>
+    <string name="auth_blocked_sms_fee">Telegram 要求這個號碼使用付費簡訊。請改用 QR 碼登入：完全免費，也不需要簡訊。</string>
+
+    <string name="library_title">你的頻道</string>
+    <string name="library_empty">還沒有群組或頻道</string>
+    <string name="kind_channel">頻道</string>
+    <string name="kind_group">群組</string>
+    <string name="chat_empty">這個聊天室沒有影片</string>
+    <string name="no_player">找不到影片播放器</string>
+    <string name="press_back_again">再按一次返回鍵即可離開</string>
+
+    <string name="section_continue">繼續觀看</string>
+    <string name="section_chats">頻道和群組</string>
+    <string name="continue_sub">%1$s  ·  %2$s</string>
+    <string name="resuming_at">從 %1$s 繼續播放</string>
+    <string name="watched_badge">✓ 已看完</string>
+    <string name="meta_watched">已看完</string>
+    <plurals name="meta_left">
+        <item quantity="other">剩下 %1$d 分鐘</item>
+    </plurals>
+    <string name="meta_stopped_at">停在 %1$s</string>
+
+    <string name="search_chat_hint">搜尋這個頻道</string>
+    <string name="search_all_hint">搜尋所有頻道</string>
+    <string name="search_all_title">搜尋所有頻道</string>
+    <string name="search_all_kind">群組和頻道</string>
+    <string name="chat_searching">正在搜尋…</string>
+    <string name="search_no_results">沒有符合「%1$s」的影片</string>
+
+    <string name="hidden_title">已隱藏的頻道</string>
+    <plurals name="hidden_sub">
+        <item quantity="other">已隱藏 %1$d 個  ·  按確認鍵顯示或收合  ·  長按其中一個即可取消隱藏</item>
+    </plurals>
+    <string name="hidden_kind">%1$s  ·  已隱藏  ·  長按確認鍵取消隱藏</string>
+    <string name="hidden_card_show">顯示已隱藏</string>
+    <string name="hidden_card_hide">收合已隱藏</string>
+    <string name="section_pinned">已置頂</string>
+    <string name="pinned_kind">%1$s  ·  已置頂</string>
+    <string name="menu_pin">置頂</string>
+    <string name="menu_unpin">取消置頂</string>
+    <string name="menu_hide">在 VueGram 中隱藏</string>
+    <string name="menu_unhide">在 VueGram 中重新顯示</string>
+    <string name="menu_mark_watched">標示為已看完</string>
+    <string name="menu_mark_unwatched">標示為未看完</string>
+    <string name="menu_play_mpv">用 mpv 播放</string>
+    <string name="menu_from_start">從頭播放</string>
+    <string name="player_seek_label">%1$s  ·  %2$s</string>
+    <string name="player_cannot_play">這裡無法播放此影片格式，而且未安裝 mpv。</string>
+    <string name="player_stream_error_title">影片載入中斷</string>
+    <string name="close_player">關閉</string>
+    <string name="player_opening_mpv">正在用 mpv 開啟這部影片…</string>
+    <string name="no_mpv">未安裝 mpv，改在這裡播放</string>
+    <string name="menu_remove">從「繼續觀看」移除</string>
+    <string name="menu_cancel">取消</string>
+
+    <string name="update_pill">更新至 %1$s</string>
+    <string name="update_title">VueGram %1$s 已推出（目前版本 %2$s）</string>
+    <string name="update_no_notes">VueGram 新版本已準備就緒。</string>
+    <string name="update_now">更新</string>
+    <string name="update_later">稍後</string>
+    <string name="update_permission_title">允許 VueGram 安裝更新</string>
+    <string name="update_permission_message">Android 只會詢問一次。請在下一個畫面中為 VueGram 開啟「允許來自這個來源的應用程式」，按返回鍵，再選擇一次「更新」。</string>
+    <string name="update_open_settings">開啟設定</string>
+    <string name="update_no_settings">這台電視沒有 VueGram 的「安裝不明應用程式」畫面。</string>
+    <string name="update_downloading_title">正在下載 VueGram %1$s</string>
+    <string name="update_downloading">正在以發布版本的總和檢查碼和 VueGram 的簽署金鑰進行驗證…</string>
+    <string name="update_installing">正在將更新交給 Android…</string>
+    <string name="update_failed_title">未安裝更新</string>
+    <string name="update_install_failed">未安裝更新：%1$s</string>
+
+    <string name="kind_person">個人</string>
+    <string name="kind_saved">我的收藏</string>
+    <string name="section_all_chats">你的聊天室</string>
+    <string name="search_messages_hint">搜尋這個聊天室</string>
+    <string name="feed_empty">這個聊天室沒有訊息</string>
+    <string name="feed_photo">相片</string>
+    <string name="feed_video">影片</string>
+    <string name="photo_meta">%1$s  ·  第 %2$d 張，共 %3$d 張  ·  按左右鍵查看更多</string>
+    <string name="photo_failed">無法載入這張相片。</string>
+
+    <string name="action_retry">重試</string>
+    <plurals name="error_slow_down">
+        <item quantity="other">Telegram 要求 VueGram 放慢速度。請在 %1$d 秒後再試一次。</item>
+    </plurals>
+    <string name="error_network">無法連上 Telegram。請檢查電視的網路連線，然後再試一次。</string>
+    <string name="error_other">Telegram 回應：%1$s</string>
+    <string name="connection_connecting">正在連線…</string>
+    <string name="connection_updating">正在更新…</string>
+    <string name="connection_waiting">正在等待網路…</string>
+
+    <string name="settings_title">設定</string>
+    <string name="settings_on">開啟</string>
+    <string name="settings_off">關閉</string>
+    <string name="settings_people">顯示個人聊天</string>
+    <string name="settings_people_summary">一併列出與他人的私人聊天和「我的收藏」，不只顯示群組和頻道。</string>
+    <string name="settings_messages">顯示訊息</string>
+    <string name="settings_messages_summary">聊天室會顯示所有訊息（文字、相片、影片和檔案），不只顯示影片。</string>
+    <string name="settings_update">檢查更新</string>
+    <string name="settings_update_summary">目前版本為 VueGram %1$s。在 GitHub 上尋找新版本。</string>
+    <string name="settings_update_checking">正在 GitHub 上尋找新版 VueGram…</string>
+    <string name="settings_update_latest">VueGram %1$s 已是最新版本。</string>
+    <string name="settings_crash">上次的當機報告</string>
+    <string name="settings_crash_summary">VueGram 上次意外關閉：%1$s。按確認鍵查看詳細資訊（報告只保存在這台電視上）。</string>
+    <string name="settings_crash_delete">刪除報告</string>
+    <string name="settings_logout">登出</string>
+    <string name="settings_logout_summary">讓這台電視登出 Telegram。</string>
+    <string name="settings_logout_confirm">這台電視將登出 Telegram，並刪除其中的觀看記錄以及置頂和隱藏的聊天。你的設定會保留；若要重新登入，請掃描新的 QR 碼。</string>
+
+    <string name="settings_language">語言</string>
+    <string name="settings_language_summary">VueGram 預設使用電視的語言，你也可以在這裡另外選擇。</string>
+    <string name="settings_language_system">電視的語言</string>
+
+    <string name="label_video_message">影片訊息</string>
+    <string name="label_gif">GIF</string>
+    <string name="label_file">📄 %1$s</string>
+    <string name="label_file_unnamed">📄 檔案</string>
+    <string name="label_audio">🎵 %1$s</string>
+    <string name="label_audio_unnamed">🎵 音訊</string>
+    <string name="label_voice">🎤 語音訊息</string>
+    <string name="label_sticker">%1$s 貼圖</string>
+    <string name="label_poll">📊 %1$s</string>
+    <string name="label_location">📍 位置</string>
+    <string name="label_contact">👤 %1$s</string>
+    <string name="error_unknown">未知的錯誤</string>
+    <string name="error_unexpected">Telegram 傳回了非預期的回應</string>
+    <string name="error_load_chats">無法載入你的聊天室</string>
+
+    <string name="auth_logging_out">正在登出…</string>
+    <string name="stream_channel">影片串流</string>
+    <string name="stream_notification">正在串流播放影片</string>
+
+    <string name="onboarding_step">第 %1$d 步，共 %2$d 步</string>
+    <string name="onboarding_wait">請稍候…</string>
+    <string name="onboarding_ready">登入成功</string>
+    <string name="onboarding_welcome_title">歡迎使用 VueGram</string>
+    <string name="onboarding_welcome_body">在大螢幕上觀看你的 Telegram 頻道和群組。設定大約只要兩分鐘：先填入你的 Telegram API 金鑰，再用手機掃描 QR 碼。</string>
+    <string name="onboarding_get_started">開始使用</string>
+    <string name="onboarding_language">語言：%1$s</string>
+    <string name="onboarding_keys_title">你的 Telegram API 金鑰</string>
+    <string name="onboarding_keys_body">VueGram 會用你自己的 API ID 和 Hash 連上 Telegram。它們是免費的：在 my.telegram.org 用手機號碼登入，開啟 API development tools 並建立一個應用程式（名稱不拘），然後把這兩個值傳送到這台電視。</string>
+    <string name="onboarding_keys_qr_caption">用手機相機掃描。接著會開啟一個網頁，你可以在那裡取得金鑰並傳送到這台電視。手機必須連上同一個 Wi-Fi。</string>
+    <string name="onboarding_type_keys">用遙控器輸入</string>
+    <string name="onboarding_send_from_phone">從手機傳送</string>
+    <string name="onboarding_continue">繼續</string>
+    <string name="onboarding_error_api_id">API ID 是一串數字，例如 1234567。</string>
+    <string name="onboarding_error_api_hash">API Hash 由 32 個字母和數字組成（0–9 和 a–f）。</string>
+    <string name="onboarding_qr_caption">這個 QR 碼會自動更新，直到你掃描為止。</string>
+    <string name="onboarding_use_phone">改用手機號碼</string>
+    <string name="onboarding_phone_title">你的手機號碼</string>
+    <string name="onboarding_phone_body">請加上國碼，例如 +1 555 123 4567。Telegram 會傳送登入驗證碼給你。</string>
+    <string name="onboarding_send_code">傳送驗證碼</string>
+    <string name="onboarding_code_app">Telegram 已將驗證碼傳送到你其他裝置上的 Telegram 應用程式。請查看 Telegram 傳來的訊息。</string>
+    <string name="onboarding_code_sms">Telegram 已透過簡訊傳送驗證碼。</string>
+    <string name="onboarding_code_other">輸入 Telegram 傳給你的驗證碼。</string>
+    <string name="onboarding_sign_in">登入</string>
+    <string name="onboarding_password_body">你的帳號已啟用兩步驟驗證，因此 Telegram 也需要你輸入密碼。</string>
+    <string name="onboarding_password_hint_is">你的密碼提示：%1$s</string>
+    <string name="onboarding_blocked_title">改用 QR 碼登入</string>
+    <string name="onboarding_blocked_no_account">這個號碼還沒有 Telegram 帳號。請先在 Telegram 應用程式中註冊，或用裝有 Telegram 的手機掃描 QR 碼。</string>
+    <string name="onboarding_bad_keys_title">Telegram 不接受這組金鑰</string>
+    <string name="onboarding_error_phone">這個號碼似乎不正確。請加上國碼，例如 +1。</string>
+    <string name="onboarding_error_code">驗證碼不正確。請檢查後再試一次。</string>
+    <string name="onboarding_error_code_expired">驗證碼已過期。請返回並重新索取。</string>
+    <string name="onboarding_error_password">密碼不正確。</string>
+    <string name="keydrop_title">將 API 金鑰傳送到電視</string>
+    <string name="keydrop_intro">先從 Telegram 取得金鑰，再貼到下方。金鑰會透過你的 Wi-Fi 直接傳送到電視。</string>
+    <string name="keydrop_open_site">開啟 my.telegram.org</string>
+    <string name="keydrop_site_steps">用手機號碼登入，開啟 API development tools，建立一個應用程式（名稱不拘），然後複製 App api_id 和 App api_hash。</string>
+    <string name="keydrop_send">傳送到電視</string>
+    <string name="keydrop_sent">已傳送。你可以放下手機，在電視上繼續操作。</string>
+    <string name="keydrop_invalid">好像不太對：API ID 是一串數字，API Hash 是 32 個字母和數字。</string>
+    <string name="update_ready_pill">更新已就緒：%1$s</string>
+    <string name="update_ready_title">VueGram %1$s 已可安裝</string>
+    <string name="update_install_now">立即安裝</string>
+    <string name="update_installing_title">正在安裝 VueGram %1$s</string>
+    <string name="update_not_signed">下載的更新並未以 VueGram 的金鑰簽署，因此未安裝。</string>
+    <string name="whats_new_title">VueGram %1$s 新功能</string>
+    <string name="whats_new_fallback">VueGram 已更新至 %1$s。</string>
+    <string name="settings_auto_update">自動更新</string>
+    <string name="settings_auto_update_summary">在背景下載新版本，並只詢問一次是否安裝。使用計量付費網路時，VueGram 只會通知你有新版本。</string>
+
+    <string name="player_up_next">接下來播放</string>
+    <plurals name="player_up_next_in">
+        <item quantity="other">%1$d 秒後播放</item>
+    </plurals>
+    <string name="player_up_next_hint">按確認鍵立即播放  ·  按返回鍵停止</string>
+    <string name="player_options_hint">▼  字幕、音訊、播放速度、睡眠計時器</string>
+    <string name="player_options">選項</string>
+    <string name="player_subtitles">字幕</string>
+    <string name="player_audio">音訊</string>
+    <string name="player_speed">播放速度</string>
+    <string name="player_sleep">睡眠計時器</string>
+    <string name="player_subtitles_value">字幕：%1$s</string>
+    <string name="player_audio_value">音訊：%1$s</string>
+    <string name="player_speed_value">播放速度：%1$s</string>
+    <string name="player_sleep_value">睡眠計時器：%1$s</string>
+    <string name="player_off">關閉</string>
+    <string name="player_speed_normal">正常</string>
+    <string name="player_track_number">軌道 %1$d</string>
+    <string name="player_no_subtitles">這部影片沒有字幕。</string>
+    <string name="player_no_audio_tracks">這部影片只有一個音軌。</string>
+    <plurals name="player_minutes">
+        <item quantity="other">%1$d 分鐘</item>
+    </plurals>
+    <string name="player_sleep_end">這部影片結束時</string>
+    <string name="settings_play_next">自動播放下一部</string>
+    <string name="settings_play_next_summary">影片結束後，倒數 10 秒，接著播放這個聊天室的下一部影片。</string>
+
+    <string name="voice_search">語音搜尋</string>
+    <string name="voice_prompt">請說出要搜尋的內容</string>
+
+    <string name="folders_all">所有聊天室</string>
+    <string name="section_recent">你的頻道中的新影片</string>
+    <string name="onboarding_keys_wifi">📶 手機必須連上與這台電視相同的 Wi-Fi，不能使用行動數據。</string>
+
+    <!-- About, at the bottom of Settings. -->
+    <string name="settings_about">關於 VueGram</string>
+    <string name="settings_about_summary">版本 %1$s、網站、說明和授權。</string>
+    <string name="about_version">版本 %1$s</string>
+    <string name="about_tagline">你的 Telegram 頻道和群組，搬上大螢幕。</string>
+    <string name="about_open_source">免費開源，採用 MIT 授權。以 Telegram 官方函式庫 TDLib 打造。</string>
+    <string name="about_unofficial">非官方應用程式：並非由 Telegram 開發，與 Telegram 無關，亦未獲其認可。</string>
+    <string name="about_website">網站：%1$s</string>
+    <string name="about_help">說明：%1$s</string>
+    <string name="about_source">原始碼：%1$s</string>
+    <string name="about_qr_caption">用手機掃描，開啟網站和說明。</string>
+    <string name="about_licences">開放原始碼授權</string>
+    <string name="nav_back">返回</string>
+
+    <!-- Home rows, the channel page and the player's controls. -->
+    <string name="row_see_all">全部影片</string>
+    <string name="row_see_all_sub">開啟頻道，查看全部影片</string>
+    <string name="menu_open_channel">開啟頻道</string>
+    <string name="order_newest">最新優先</string>
+    <string name="order_oldest">最早優先</string>
+    <string name="player_back_10">倒退 10 秒</string>
+    <string name="player_forward_30">快轉 30 秒</string>
+    <string name="player_play">播放</string>
+    <string name="player_pause">暫停</string>
+    <string name="player_next">下一部影片</string>
+    <string name="player_more_videos">此頻道的更多影片</string>
+    <plurals name="chat_subscribers">
+        <item quantity="other">%s 位訂閱者</item>
+    </plurals>
+    <plurals name="chat_members">
+        <item quantity="other">%s 位成員</item>
+    </plurals>
+</resources>

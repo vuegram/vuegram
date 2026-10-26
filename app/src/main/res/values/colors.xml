@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- VueGram's TV look: black, near-black cards, white and grey type, violet accents. -->
+    <color name="tv_background">#000000</color>
+    <color name="tv_card">#1C1C1F</color>
+    <color name="tv_text">#FFFFFF</color>
+    <color name="tv_text_dim">#8E8E93</color>
+    <color name="tv_pill">#B3000000</color>
+    <color name="tv_error">#FF8A80</color>
+</resources>

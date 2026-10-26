@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- About, opened from the bottom of Settings: the logo, the version and where to find more on the left, and a QR code
+     to the website on the right (links can't be followed on a TV). Sized to fit one 1080p screen without scrolling. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tv_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingStart="72dp"
+        android:paddingTop="36dp"
+        android:paddingEnd="72dp"
+        android:paddingBottom="36dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/back"
+                layout="@layout/view_back_button" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_marginEnd="18dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/vg_glyph" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TvText.Hero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/app_name" />
+
+                            <TextView
+                                android:id="@+id/about_version"
+                                style="@style/TvText.Sub"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:textSize="@dimen/text_label" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TvText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:text="@string/about_tagline"
+                        android:textSize="@dimen/text_title" />
+
+                    <!-- Open source, and unofficial: one paragraph (AboutFragment joins the two). -->
+                    <TextView
+                        android:id="@+id/about_notes"
+                        style="@style/TvText.Sub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="3dp"
+                        android:textSize="@dimen/text_label" />
+
+                    <TextView
+                        android:id="@+id/about_links"
+                        style="@style/TvText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:lineSpacingExtra="6dp"
+                        android:textSize="@dimen/text_body" />
+
+                    <Button
+                        android:id="@+id/about_licences"
+                        style="@style/TvText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="22dp"
+                        android:background="@drawable/tv_button_bg"
+                        android:fontFamily="@font/outfit_medium"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:text="@string/about_licences"
+                        android:textAllCaps="false"
+                        android:textColor="@color/tv_button_text"
+                        android:textSize="@dimen/text_body" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="216dp"
+                        android:layout_height="216dp"
+                        android:background="@drawable/tv_qr_card"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/about_qr"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/about_qr_caption" />
+                    </FrameLayout>
+
+                    <TextView
+                        style="@style/TvText.Sub"
+                        android:layout_width="216dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/about_qr_caption"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_label" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

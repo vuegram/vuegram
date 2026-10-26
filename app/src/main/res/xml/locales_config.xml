@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The languages VueGram is translated into (keep in step with AppLanguage.SUPPORTED). Android 13+ shows them in the
+     TV's per-app language settings. -->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en" />
+    <locale android:name="zh-CN" />
+    <locale android:name="zh-TW" />
+    <locale android:name="es" />
+    <locale android:name="pt-BR" />
+    <locale android:name="ru" />
+    <locale android:name="ar" />
+    <locale android:name="he" />
+    <locale android:name="hi" />
+    <locale android:name="id" />
+    <locale android:name="fa" />
+    <locale android:name="tr" />
+</locale-config>

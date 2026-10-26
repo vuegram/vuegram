@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The button at the top of Settings and About that does what Back does; its text names the screen it returns to. -->
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/TvText"
+    android:layout_width="wrap_content"
+    android:layout_height="52dp"
+    android:background="@drawable/tv_button_bg"
+    android:drawableStart="@drawable/ic_arrow_back"
+    android:drawablePadding="10dp"
+    android:drawableTint="@color/tv_button_text"
+    android:fontFamily="@font/outfit_medium"
+    android:paddingStart="18dp"
+    android:paddingEnd="24dp"
+    android:textAllCaps="false"
+    android:textColor="@color/tv_button_text"
+    android:textSize="@dimen/text_body" />

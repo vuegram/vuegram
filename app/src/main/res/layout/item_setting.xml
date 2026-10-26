@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One settings row: what it is and what it does on the left, and on the right its current value, or a switch for
+     the rows that are on or off. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/tv_row_bg"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="26dp"
+    android:paddingTop="15dp"
+    android:paddingEnd="26dp"
+    android:paddingBottom="15dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/setting_title"
+            style="@style/TvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfit_medium"
+            android:textSize="@dimen/text_title" />
+
+        <TextView
+            android:id="@+id/setting_summary"
+            style="@style/TvText.Sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:lineSpacingExtra="2dp"
+            android:textSize="@dimen/text_label" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/setting_value"
+        style="@style/TvText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/outfit_medium"
+        android:textSize="@dimen/text_body" />
+
+    <com.vuegram.presentation.ui.ToggleSwitch
+        android:id="@+id/setting_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:visibility="gone" />
+</LinearLayout>

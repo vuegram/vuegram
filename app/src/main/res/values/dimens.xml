@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    VueGram's type scale: six sizes, used on every screen, read from a sofa about three metres from the TV.
+    Display: the screen's big title. Headline: the focused item's title, the player's title. Title: row and header
+    titles, settings rows. Body: details, buttons, fields. Label: card names, summaries. Caption: section headings,
+    badges.
+    -->
+    <dimen name="text_display">32sp</dimen>
+    <dimen name="text_headline">24sp</dimen>
+    <dimen name="text_title">20sp</dimen>
+    <dimen name="text_body">17sp</dimen>
+    <dimen name="text_label">15sp</dimen>
+    <dimen name="text_caption">13sp</dimen>
+
+    <!-- Spacing comes in steps of 8 (4 for the tightest gaps). The screen edge keeps clear of TVs that overscan. -->
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_s">8dp</dimen>
+    <dimen name="space_m">16dp</dimen>
+    <dimen name="space_l">24dp</dimen>
+    <dimen name="space_xl">32dp</dimen>
+    <dimen name="space_xxl">48dp</dimen>
+    <dimen name="screen_edge">72dp</dimen>
+    <dimen name="screen_top">40dp</dimen>
+</resources>

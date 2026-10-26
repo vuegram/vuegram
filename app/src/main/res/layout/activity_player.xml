@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+The built-in player: the picture, and an overlay that hides itself. At the top, the channel and the title; at the
+bottom, the progress bar (Left and Right jump through the video, a bubble shows where to), a row of round buttons
+(Down: back 10 s, play/pause, forward 30 s, next, subtitles, audio, speed, sleep timer, named underneath), and below
+them the channel's next videos (Down again). Media controls stay left-to-right in every language.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false"
+        app:resize_mode="fit"
+        app:shutter_background_color="@android:color/black"
+        app:surface_type="surface_view"
+        app:use_controller="false" />
+
+    <ProgressBar
+        android:id="@+id/player_buffering"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/player_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="top"
+            android:background="@drawable/tv_player_scrim_top" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/tv_player_scrim" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_edge"
+            android:paddingTop="@dimen/screen_top"
+            android:paddingEnd="@dimen/screen_edge">
+
+            <com.vuegram.presentation.ui.EyebrowText
+                android:id="@+id/player_chat"
+                style="@style/TvText.Eyebrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/player_title"
+                style="@style/TvText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:ellipsize="end"
+                android:fontFamily="@font/outfit_light"
+                android:maxLines="2"
+                android:textSize="@dimen/text_headline" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/player_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layoutDirection="ltr"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_edge"
+            android:paddingEnd="@dimen/screen_edge"
+            android:paddingBottom="@dimen/space_xl">
+
+            <!-- While jumping: where to ("+1:30  ·  12:34"), above that place on the bar. -->
+            <FrameLayout
+                android:id="@+id/player_seek_lane"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:id="@+id/player_seek"
+                    style="@style/TvText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|bottom"
+                    android:background="@drawable/tv_seek_bubble"
+                    android:fontFamily="@font/outfit_medium"
+                    android:paddingStart="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="6dp"
+                    android:textColor="#FF000000"
+                    android:textSize="@dimen/text_body"
+                    android:visibility="invisible" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/player_bar_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Fixed widths: the times change every half second without re-laying out the overlay. -->
+                <TextView
+                    android:id="@+id/player_position"
+                    style="@style/TvText"
+                    android:layout_width="88dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_medium"
+                    android:textSize="@dimen/text_body" />
+
+                <FrameLayout
+                    android:id="@+id/player_track"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1">
+
+                    <ProgressBar
+                        android:id="@+id/player_progress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:layout_gravity="center_vertical"
+                        android:max="1000"
+                        android:progressDrawable="@drawable/tv_player_progress" />
+
+                    <View
+                        android:id="@+id/player_knob"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="left|center_vertical"
+                        android:background="@drawable/tv_player_knob" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/player_duration"
+                    style="@style/TvText"
+                    android:layout_width="88dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_medium"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/tv_text_dim"
+                    android:textSize="@dimen/text_body" />
+            </LinearLayout>
+
+            <!-- The buttons: focusable only once Down moves into them (PlayerActivity.setMode). -->
+            <LinearLayout
+                android:id="@+id/player_controls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_l"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/control_back"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_back_10">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_replay" />
+
+                    <TextView
+                        style="@style/TvText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:duplicateParentState="true"
+                        android:fontFamily="@font/outfit_medium"
+                        android:text="10"
+                        android:textColor="@color/tv_button_text"
+                        android:textSize="8sp"
+                        tools:ignore="HardcodedText" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/control_play"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_pause">
+
+                    <ImageView
+                        android:id="@+id/control_play_icon"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_pause" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/control_forward"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_forward_30">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_forward" />
+
+                    <TextView
+                        style="@style/TvText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:duplicateParentState="true"
+                        android:fontFamily="@font/outfit_medium"
+                        android:text="30"
+                        android:textColor="@color/tv_button_text"
+                        android:textSize="8sp"
+                        tools:ignore="HardcodedText" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/control_next"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_next"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_skip_next" />
+                </FrameLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:id="@+id/control_subtitles"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_subtitles">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_subtitles" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/control_audio"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_audio">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_audio" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/control_speed"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_speed">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_speed" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/control_sleep"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_sleep">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_timer" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- The focused button's name ("Forward 30 seconds", "Speed: 1.5×"), or how to reach the buttons. -->
+            <TextView
+                android:id="@+id/control_label"
+                style="@style/TvText.Sub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:textSize="@dimen/text_label" />
+
+            <!-- The channel's next videos: Down again from the buttons. -->
+            <LinearLayout
+                android:id="@+id/player_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.vuegram.presentation.ui.EyebrowText
+                    style="@style/TvText.Eyebrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/player_more_videos" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/player_more_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginTop="@dimen/space_s"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- "Up next": shown when a video ends and Play next is on; OK plays it now, Back stops. -->
+    <LinearLayout
+        android:id="@+id/player_up_next"
+        android:layout_width="520dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/screen_edge"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/tv_card_bg"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:visibility="gone">
+
+        <com.vuegram.presentation.ui.EyebrowText
+            style="@style/TvText.Eyebrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/player_up_next" />
+
+        <TextView
+            android:id="@+id/player_up_next_title"
+            style="@style/TvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/outfit_light"
+            android:maxLines="2"
+            android:textSize="@dimen/text_headline" />
+
+        <TextView
+            android:id="@+id/player_up_next_count"
+            style="@style/TvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/outfit_medium"
+            android:textSize="@dimen/text_body" />
+
+        <TextView
+            style="@style/TvText.Sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/player_up_next_hint"
+            android:textSize="@dimen/text_label" />
+    </LinearLayout>
+</FrameLayout>

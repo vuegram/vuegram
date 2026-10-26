@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lint must stay at zero errors (CI runs lintDebug). Only checks that cannot apply to VueGram are turned off here,
+     each with the reason. -->
+<lint>
+    <!-- TDLib's generated bindings (4.5 MB) are too large for lint to parse; they are TDLib's code, not ours. -->
+    <issue id="LintError">
+        <ignore path="**/org/drinkless/tdlib/TdApi.java" />
+    </issue>
+    <!-- Raised for Glide's NotificationTarget, which VueGram never uses. The stream keep-alive service's notification
+         is a foreground-service notification, which Android allows without POST_NOTIFICATIONS. -->
+    <issue id="NotificationPermission" severity="ignore" />
+    <!-- Dependency versions are updated deliberately, one at a time and tested on a TV, not whenever lint notices. -->
+    <issue id="GradleDependency" severity="ignore" />
+    <issue id="NewerVersionAvailable" severity="ignore" />
+    <issue id="AndroidGradlePluginVersion" severity="ignore" />
+</lint>

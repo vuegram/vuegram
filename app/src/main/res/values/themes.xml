@@ -1,0 +1,78 @@
+<resources>
+
+    <style name="Theme.VueGram" parent="@style/Theme.Leanback">
+        <item name="android:windowBackground">@color/tv_background</item>
+    </style>
+
+    <!-- The built-in player: fullscreen black, no title, no window animation flash. -->
+    <style name="Theme.VueGram.Player" parent="@style/Theme.VueGram">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+
+    <!-- Buttons on the dark screens: a frosted pill, white when focused (tv_button_bg). -->
+    <style name="TvButton" parent="TvText">
+        <item name="android:background">@drawable/tv_button_bg</item>
+        <item name="android:fontFamily">@font/outfit_medium</item>
+        <item name="android:paddingStart">28dp</item>
+        <item name="android:paddingEnd">28dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/tv_button_text</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- Text fields: the frosted search pill, with room for the remote's on-screen keyboard text. -->
+    <style name="TvField" parent="TvText">
+        <item name="android:background">@drawable/tv_search_bg</item>
+        <item name="android:paddingStart">22dp</item>
+        <item name="android:paddingEnd">22dp</item>
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColorHint">@color/tv_text_dim</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="TvText">
+        <item name="android:fontFamily">@font/outfit_regular</item>
+        <item name="android:textColor">@color/tv_text</item>
+        <item name="android:includeFontPadding">false</item>
+        <!-- Each text starts where its own language starts: Hebrew and Arabic on the right, English on the left,
+             whatever VueGram's own language. Title blocks keep their lines together with alignWithTitle. -->
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="TvText.Eyebrow">
+        <item name="android:fontFamily">@font/outfit_medium</item>
+        <item name="android:textColor">@color/tv_text_dim</item>
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:letterSpacing">0.3</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TvText.Clock">
+        <item name="android:fontFamily">@font/outfit_extralight</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="TvText.Hero">
+        <item name="android:fontFamily">@font/outfit_light</item>
+        <item name="android:textSize">@dimen/text_display</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TvText.Sub">
+        <item name="android:textColor">@color/tv_text_dim</item>
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+
+    <style name="TvText.CardLabel">
+        <item name="android:textColor">@color/tv_text_dim</item>
+        <item name="android:textSize">@dimen/text_label</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+</resources>
