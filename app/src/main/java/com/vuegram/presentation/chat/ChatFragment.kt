@@ -43,6 +43,7 @@ import com.vuegram.presentation.ui.Backdrop
 import com.vuegram.presentation.ui.ExpandingSearch
 import com.vuegram.presentation.ui.FocusHighlight
 import com.vuegram.presentation.ui.GlowView
+import com.vuegram.presentation.ui.RefreshButton
 import com.vuegram.presentation.ui.Images
 import com.vuegram.presentation.ui.SkeletonView
 import com.vuegram.presentation.ui.StatusText
@@ -117,7 +118,19 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackHandler, VoiceSearchH
         voice.attach(view.findViewById(R.id.voice))
         val density = resources.displayMetrics.density
         view.findViewById<View>(R.id.back).setOnClickListener { requireActivity().onBackPressedDispatcher.onBackPressed() }
-        keepSidewaysInBar(view.findViewById(R.id.header), R.id.back, R.id.order, R.id.voice, R.id.search)
+        keepSidewaysInBar(view.findViewById(R.id.header), R.id.back, R.id.order, R.id.voice, R.id.search, R.id.refresh)
+        RefreshButton(view.findViewById(R.id.refresh), if (feedMode) R.string.refresh_done_messages else R.string.refresh_done_videos) { done ->
+            // The same view and search, loaded again from the start: new videos show first. Focus stays on the button.
+            refreshDone = done
+            // A pause after an earlier paging error doesn't hold back a refresh the viewer asked for.
+            pausedUntil = 0L
+            runSearch(query, force = true)
+            // Nothing was asked (a search screen without words): stop turning rather than spin for ever.
+            if (!loading) {
+                refreshDone?.invoke(false)
+                refreshDone = null
+            }
+        }
 
         val avatar = view.findViewById<ImageView>(R.id.avatar)
         if (global) {
@@ -217,6 +230,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackHandler, VoiceSearchH
     }
 
     override fun onDestroyView() {
+        refreshDone = null
         WatchHistory.removeListener(onHistory)
         searchBox = null
         backdrop = null
@@ -274,6 +288,12 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackHandler, VoiceSearchH
         loadMore()
     }
 
+    /**
+     * Called once a refresh's first page is shown (the refresh button stops turning), with false when it failed; focus
+     * then stays on the button.
+     */
+    private var refreshDone: ((Boolean) -> Unit)? = null
+
     /** After an error while paging, no automatic loading until then (Retry still works): Telegram may be limiting. */
     private var pausedUntil = 0L
 
@@ -296,6 +316,9 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackHandler, VoiceSearchH
                 if (!isAdded || requested != generation) return@post
                 loading = false
                 skeleton?.hide()
+                val refreshing = refreshDone != null
+                refreshDone?.invoke(error == null)
+                refreshDone = null
                 advance()
                 val before = itemCount
                 append()
@@ -307,7 +330,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackHandler, VoiceSearchH
                     added == 0 && error == null && !isDone && ++emptyPages < MAX_EMPTY_PAGES -> loadMore()
                     itemCount > 0 -> {
                         status.text = null
-                        if (before == 0) focusCard(0)
+                        if (before == 0 && !refreshing) focusCard(0)
                         // A later page failed: the list keeps what it has and asks again on scrolling, after a pause.
                         if (error != null) pausedUntil = SystemClock.elapsedRealtime() + PAGING_PAUSE_MS
                     }
@@ -315,7 +338,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackHandler, VoiceSearchH
                     error != null -> {
                         status.text = StatusText.error(requireContext(), error)
                         retry.visibility = View.VISIBLE
-                        retry.requestFocus()
+                        if (!refreshing) retry.requestFocus()
                     }
                     query.isNotEmpty() -> {
                         status.text = getString(R.string.search_no_results, query)
@@ -403,15 +426,19 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackHandler, VoiceSearchH
     }
 
     private fun play(item: MediaItem) {
-        (activity as? MainActivity)?.let { Player.play(it, it.playerLauncher, item, titleOf(item), upNext = upNext(item)) }
+        (activity as? MainActivity)?.let {
+            Player.play(it, it.playerLauncher, item, titleOf(item), upNext = upNext(item), previous = previous(item))
+        }
     }
 
     /** The videos loaded in this chat that were posted after [item], for the player's "Up next". */
-    private fun upNext(item: MediaItem): List<MediaItem> {
-        if (global) return emptyList()
-        val loaded = videos?.videos ?: feed?.items.orEmpty().filter { it.kind == FeedKind.Video }.mapNotNull { it.media }
-        return Player.upNext(item, loaded)
-    }
+    private fun upNext(item: MediaItem): List<MediaItem> = if (global) emptyList() else Player.upNext(item, loadedVideos())
+
+    /** The videos loaded in this chat that were posted before [item], for the player's Previous. */
+    private fun previous(item: MediaItem): List<MediaItem> = if (global) emptyList() else Player.previous(item, loadedVideos())
+
+    private fun loadedVideos(): List<MediaItem> =
+        videos?.videos ?: feed?.items.orEmpty().filter { it.kind == FeedKind.Video }.mapNotNull { it.media }
 
     /** OK on a message: play a video, open a photo full screen, or read the whole text. */
     private fun openFeedItem(item: FeedItem) {
@@ -458,7 +485,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackHandler, VoiceSearchH
                 Player.play(main, main.playerLauncher, item, titleOf(item), useMpv = true)
             },
             getString(R.string.menu_from_start) to {
-                Player.play(main, main.playerLauncher, item, titleOf(item), fromStart = true, upNext = upNext(item))
+                Player.play(main, main.playerLauncher, item, titleOf(item), fromStart = true, upNext = upNext(item), previous = previous(item))
             },
             getString(if (watched) R.string.menu_mark_unwatched else R.string.menu_mark_watched) to {
                 WatchHistory.setWatched(

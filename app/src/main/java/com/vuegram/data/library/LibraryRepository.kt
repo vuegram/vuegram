@@ -399,6 +399,20 @@ object LibraryRepository {
         next(0)
     }
 
+    /**
+     * The refresh button: chats' latest videos asked for more than [REFRESH_MIN_AGE_MS] ago count as old, so the next
+     * [latestByChat] asks for them again (pressing Refresh again and again doesn't repeat the requests: Telegram would
+     * answer with FLOOD_WAIT). What is known stays until the new answer replaces it. False while Telegram has asked
+     * VueGram to slow down, when nothing will be asked.
+     */
+    fun expireLatest(): Boolean {
+        val now = System.currentTimeMillis()
+        for ((id, known) in latest) if (now - known.first >= REFRESH_MIN_AGE_MS) latest.replace(id, known, 0L to known.second)
+        return now >= latestNotBefore
+    }
+
+    private const val REFRESH_MIN_AGE_MS = 60 * 1000L
+
     /** "New in your channels" from [latestByChat]'s answer: the newest unwatched videos across those chats. */
     fun newest(byChat: Map<Long, List<MediaItem>>, isWatched: (MediaItem) -> Boolean, max: Int): List<MediaItem> =
         byChat.values.flatten()

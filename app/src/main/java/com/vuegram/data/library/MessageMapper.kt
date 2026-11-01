@@ -3,6 +3,7 @@ package com.vuegram.data.library
 import com.vuegram.core.Texts
 import com.vuegram.domain.model.MediaItem
 import com.vuegram.domain.model.MediaType
+import com.vuegram.domain.model.VideoQuality
 import org.drinkless.tdlib.TdApi
 
 /**
@@ -17,7 +18,11 @@ internal fun mapMessageToMedia(message: TdApi.Message): MediaItem? = when (val c
             file = video.video,
             seconds = video.duration,
             thumbnail = video.thumbnail,
-            preview = video.minithumbnail
+            preview = video.minithumbnail,
+            height = video.height,
+            qualities = content.alternativeVideos.orEmpty()
+                .mapNotNull { alt -> alt.video?.let { VideoQuality(alt.height, alt.codec.orEmpty(), it.id, it.size) } }
+                .sortedBy { it.height }
         )
     }
     is TdApi.MessageDocument -> content.document?.takeIf(::isVideoDocument)?.let { document ->
@@ -60,7 +65,9 @@ private fun TdApi.Message.media(
     file: TdApi.File?,
     seconds: Int = 0,
     thumbnail: TdApi.Thumbnail?,
-    preview: TdApi.Minithumbnail?
+    preview: TdApi.Minithumbnail?,
+    height: Int = 0,
+    qualities: List<VideoQuality> = emptyList()
 ) = MediaItem(
     chatId = chatId,
     messageId = id,
@@ -74,7 +81,9 @@ private fun TdApi.Message.media(
     thumbnailFileId = thumbnail?.file?.id,
     thumbnailWidth = thumbnail?.width ?: 0,
     thumbnailHeight = thumbnail?.height ?: 0,
-    miniThumbnailBytes = preview?.data
+    miniThumbnailBytes = preview?.data,
+    videoHeight = height,
+    qualities = qualities
 )
 
 /** A photo opens at its largest size; its card loads a smaller one, about [CARD_PHOTO_WIDTH] wide. */

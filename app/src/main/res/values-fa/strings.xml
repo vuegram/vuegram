@@ -268,4 +268,13 @@
         <item quantity="one">%s عضو</item>
         <item quantity="other">%s عضو</item>
     </plurals>
+    <string name="refresh">به‌روزرسانی</string>
+    <string name="player_previous">ویدیوی قبلی</string>
+    <string name="player_quality">کیفیت</string>
+    <string name="player_quality_value">کیفیت: %1$s</string>
+    <string name="player_quality_original">اصلی</string>
+    <string name="player_channel_subtitles">زیرنویس کانال روشن است</string>
+    <string name="refresh_done_channels">کانال‌ها به‌روز هستند</string>
+    <string name="refresh_done_videos">جدیدترین ویدیوها بارگیری شد</string>
+    <string name="refresh_done_messages">جدیدترین پیام‌ها بارگیری شد</string>
 </resources>

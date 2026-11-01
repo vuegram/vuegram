@@ -172,6 +172,24 @@ them the channel's next videos (Down again). Media controls stay left-to-right i
                 android:orientation="horizontal">
 
                 <FrameLayout
+                    android:id="@+id/control_previous"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="@dimen/space_m"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_previous"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_skip_previous" />
+                </FrameLayout>
+
+                <FrameLayout
                     android:id="@+id/control_back"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
@@ -302,6 +320,24 @@ them the channel's next videos (Down again). Media controls stay left-to-right i
                         android:duplicateParentState="true"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_audio" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/control_quality"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:background="@drawable/tv_control_bg"
+                    android:contentDescription="@string/player_quality"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_quality" />
                 </FrameLayout>
 
                 <FrameLayout

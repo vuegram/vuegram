@@ -260,4 +260,13 @@
     <plurals name="chat_members">
         <item quantity="other">%s anggota</item>
     </plurals>
+    <string name="refresh">Muat ulang</string>
+    <string name="player_previous">Video sebelumnya</string>
+    <string name="player_quality">Kualitas</string>
+    <string name="player_quality_value">Kualitas: %1$s</string>
+    <string name="player_quality_original">Asli</string>
+    <string name="player_channel_subtitles">Subtitle dari channel aktif</string>
+    <string name="refresh_done_channels">Channel sudah yang terbaru</string>
+    <string name="refresh_done_videos">Video terbaru sudah dimuat</string>
+    <string name="refresh_done_messages">Pesan terbaru sudah dimuat</string>
 </resources>

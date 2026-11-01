@@ -35,8 +35,11 @@ sealed class LibraryRow(val key: String) {
     /** One of a pinned channel's latest videos, in that channel's own row. */
     class ChannelVideo(val media: MediaItem, val chat: GroupChat, val row: List<MediaItem>) :
         LibraryRow("channel:${media.chatId}:${media.messageId}")
-    /** The last card of a pinned channel's row: opens the channel's page with all its videos. */
-    class SeeAll(val chat: GroupChat) : LibraryRow("all:${chat.id}")
+    /**
+     * A pinned channel's own card, at both ends of its row ([atStart]: the first card, one press from the row's start):
+     * opens the channel's page with all its videos.
+     */
+    class SeeAll(val chat: GroupChat, atStart: Boolean = false) : LibraryRow(if (atStart) "first:${chat.id}" else "all:${chat.id}")
     class Chat(val chat: GroupChat, val hidden: Boolean, val pinned: Boolean = false) : LibraryRow("chat:${chat.id}")
     /** A row of video cards ([Continue] or [Recent]) that scrolls sideways, so a long list still takes one row. */
     class Shelf(id: String, val items: List<LibraryRow>) : LibraryRow("shelf:$id") {
@@ -272,8 +275,8 @@ class LibraryAdapter(
             when (keyCode) {
                 KeyEvent.KEYCODE_DPAD_UP -> onVertical(at, v, false)
                 KeyEvent.KEYCODE_DPAD_DOWN -> onVertical(at, v, true)
-                // A shelf's first and last cards stop there, rather than letting focus jump to another row.
-                KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_DPAD_RIGHT -> cardWidth > 0 && atShelfEnd(v, keyCode, at)
+                // In a shelf, sideways is always to the next card of the same shelf, and its ends stop there.
+                KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_DPAD_RIGHT -> cardWidth > 0 && moveSideways(v, keyCode, at)
                 else -> false
             }
         }
@@ -295,11 +298,26 @@ class LibraryAdapter(
         }
     }
 
-    /** True when [keyCode] points past the shelf's first or last card (mirrored when the layout is right-to-left). */
-    private fun atShelfEnd(card: View, keyCode: Int, at: Int): Boolean {
+    /**
+     * Left or Right on a shelf's card (mirrored when the layout is right-to-left): focus goes to the shelf's next card
+     * itself. Android's own search lost its way when that card was still off screen, as when holding Left back to a
+     * row's start: it found nothing in the shelf and jumped to a card in another row. At the shelf's ends focus stays.
+     */
+    private fun moveSideways(card: View, keyCode: Int, at: Int): Boolean {
         val rtl = card.layoutDirection == View.LAYOUT_DIRECTION_RTL
         val forward = (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) != rtl
-        return if (forward) at == rows.lastIndex else at == 0
+        val target = if (forward) at + 1 else at - 1
+        if (at == RecyclerView.NO_POSITION || target !in rows.indices) return true
+        val list = card.parent as? RecyclerView ?: return false
+        val next = list.findViewHolderForAdapterPosition(target)?.itemView
+        if (next != null && !list.isLayoutRequested) {
+            next.requestFocus()
+            return true
+        }
+        list.scrollToPosition(target)
+        // Only while focus is still in this shelf: the viewer may have pressed Down meanwhile.
+        list.doOnNextLayout { list.post { if (list.hasFocus()) list.findViewHolderForAdapterPosition(target)?.itemView?.requestFocus() } }
+        return true
     }
 
     /**
@@ -308,6 +326,12 @@ class LibraryAdapter(
      */
     private class ShelfLayoutManager(context: Context, private val cardWidth: Int) :
         LinearLayoutManager(context, HORIZONTAL, false) {
+        /** A card's width laid out past each edge: the card Left or Right goes to next is already there to focus. */
+        override fun calculateExtraLayoutSpace(state: RecyclerView.State, extraLayoutSpace: IntArray) {
+            extraLayoutSpace[0] = cardWidth
+            extraLayoutSpace[1] = cardWidth
+        }
+
         override fun requestChildRectangleOnScreen(
             parent: RecyclerView, child: View, rect: Rect, immediate: Boolean, focusedChildVisible: Boolean
         ): Boolean {

@@ -273,4 +273,13 @@
     <string name="player_pause">Pause</string>
     <string name="player_next">Next video</string>
     <string name="player_more_videos">More from this channel</string>
+    <string name="refresh">Refresh</string>
+    <string name="player_previous">Previous video</string>
+    <string name="player_quality">Quality</string>
+    <string name="player_quality_value">Quality: %1$s</string>
+    <string name="player_quality_original">Original</string>
+    <string name="player_channel_subtitles">Subtitles from the channel are on</string>
+    <string name="refresh_done_channels">Your channels are up to date</string>
+    <string name="refresh_done_videos">Latest videos loaded</string>
+    <string name="refresh_done_messages">Latest messages loaded</string>
 </resources>

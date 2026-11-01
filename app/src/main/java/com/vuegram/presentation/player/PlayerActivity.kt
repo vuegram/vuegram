@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.media.MediaCodecList
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -25,6 +27,7 @@ import androidx.core.view.children
 import androidx.fragment.app.FragmentActivity
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
+import androidx.media3.common.MimeTypes
 import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player as Media3Player
 import androidx.media3.common.TrackSelectionOverride
@@ -41,6 +44,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vuegram.R
 import com.vuegram.core.AppLanguage
+import com.vuegram.data.library.ChannelSubtitles
+import com.vuegram.data.library.SubtitleFile
 import com.vuegram.data.history.WatchHistory
 import com.vuegram.data.settings.AppSettings
 import com.vuegram.data.stream.TdStreamServer
@@ -48,6 +53,7 @@ import com.vuegram.domain.model.MediaItem as Video
 import com.vuegram.presentation.ui.Images
 import com.vuegram.presentation.ui.Motion
 import com.vuegram.presentation.ui.alignWithTitle
+import java.io.File
 import java.util.Locale
 
 /**
@@ -55,9 +61,12 @@ import java.util.Locale
  *
  * Remote, like YouTube on a TV: OK or play/pause pauses and plays; left/right jump 10 s back / 30 s forward (holding
  * keeps adding, the jump happens when the key is let go, a bubble over the bar shows where); 1-9 jump to 10-90 % and 0
- * to the start; up shows the overlay. Down moves into the row of buttons (back 10 s, play/pause, forward 30 s, next,
- * subtitles, audio, speed, sleep timer), and Down again into the channel's next videos; Up or Back comes back out.
- * Menu or Captions open the options directly; Back from the bar leaves.
+ * to the start; up shows the overlay. Down moves into the row of buttons (previous, back 10 s, play/pause, forward 30 s,
+ * next, subtitles, audio, quality, speed, sleep timer), and Down again into the channel's next videos; Up or Back comes
+ * back out. Menu or Captions open the options directly; Back from the bar leaves.
+ *
+ * Subtitle files the channel posted next to the video (.srt, .vtt, .ass) are added as subtitle tracks and shown. When
+ * Telegram keeps smaller copies of a video, Quality switches between them and the original.
  *
  * Where the viewer stopped is saved every 30 s and on leaving; the end of a video marks it watched and, with Play next
  * on, counts down to the chat's next video ("Up next": OK plays it now, Back stops). When the TV's hardware decoder
@@ -87,6 +96,8 @@ class PlayerActivity : FragmentActivity() {
     private lateinit var playButton: View
     private lateinit var playIcon: ImageView
     private lateinit var nextButton: View
+    private lateinit var previousButton: View
+    private lateinit var qualityButton: View
     private lateinit var controls: List<View>
     private lateinit var controlLabel: TextView
     private lateinit var moreBox: View
@@ -112,6 +123,19 @@ class PlayerActivity : FragmentActivity() {
     private var chatTitle = ""
     private var startAtMs = 0L
     private val queue = ArrayDeque<Video>()
+    /** The video playing (null only when started without it), and the ones before it, the nearest first. */
+    private var current: Video? = null
+    private val previous = ArrayDeque<Video>()
+    /** The file playing: the video's own, or one of Telegram's smaller copies of it. */
+    private var playingFileId = 0
+    /** The height chosen in Quality (0: the original); kept for the next videos too, like the speed. */
+    private var preferredHeight = 0
+    /** Subtitle files the chat posted next to this video, added to the player as extra subtitle tracks. */
+    private var sideSubtitles: List<SubtitleFile> = emptyList()
+    /** Bumped by each start of a stream: subtitles found for an earlier one are dropped. */
+    private var loadToken = 0
+    /** Which video codecs this TV can decode, asked once each. */
+    private val decoders = HashMap<String, Boolean>()
     /** Seconds left before "Up next" starts the next video; -1 when no countdown runs. */
     private var countdown = -1
     /** Kept for the next video too: the viewer's speed and sleep timer apply to the whole sitting. */
@@ -140,6 +164,8 @@ class PlayerActivity : FragmentActivity() {
         playButton = findViewById(R.id.control_play)
         playIcon = findViewById(R.id.control_play_icon)
         nextButton = findViewById(R.id.control_next)
+        previousButton = findViewById(R.id.control_previous)
+        qualityButton = findViewById(R.id.control_quality)
         controlLabel = findViewById(R.id.control_label)
         moreBox = findViewById(R.id.player_more)
         moreList = findViewById(R.id.player_more_list)
@@ -155,6 +181,11 @@ class PlayerActivity : FragmentActivity() {
         startAtMs = intent.getLongExtra(EXTRA_RESUME_MS, 0L)
         @Suppress("DEPRECATION", "UNCHECKED_CAST")
         (intent.getSerializableExtra(EXTRA_UP_NEXT) as? ArrayList<Video>)?.let(queue::addAll)
+        @Suppress("DEPRECATION", "UNCHECKED_CAST")
+        (intent.getSerializableExtra(EXTRA_PREVIOUS) as? ArrayList<Video>)?.let(previous::addAll)
+        @Suppress("DEPRECATION")
+        current = intent.getSerializableExtra(EXTRA_CURRENT) as? Video
+        playingFileId = current?.fileId ?: 0
         titleView.text = title
         findViewById<TextView>(R.id.player_chat).text = BidiFormatter.getInstance().unicodeWrap(chatTitle)
         alignWithTitle(titleView, findViewById(R.id.player_chat))
@@ -184,12 +215,14 @@ class PlayerActivity : FragmentActivity() {
 
     private fun setUpControls() {
         val actions = mapOf(
+            R.id.control_previous to { previousVideo() },
             R.id.control_back to { queueSeek(-BACK_MS) },
             R.id.control_play to { player.playWhenReady = !player.playWhenReady },
             R.id.control_forward to { queueSeek(FORWARD_MS) },
             R.id.control_next to { nextVideo() },
             R.id.control_subtitles to { chooseTrack(C.TRACK_TYPE_TEXT) },
             R.id.control_audio to { chooseTrack(C.TRACK_TYPE_AUDIO) },
+            R.id.control_quality to { chooseQuality() },
             R.id.control_speed to { chooseSpeed() },
             R.id.control_sleep to { chooseSleep() }
         )
@@ -215,6 +248,9 @@ class PlayerActivity : FragmentActivity() {
 
     /** The name under a button, with its current value where it has one ("Speed: 1.5×"). */
     private fun labelOf(id: Int): String = when (id) {
+        R.id.control_previous -> listOfNotNull(
+            getString(R.string.player_previous), previous.firstOrNull()?.title?.let { BidiFormatter.getInstance().unicodeWrap(it) }
+        ).joinToString("  ·  ")
         R.id.control_back -> getString(R.string.player_back_10)
         R.id.control_play -> getString(if (player.playWhenReady) R.string.player_pause else R.string.player_play)
         R.id.control_forward -> getString(R.string.player_forward_30)
@@ -223,6 +259,7 @@ class PlayerActivity : FragmentActivity() {
         ).joinToString("  ·  ")
         R.id.control_subtitles -> getString(R.string.player_subtitles_value, currentSubtitle())
         R.id.control_audio -> getString(R.string.player_audio_value, currentAudio())
+        R.id.control_quality -> getString(R.string.player_quality_value, qualityLabel(currentQuality()))
         R.id.control_speed -> getString(R.string.player_speed_value, speedLabel(speed))
         R.id.control_sleep -> getString(R.string.player_sleep_value, sleepLabel())
         else -> ""
@@ -255,15 +292,24 @@ class PlayerActivity : FragmentActivity() {
 
     /** The row's card at [index]: skip the videos before it and play it. */
     private fun jumpTo(index: Int) {
-        repeat(index) { queue.removeFirstOrNull() }
+        if (index >= queue.size) return
+        WatchHistory.finishPending(player.currentPosition, player.duration.takeIf { it > 0 })
         setMode(Mode.BAR)
-        nextVideo()
+        clearWaiting()
+        // This video and the ones skipped go to Previous, the nearest (the last skipped) first.
+        current?.let(previous::addFirst)
+        repeat(index) { queue.removeFirstOrNull()?.let(previous::addFirst) }
+        queue.removeFirstOrNull()?.let(::start)
     }
 
-    /** The Next button and the row follow what is left in the queue. */
+    /** The Next and Previous buttons and the row follow the queue; Quality shows when the video has other sizes. */
     private fun refreshQueue() {
         nextButton.visibility = if (queue.isEmpty()) View.GONE else View.VISIBLE
+        previousButton.visibility = if (previous.isEmpty()) View.GONE else View.VISIBLE
+        qualityButton.visibility = if (current?.let(::qualityChoices).isNullOrEmpty()) View.GONE else View.VISIBLE
         more.items = queue.toList()
+        // A focused button that just went (the last Previous): focus back on Play rather than lost.
+        if (mode == Mode.BUTTONS && controls.none { it.hasFocus() }) playButton.requestFocus()
     }
 
     /** Small 16:9 cards of the videos that follow, in the row under the buttons. */
@@ -368,6 +414,7 @@ class PlayerActivity : FragmentActivity() {
             override fun onPlayerError(error: PlaybackException) {
                 Log.w(TAG, "ExoPlayer cannot play this video: ${error.errorCodeName}", error)
                 when {
+                    dropBrokenSubtitles(error) -> Unit
                     // The stream itself failed (network, or Telegram slowing down): mpv would fail the same way.
                     isStreamError(error) -> showStreamError()
                     isDecoderError(error) && !triedSoftware -> retryInSoftware()
@@ -379,12 +426,57 @@ class PlayerActivity : FragmentActivity() {
         load(atMs)
     }
 
+    /**
+     * Starts the stream at [atMs] at once, so the player never holds the previous video while the history already
+     * points at this one. Subtitle files posted next to the video are looked for meanwhile (unless subtitles are off)
+     * and, when found, added where the video is by then.
+     */
     private fun load(atMs: Long) {
-        player.setMediaItem(MediaItem.fromUri(url))
+        val token = ++loadToken
+        sideSubtitles = emptyList()
+        player.setMediaItem(mediaItem())
         if (atMs > 0) player.seekTo(atMs)
         player.playWhenReady = true
         player.prepare()
+        val video = current ?: return
+        if (C.TRACK_TYPE_TEXT in player.trackSelectionParameters.disabledTrackTypes) return
+        ChannelSubtitles.find(this, video.chatId, video.messageId) { files ->
+            runOnUiThread {
+                // Not for a later video, nor after the end, a hand-off to mpv or leaving.
+                if (token != loadToken || done || isFinishing || isDestroyed || files.isEmpty()) return@runOnUiThread
+                sideSubtitles = files
+                player.setMediaItem(mediaItem(), player.currentPosition)
+                player.prepare()
+                Toast.makeText(this, R.string.player_channel_subtitles, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
+
+    /**
+     * A subtitle file from the chat the player can't read (a renamed or broken file posted by anyone): play on without
+     * the chat's subtitles, from the same spot, instead of giving up on the video. True when that is what happened.
+     */
+    private fun dropBrokenSubtitles(error: PlaybackException): Boolean {
+        if (sideSubtitles.isEmpty() || error.errorCode !in PARSING_ERRORS) return false
+        Log.w(TAG, "playing on without the chat's subtitle files")
+        sideSubtitles = emptyList()
+        player.setMediaItem(mediaItem(), player.currentPosition)
+        player.prepare()
+        player.playWhenReady = true
+        return true
+    }
+
+    /** The stream, with the chat's subtitle files as extra tracks; the first one shows unless subtitles are off. */
+    private fun mediaItem(): MediaItem = MediaItem.Builder()
+        .setUri(url)
+        .setSubtitleConfigurations(sideSubtitles.mapIndexed { index, file ->
+            MediaItem.SubtitleConfiguration.Builder(Uri.fromFile(File(file.path)))
+                .setMimeType(file.mimeType)
+                .setLabel(file.name)
+                .setSelectionFlags(if (index == 0) C.SELECTION_FLAG_DEFAULT else 0)
+                .build()
+        })
+        .build()
 
     /** The end: it counts as watched; then "Up next", unless the sleep timer said "end of this video". */
     private fun onEnded() {
@@ -419,20 +511,59 @@ class PlayerActivity : FragmentActivity() {
         }
     }
 
-    /** Starts the next video in this same player: a new stream, its own resume point and history entry. */
+    /** The next video in this same player; the one ending becomes Previous's first. */
     private fun playNext() {
+        clearWaiting()
+        val next = queue.removeFirstOrNull() ?: return finish()
+        current?.let(previous::addFirst)
+        start(next)
+    }
+
+    /**
+     * Previous (the button, or the remote's Previous key): back to this video's start once it has played a while, as any
+     * player does; near its start, the video before it, and this one goes back to the front of Up next.
+     */
+    private fun previousVideo() {
+        val before = previous.firstOrNull()
+        if (before == null || player.currentPosition > RESTART_MS) {
+            player.seekTo(0)
+            showOverlay()
+            return
+        }
+        WatchHistory.finishPending(player.currentPosition, player.duration.takeIf { it > 0 })
+        clearWaiting()
+        previous.removeFirst()
+        current?.let(queue::addFirst)
+        start(before)
+    }
+
+    /** What belongs to the video being left: the "Up next" countdown, and a jump still waiting. */
+    private fun clearWaiting() {
         countdown = -1
         upNextBack.isEnabled = false
         handler.removeCallbacks(countdownTick)
-        // A jump still waiting belongs to the video that is ending, not to the next one.
         handler.removeCallbacks(commitSeek)
         seekTarget = null
         seekLabel.visibility = View.INVISIBLE
         upNextPanel.visibility = View.GONE
-        val next = queue.removeFirstOrNull() ?: return finish()
-        val (nextUrl, resumeMs) = Player.startStream(this, next, chatTitle) ?: return finish()
+    }
+
+    /**
+     * Starts [video] in this same player: a new stream (in the quality chosen earlier, when the video has it), its own
+     * resume point and history entry.
+     */
+    private fun start(video: Video) {
+        val quality = if (preferredHeight > 0) {
+            qualityChoices(video).filter { !it.original && it.height <= preferredHeight }.maxByOrNull { it.height }
+        } else {
+            null
+        }
+        val streamed = quality?.let { video.copy(fileId = it.fileId) } ?: video
+        val (nextUrl, resumeMs) = Player.startStream(this, streamed, chatTitle) ?: return finish()
+        current = video
+        playingFileId = streamed.fileId ?: 0
         url = nextUrl
-        title = next.title
+        title = video.title
         startAtMs = resumeMs
         titleView.text = title
         alignWithTitle(titleView, findViewById(R.id.player_chat))
@@ -484,23 +615,96 @@ class PlayerActivity : FragmentActivity() {
 
     private fun showOptions() {
         if (isFinishing || isDestroyed) return
-        val items = arrayOf(
-            getString(R.string.player_subtitles_value, currentSubtitle()),
-            getString(R.string.player_audio_value, currentAudio()),
-            getString(R.string.player_speed_value, speedLabel(speed)),
-            getString(R.string.player_sleep_value, sleepLabel())
+        val options = listOfNotNull(
+            getString(R.string.player_subtitles_value, currentSubtitle()) to { chooseTrack(C.TRACK_TYPE_TEXT) },
+            getString(R.string.player_audio_value, currentAudio()) to { chooseTrack(C.TRACK_TYPE_AUDIO) },
+            (getString(R.string.player_quality_value, qualityLabel(currentQuality())) to { chooseQuality() })
+                .takeIf { qualityButton.visibility == View.VISIBLE },
+            getString(R.string.player_speed_value, speedLabel(speed)) to { chooseSpeed() },
+            getString(R.string.player_sleep_value, sleepLabel()) to { chooseSleep() }
         )
         AlertDialog.Builder(this, DIALOG)
             .setTitle(R.string.player_options)
-            .setItems(items) { _, which ->
-                when (which) {
-                    0 -> chooseTrack(C.TRACK_TYPE_TEXT)
-                    1 -> chooseTrack(C.TRACK_TYPE_AUDIO)
-                    2 -> chooseSpeed()
-                    3 -> chooseSleep()
-                }
+            .setItems(options.map { it.first }.toTypedArray()) { _, which -> options.getOrNull(which)?.second?.invoke() }
+            .show()
+    }
+
+    // ---- Quality: the original file or one of Telegram's smaller copies ---------------------------------------------
+
+    /** [height] 0 when unknown; [original] is the file as it was posted. */
+    private data class Quality(val height: Int, val fileId: Int, val original: Boolean)
+
+    /**
+     * The original first, then Telegram's smaller copies this TV can decode, one per height (H.264 when there is a
+     * choice), tallest first. Empty when there is nothing to choose between.
+     */
+    private fun qualityChoices(video: Video): List<Quality> {
+        val own = video.fileId ?: return emptyList()
+        val copies = video.qualities
+            .filter { it.fileId != own && it.height > 0 && (video.videoHeight == 0 || it.height < video.videoHeight) && canDecode(it.codec) }
+            .groupBy { it.height }
+            .map { (height, same) -> Quality(height, (same.firstOrNull { isH264(it.codec) } ?: same.first()).fileId, original = false) }
+            .sortedByDescending { it.height }
+        return if (copies.isEmpty()) emptyList() else listOf(Quality(video.videoHeight, own, original = true)) + copies
+    }
+
+    private fun currentQuality(): Quality? = current?.let(::qualityChoices)?.firstOrNull { it.fileId == playingFileId }
+
+    /** "Original · 1080p", "720p". */
+    private fun qualityLabel(quality: Quality?): String {
+        val original = getString(R.string.player_quality_original)
+        return when {
+            quality == null -> original
+            quality.original -> if (quality.height > 0) "$original  ·  ${quality.height}p" else original
+            else -> "${quality.height}p"
+        }
+    }
+
+    private fun chooseQuality() {
+        val video = current ?: return
+        val choices = qualityChoices(video)
+        if (choices.size < 2) return
+        AlertDialog.Builder(this, DIALOG)
+            .setTitle(R.string.player_quality)
+            .setSingleChoiceItems(choices.map(::qualityLabel).toTypedArray(), choices.indexOfFirst { it.fileId == playingFileId }) { dialog, which ->
+                dialog.dismiss()
+                val chosen = choices[which]
+                preferredHeight = if (chosen.original) 0 else chosen.height
+                if (chosen.fileId != playingFileId) switchFile(chosen.fileId)
             }
             .show()
+    }
+
+    /** The same video from another file, from where it is now (a jump still waiting lands there). */
+    private fun switchFile(fileId: Int) {
+        val at = seekTarget ?: player.currentPosition
+        handler.removeCallbacks(commitSeek)
+        seekTarget = null
+        seekLabel.visibility = View.INVISIBLE
+        playingFileId = fileId
+        url = TdStreamServer.start(this, fileId)
+        player.setMediaItem(mediaItem(), at)
+        player.prepare()
+        player.playWhenReady = true
+    }
+
+    private fun isH264(codec: String) = codec.lowercase().let { it.startsWith("h264") || it.startsWith("avc") }
+
+    /** True when the TV has a decoder for [codec]; an unknown codec name is let through (the player falls back anyway). */
+    private fun canDecode(codec: String): Boolean {
+        val name = codec.lowercase()
+        val mime = when {
+            isH264(name) -> MimeTypes.VIDEO_H264
+            name.startsWith("h265") || name.startsWith("hevc") || name.startsWith("hvc") -> MimeTypes.VIDEO_H265
+            name.startsWith("av1") || name.startsWith("av01") -> MimeTypes.VIDEO_AV1
+            name.startsWith("vp9") || name.startsWith("vp09") -> MimeTypes.VIDEO_VP9
+            else -> return true
+        }
+        return decoders.getOrPut(mime) {
+            MediaCodecList(MediaCodecList.REGULAR_CODECS).codecInfos.any { info ->
+                !info.isEncoder && info.supportedTypes.any { it.equals(mime, ignoreCase = true) }
+            }
+        }
     }
 
     private fun currentSubtitle() = selectedTrack(C.TRACK_TYPE_TEXT)?.let(::trackName) ?: getString(R.string.player_off)
@@ -714,6 +918,10 @@ class PlayerActivity : FragmentActivity() {
                 if (event.repeatCount == 0) nextVideo()
                 return true
             }
+            KeyEvent.KEYCODE_MEDIA_PREVIOUS -> {
+                if (event.repeatCount == 0) previousVideo()
+                return true
+            }
         }
         // In the buttons or the row: Up and Down move between them and the bar; the rest is ordinary focus and OK.
         if (mode != Mode.BAR) {
@@ -806,7 +1014,10 @@ class PlayerActivity : FragmentActivity() {
         player.release()
         // Home or standby closes the player without VueGram's main screen coming back: stop the stream (and its
         // foreground service) here, unless another video has started streaming since.
-        if (isFinishing) TdStreamServer.release(this, onlyFor = url)
+        if (isFinishing) {
+            TdStreamServer.release(this, onlyFor = url)
+            ChannelSubtitles.clear(this)
+        }
         super.onDestroy()
     }
 
@@ -818,6 +1029,17 @@ class PlayerActivity : FragmentActivity() {
         private const val EXTRA_CHAT = "chat"
         private const val EXTRA_RESUME_MS = "resume"
         private const val EXTRA_UP_NEXT = "up_next"
+        private const val EXTRA_CURRENT = "current"
+        private const val EXTRA_PREVIOUS = "previous"
+        /** Previous after this much of a video goes back to its start instead of to the video before it. */
+        private const val RESTART_MS = 5_000L
+        /** Media3's "could not parse" errors (container or subtitle, malformed or unsupported). */
+        private val PARSING_ERRORS = setOf(
+            PlaybackException.ERROR_CODE_PARSING_CONTAINER_MALFORMED,
+            PlaybackException.ERROR_CODE_PARSING_MANIFEST_MALFORMED,
+            PlaybackException.ERROR_CODE_PARSING_CONTAINER_UNSUPPORTED,
+            PlaybackException.ERROR_CODE_PARSING_MANIFEST_UNSUPPORTED
+        )
         private const val BACK_MS = 10_000L
         private const val FORWARD_MS = 30_000L
         private const val SEEK_COMMIT_MS = 700L
@@ -839,13 +1061,21 @@ class PlayerActivity : FragmentActivity() {
         private const val CHECKPOINT_MS = 30_000L
 
         fun intent(
-            context: Context, url: String, title: String, chatTitle: String, resumeMs: Long, upNext: List<Video> = emptyList()
+            context: Context,
+            url: String,
+            video: Video,
+            chatTitle: String,
+            resumeMs: Long,
+            upNext: List<Video> = emptyList(),
+            previous: List<Video> = emptyList()
         ): Intent =
             Intent(context, PlayerActivity::class.java)
                 .putExtra(EXTRA_URL, url)
-                .putExtra(EXTRA_TITLE, title)
+                .putExtra(EXTRA_TITLE, video.title)
                 .putExtra(EXTRA_CHAT, chatTitle)
                 .putExtra(EXTRA_RESUME_MS, resumeMs)
+                .putExtra(EXTRA_CURRENT, video)
                 .putExtra(EXTRA_UP_NEXT, ArrayList(upNext))
+                .putExtra(EXTRA_PREVIOUS, ArrayList(previous))
     }
 }

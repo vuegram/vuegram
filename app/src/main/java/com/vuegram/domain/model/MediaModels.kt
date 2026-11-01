@@ -29,5 +29,12 @@ data class MediaItem(
     val thumbnailPath: String? = null,
     val thumbnailWidth: Int = 0,
     val thumbnailHeight: Int = 0,
-    val miniThumbnailBytes: ByteArray? = null
+    val miniThumbnailBytes: ByteArray? = null,
+    /** The video's own height in pixels (0 when Telegram doesn't say), for the quality menu. */
+    val videoHeight: Int = 0,
+    /** Telegram's re-encoded copies of the video in other sizes, smallest first; most videos have none. */
+    val qualities: List<VideoQuality> = emptyList()
 ) : Serializable
+
+/** One of Telegram's re-encoded copies of a video: its height, its codec ("h264", "h265", "av1") and its file. */
+data class VideoQuality(val height: Int, val codec: String, val fileId: Int, val sizeBytes: Long) : Serializable

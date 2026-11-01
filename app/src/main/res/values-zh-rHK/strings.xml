@@ -260,4 +260,13 @@
     <plurals name="chat_members">
         <item quantity="other">%s 位成員</item>
     </plurals>
+    <string name="refresh">重新整理</string>
+    <string name="player_previous">上一部影片</string>
+    <string name="player_quality">畫質</string>
+    <string name="player_quality_value">畫質：%1$s</string>
+    <string name="player_quality_original">原始畫質</string>
+    <string name="player_channel_subtitles">已開啟頻道中的字幕</string>
+    <string name="refresh_done_channels">頻道已是最新</string>
+    <string name="refresh_done_videos">已載入最新影片</string>
+    <string name="refresh_done_messages">已載入最新訊息</string>
 </resources>

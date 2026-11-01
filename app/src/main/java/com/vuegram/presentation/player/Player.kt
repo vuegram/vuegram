@@ -38,7 +38,8 @@ object Player {
         chatTitle: String,
         useMpv: Boolean = false,
         fromStart: Boolean = false,
-        upNext: List<MediaItem> = emptyList()
+        upNext: List<MediaItem> = emptyList(),
+        previous: List<MediaItem> = emptyList()
     ) {
         // OK pressed twice before the player shows (slow TVs): one player, or the second loses the saved position.
         val now = SystemClock.elapsedRealtime()
@@ -47,7 +48,7 @@ object Player {
         val (url, resumeMs) = startStream(context, item, chatTitle, fromStart) ?: return
         try {
             if (!useMpv) {
-                context.startActivity(PlayerActivity.intent(context, url, item.title, chatTitle, resumeMs, upNext))
+                context.startActivity(PlayerActivity.intent(context, url, light(item), chatTitle, resumeMs, upNext, previous))
                 return
             }
             val mpv = mpvIntent(context, url, item.title, resumeMs)
@@ -55,7 +56,7 @@ object Player {
                 launcher.launch(mpv)
             } else {
                 Toast.makeText(context, R.string.no_mpv, Toast.LENGTH_LONG).show()
-                context.startActivity(PlayerActivity.intent(context, url, item.title, chatTitle, resumeMs, upNext))
+                context.startActivity(PlayerActivity.intent(context, url, light(item), chatTitle, resumeMs, upNext, previous))
             }
         } catch (e: Exception) {
             Log.e("VueGram", "No player for the stream", e)
@@ -90,8 +91,27 @@ object Player {
             .filter { it.date > item.date || (it.date == item.date && it.messageId > item.messageId) }
             .sortedWith(compareBy({ it.date }, { it.messageId }))
             .take(UP_NEXT_MAX)
-            .map { it.copy(miniThumbnailBytes = null, thumbnailPath = null) }
+            .map(::light)
             .toList()
+
+    /** What Previous goes back to from [item]: the videos posted before it in the same chat, the nearest first. */
+    fun previous(item: MediaItem, loaded: List<MediaItem>): List<MediaItem> =
+        loaded.asSequence()
+            .filter { it.chatId == item.chatId && it.messageId != item.messageId && it.fileId != null }
+            .filter { it.date < item.date || (it.date == item.date && it.messageId < item.messageId) }
+            .sortedWith(compareByDescending<MediaItem> { it.date }.thenByDescending { it.messageId })
+            .take(UP_NEXT_MAX)
+            .map(::light)
+            .toList()
+
+    /**
+     * A video as it travels to the player: without its tiny preview and caption (the player shows only the title), and
+     * with the title cut to [TITLE_MAX], so up to 61 of them stay far below Android's limit for an intent.
+     */
+    private fun light(item: MediaItem) =
+        item.copy(miniThumbnailBytes = null, thumbnailPath = null, caption = "", title = item.title.take(TITLE_MAX))
+
+    private const val TITLE_MAX = 200
 
     private const val UP_NEXT_MAX = 30
 

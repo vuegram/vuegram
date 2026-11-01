@@ -268,4 +268,13 @@
         <item quantity="one">%s सदस्य</item>
         <item quantity="other">%s सदस्य</item>
     </plurals>
+    <string name="refresh">रीफ़्रेश करें</string>
+    <string name="player_previous">पिछला वीडियो</string>
+    <string name="player_quality">क्वालिटी</string>
+    <string name="player_quality_value">क्वालिटी: %1$s</string>
+    <string name="player_quality_original">मूल</string>
+    <string name="player_channel_subtitles">चैनल के सबटाइटल चालू हैं</string>
+    <string name="refresh_done_channels">चैनल अप-टू-डेट हैं</string>
+    <string name="refresh_done_videos">नए वीडियो लोड हो गए</string>
+    <string name="refresh_done_messages">नए संदेश लोड हो गए</string>
 </resources>

@@ -43,6 +43,7 @@ import com.vuegram.presentation.ui.Backdrop
 import com.vuegram.presentation.ui.FocusHighlight
 import com.vuegram.presentation.settings.SettingsFragment
 import com.vuegram.presentation.ui.GlowView
+import com.vuegram.presentation.ui.RefreshButton
 import com.vuegram.presentation.ui.SkeletonView
 import com.vuegram.presentation.ui.StatusText
 import com.vuegram.presentation.ui.VoiceSearch
@@ -114,6 +115,8 @@ class LibraryFragment : Fragment(R.layout.fragment_library), VoiceSearchHost, Ba
     private var backdrop: Backdrop? = null
     private var title: TextView? = null
     private var sub: TextView? = null
+    /** Called once a refresh has been shown (the refresh button stops turning), with false when it failed. */
+    private var refreshDone: ((Boolean) -> Unit)? = null
     /** Watch history changed while the library was out of sight (behind the player, a chat or Settings). */
     private var historyChanged = false
     private val onHistory: () -> Unit = {
@@ -184,7 +187,13 @@ class LibraryFragment : Fragment(R.layout.fragment_library), VoiceSearchHost, Ba
         StatusText.followConnection(view.findViewById(R.id.connection))
         view.findViewById<Button>(R.id.settings).setOnClickListener { openSettings() }
         voice.attach(view.findViewById(R.id.voice))
-        keepSidewaysInBar(view.findViewById(R.id.top_bar), R.id.update_pill, R.id.settings, R.id.voice, R.id.search)
+        keepSidewaysInBar(view.findViewById(R.id.top_bar), R.id.update_pill, R.id.settings, R.id.voice, R.id.search, R.id.refresh)
+        RefreshButton(view.findViewById(R.id.refresh), R.string.refresh_done_channels) { done ->
+            // Every pinned channel's row is asked again (unless Telegram asked VueGram to slow down), then the chats.
+            // While Telegram asks VueGram to slow down nothing is asked, so no "up to date" either.
+            refreshDone = if (LibraryRepository.expireLatest()) done else { _ -> done(false) }
+            loadChats()
+        }
         view.findViewById<Button>(R.id.retry).setOnClickListener { loadChats() }
 
         Folders.addListener(onFolders)
@@ -257,6 +266,7 @@ class LibraryFragment : Fragment(R.layout.fragment_library), VoiceSearchHost, Ba
                         status.text = StatusText.error(requireContext(), error)
                         retry.visibility = View.VISIBLE
                         retry.requestFocus()
+                        finishRefresh(ok = false)
                     }
                     loaded.isEmpty() -> status.setText(R.string.library_empty)
                     else -> status.text = null
@@ -282,6 +292,7 @@ class LibraryFragment : Fragment(R.layout.fragment_library), VoiceSearchHost, Ba
             recentRows = emptyList()
             channelRows = emptyMap()
             rebuild()
+            finishRefresh()
             return
         }
         val titles = chats.associate { it.id to it.title }
@@ -294,11 +305,18 @@ class LibraryFragment : Fragment(R.layout.fragment_library), VoiceSearchHost, Ba
                 recentRows = fresh.map { LibraryRow.Recent(it, titles[it.chatId].orEmpty()) }
                 channelRows = byChat.filterValues { it.isNotEmpty() }
                 rebuild()
+                finishRefresh()
             }
         }
     }
 
+    private fun finishRefresh(ok: Boolean = true) {
+        refreshDone?.invoke(ok)
+        refreshDone = null
+    }
+
     override fun onDestroyView() {
+        refreshDone = null
         view?.viewTreeObserver?.removeOnGlobalFocusChangeListener(onGlobalFocus)
         view?.viewTreeObserver?.removeOnGlobalLayoutListener(keepSomethingFocused)
         Folders.removeListener(onFolders)
@@ -351,20 +369,22 @@ class LibraryFragment : Fragment(R.layout.fragment_library), VoiceSearchHost, Ba
             rows += LibraryRow.Header(getString(R.string.section_recent))
             rows += LibraryRow.Shelf("recent", recentRows)
         }
-        // Pinned chats in the order they were pinned; they leave the main list so nothing shows twice. Each one with
-        // videos gets its own row (its latest videos, then "All videos"), like a streaming app's rows; the rest show
-        // as photos under Pinned.
+        // Pinned chats in the order they were pinned, all of them as photos near the top (one press opens each); they
+        // leave the main list so nothing shows twice. Each one with videos also gets its own row below, like a streaming
+        // app's rows: the channel's own card first, its latest videos, then "All videos" again at the end.
         val byId = chats.associateBy { it.id }
         val pinned = PinnedChats.ids().filter { it !in hidden }.mapNotNull { byId[it] }
+        if (pinned.isNotEmpty()) {
+            rows += LibraryRow.Header(getString(R.string.section_pinned))
+            rows += pinned.map { LibraryRow.Chat(it, hidden = false, pinned = true) }
+        }
         for (chat in pinned) {
             val videos = channelRows[chat.id] ?: continue
             rows += LibraryRow.Header(chat.title, id = "channel:${chat.id}")
-            rows += LibraryRow.Shelf("channel:${chat.id}", videos.map { LibraryRow.ChannelVideo(it, chat, videos) } + LibraryRow.SeeAll(chat))
-        }
-        val pinnedPhotos = pinned.filter { it.id !in channelRows }
-        if (pinnedPhotos.isNotEmpty()) {
-            rows += LibraryRow.Header(getString(R.string.section_pinned))
-            rows += pinnedPhotos.map { LibraryRow.Chat(it, hidden = false, pinned = true) }
+            rows += LibraryRow.Shelf(
+                "channel:${chat.id}",
+                listOf(LibraryRow.SeeAll(chat, atStart = true)) + videos.map { LibraryRow.ChannelVideo(it, chat, videos) } + LibraryRow.SeeAll(chat)
+            )
         }
         val pinnedIds = pinned.mapTo(HashSet()) { it.id }
         if (chats.isNotEmpty()) {
@@ -487,7 +507,10 @@ class LibraryFragment : Fragment(R.layout.fragment_library), VoiceSearchHost, Ba
             }
             // The rest of the channel's row plays next, oldest first after this one.
             is LibraryRow.ChannelVideo -> (activity as? MainActivity)?.let {
-                Player.play(it, it.playerLauncher, row.media, row.chat.title, upNext = Player.upNext(row.media, row.row))
+                Player.play(
+                    it, it.playerLauncher, row.media, row.chat.title,
+                    upNext = Player.upNext(row.media, row.row), previous = Player.previous(row.media, row.row)
+                )
             }
             is LibraryRow.SeeAll -> openChat(row.chat)
             is LibraryRow.HiddenToggle -> {

@@ -29,4 +29,11 @@ class UpNextTest {
         assertEquals(listOf(4L), queue.map { it.messageId })
         assertNull(queue.single().miniThumbnailBytes)
     }
+
+    @Test
+    fun previousIsTheEarlierVideos_nearestFirst() {
+        val grid = listOf(video(5, 500), video(4, 400), video(3, 300), video(2, 200), video(1, 100))
+        assertEquals(listOf(2L, 1L), Player.previous(video(3, 300), grid).map { it.messageId })
+        assertEquals(emptyList<Long>(), Player.previous(video(1, 100), grid).map { it.messageId })
+    }
 }

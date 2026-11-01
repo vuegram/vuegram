@@ -284,4 +284,13 @@
         <item quantity="many">%s участников</item>
         <item quantity="other">%s участника</item>
     </plurals>
+    <string name="refresh">Обновить</string>
+    <string name="player_previous">Предыдущее видео</string>
+    <string name="player_quality">Качество</string>
+    <string name="player_quality_value">Качество: %1$s</string>
+    <string name="player_quality_original">Исходное</string>
+    <string name="player_channel_subtitles">Субтитры из канала включены</string>
+    <string name="refresh_done_channels">Каналы обновлены</string>
+    <string name="refresh_done_videos">Загружены последние видео</string>
+    <string name="refresh_done_messages">Загружены последние сообщения</string>
 </resources>

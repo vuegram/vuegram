@@ -141,7 +141,7 @@
                 style="@style/TvText"
                 android:layout_width="52dp"
                 android:layout_height="52dp"
-                android:layout_marginEnd="28dp"
+                android:layout_marginEnd="14dp"
                 android:background="@drawable/tv_search_bg"
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="12dp"
@@ -154,6 +154,18 @@
                 android:paddingEnd="20dp"
                 android:textColorHint="@color/tv_text_dim"
                 android:textSize="@dimen/text_body" />
+
+            <!-- Refresh: asks Telegram for what is new now, instead of waiting for the next automatic look. -->
+            <ImageButton
+                android:id="@+id/refresh"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="28dp"
+                android:background="@drawable/tv_round_button_bg"
+                android:contentDescription="@string/refresh"
+                android:padding="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_refresh" />
 
             <TextClock
                 style="@style/TvText.Clock"

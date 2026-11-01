@@ -46,7 +46,7 @@ android {
 
     // The one place the version is set. versionCode follows it (1.2.3 -> 10203), so the two can't drift and it only
     // goes up; Android refuses an update whose versionCode is not higher. Each part stays below 100.
-    val appVersion = "0.1.0"
+    val appVersion = "0.2.0"
     val appVersionCode = appVersion.split(".").map { it.toInt() }.also { parts ->
         require(parts.size == 3 && parts.all { it in 0..99 }) { "appVersion must look like 1.2.3, each part below 100" }
     }.let { (major, minor, patch) -> major * 10000 + minor * 100 + patch }

@@ -276,4 +276,13 @@
         <item quantity="many">%s miembros</item>
         <item quantity="other">%s miembros</item>
     </plurals>
+    <string name="refresh">Actualizar</string>
+    <string name="player_previous">Vídeo anterior</string>
+    <string name="player_quality">Calidad</string>
+    <string name="player_quality_value">Calidad: %1$s</string>
+    <string name="player_quality_original">Original</string>
+    <string name="player_channel_subtitles">Subtítulos del canal activados</string>
+    <string name="refresh_done_channels">Los canales están al día</string>
+    <string name="refresh_done_videos">Últimos vídeos cargados</string>
+    <string name="refresh_done_messages">Últimos mensajes cargados</string>
 </resources>
