@@ -2,7 +2,7 @@
 agp = "9.0.0"
 coreKtx = "1.17.0"
 appcompat = "1.6.1"
-kotlin = "2.0.21"
+kotlin = "2.4.21"
 lifecycleRuntimeKtx = "2.10.0"
 lifecycleViewmodel = "2.10.0"
 coroutinesAndroid = "1.8.1"
